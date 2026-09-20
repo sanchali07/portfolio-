@@ -126,6 +126,8 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .ig-foot { display: flex; align-items: center; gap: 10px; padding: 8px 8px 4px; }
 .ig-foot svg { width: 22px; height: 22px; fill: none; stroke: #262626; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
 .ig-foot .right { margin-left: auto; }
+.ig-stats { font-size: .78rem; padding: 0 8px; color: #262626; }
+.ig-stats strong { font-weight: 600; }
 .ig-cap { font-size: .78rem; padding: 2px 8px 8px; color: #262626; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
 .two h2.display { font-size: clamp(2rem, 7vw, 2.8rem); }
