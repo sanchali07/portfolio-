@@ -3,87 +3,336 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanchali Gupta — Portfolio</title>
-  <meta name="description" content="Portfolio of Sanchali Gupta — projects, skills, and contact.">
+  <title>Sanchali Gupta — Brand Builder</title>
+  <meta name="description" content="Sanchali Gupta — aspiring D2C brand builder blending strategy, content and growth. Portfolio of work across Hyeglo Beauty, Desh Ki Dukaan, Fixderma and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header class="nav">
-    <a href="#top" class="brand">Sanchali Gupta</a>
-    <nav>
+    <a href="#top" class="brand">SG<span class="dot">.</span></a>
+    <nav aria-label="Primary">
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#case-study">Case study</a>
+      <a href="#wins">Wins</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span class="sun">☀</span><span class="moon">☾</span>
+    </button>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <p class="eyebrow">Hello, I'm</p>
-      <h1>Sanchali Gupta</h1>
-      <p class="tagline">[Your role or one-line tagline — e.g. "Designer, marketer &amp; builder of brands"]</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn primary">View my work</a>
-        <a href="#contact" class="btn">Get in touch</a>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <h2>About</h2>
-      <p>
-        [Write a short bio here — who you are, what you do, and what you care about.
-        Two or three sentences is plenty.]
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <p class="eyebrow reveal">Delhi, India — BBA @ Masters' Union</p>
+      <h1 class="reveal">
+        I build <em>brands</em> that<br>people actually buy from.
+      </h1>
+      <p class="lede reveal">
+        Sanchali Gupta — aspiring D2C brand builder with hands-on experience across
+        strategy, content and growth. I blend creativity with measurable business impact,
+        from Shopify stores that hit ₹1L/day to creator communities built from zero.
       </p>
+      <div class="hero-actions reveal">
+        <a href="#case-study" class="btn primary">Read the ₹20L story</a>
+        <a href="#contact" class="btn">Let's talk</a>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">scroll</div>
     </section>
 
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>[Project One]</h3>
-          <p>[One or two sentences describing the project, your role, and the outcome.]</p>
-          <a href="#" class="card-link">View project →</a>
+    <!-- STATS STRIP -->
+    <section class="stats" aria-label="Highlights">
+      <div class="stat reveal">
+        <span class="num" data-count="20" data-prefix="₹" data-suffix="L+">₹0</span>
+        <span class="label">revenue in 3 months, Desh Ki Dukaan</span>
+      </div>
+      <div class="stat reveal">
+        <span class="num" data-count="7" data-prefix="₹">₹0</span>
+        <span class="label">lowest CAC across all competing teams</span>
+      </div>
+      <div class="stat reveal">
+        <span class="num" data-count="30" data-suffix="K+">0</span>
+        <span class="label">Instagram reach across 5 countries</span>
+      </div>
+      <div class="stat reveal">
+        <span class="num" data-count="50" data-suffix="%">0</span>
+        <span class="label">cut in RTO — from 60% to 30%</span>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="section-head reveal">
+        <span class="index">01</span>
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="big">
+            I started with a paintbrush. Somewhere between state-level art competitions and
+            a Shopify dashboard, I realised the thing I love most is making people
+            <em>feel</em> something about a product — and then watching the numbers move.
+          </p>
+          <p>
+            Today I'm studying Technology &amp; Business Management at Masters' Union while working
+            hands-on with D2C brands: writing product copy, briefing website revamps, running Meta
+            Ads, building creator communities, and designing the physical stuff — menus, carry bags,
+            collateral — that makes a pop-up feel like a brand.
+          </p>
+          <p>
+            I like being the person who can do the strategy deck <em>and</em> the Canva file.
+          </p>
+        </div>
+        <aside class="about-side reveal">
+          <h3>Toolkit</h3>
+          <ul class="tags">
+            <li>Brand strategy</li>
+            <li>Shopify</li>
+            <li>Meta Ads</li>
+            <li>Meta Advantage+</li>
+            <li>Klaviyo</li>
+            <li>Instagram growth</li>
+            <li>UGC &amp; creator programs</li>
+            <li>Product copy</li>
+            <li>PDP design</li>
+            <li>Graphic design</li>
+            <li>CapCut</li>
+            <li>Higgsfield</li>
+            <li>Gen-AI tooling</li>
+            <li>Ops &amp; inventory (GST/HSN)</li>
+          </ul>
+          <h3>Off the clock</h3>
+          <p class="interests">Travel · Painting · Basketball · Photography · Cinema</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- WORK / EXPERIENCE -->
+    <section id="work" class="section">
+      <div class="section-head reveal">
+        <span class="index">02</span>
+        <h2>Work</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="job reveal">
+          <div class="job-meta">
+            <span class="when">Apr 2026 — Present</span>
+            <span class="where">Remote / Delhi</span>
+          </div>
+          <div class="job-body">
+            <h3>Brand &amp; Marketing Intern <span class="at">Hyeglo Beauty — KAT Brands Pvt Ltd</span></h3>
+            <ul>
+              <li>Led end-to-end brand strategy and content — website revamp briefs, PDP redesigns with UGC-style review formats, and product copy — strengthening the brand's digital retail presence.</li>
+              <li>Built a three-tier Instagram creator community from scratch; drafted brand partnership outreach for retail and pop-up collaborations.</li>
+              <li>Owned design direction for offline pop-up activation assets — menus, carry bags and product collateral under one cohesive brand language.</li>
+              <li>Managed cross-functional ops: inventory sheets (GST/HSN coding), swatch documentation, and an internal AI creative-tools guide covering Meta Advantage+, Klaviyo, Higgsfield and CapCut.</li>
+            </ul>
+            <div class="links" data-links="hyeglo">
+              <!-- Add links here: <a href="…" target="_blank" rel="noopener">Website ↗</a> -->
+            </div>
+          </div>
+        </li>
+
+        <li class="job reveal">
+          <div class="job-meta">
+            <span class="when">Nov 2023 — Jan 2024</span>
+            <span class="where">Gurugram</span>
+          </div>
+          <div class="job-body">
+            <h3>Co-Founder <span class="at">Desh Ki Dukaan — D2C Lifestyle E-Commerce</span></h3>
+            <ul>
+              <li>Scaled the venture to <strong>₹20L+ revenue within 3 months</strong> of launch.</li>
+              <li>Hit ₹6L in revenue in the first 4 days; reached ₹1L in daily sales within 5 days via Meta Ads and a conversion-optimised Shopify store.</li>
+              <li>Halved RTO from 60% to 30% by analysing delivery performance by region and reallocating spend.</li>
+              <li>Lowest CAC (₹7) across all competing teams; featured in the Masters' Union Dropshipping Magazine.</li>
+            </ul>
+            <a href="#case-study" class="inline-link">Full case study ↓</a>
+          </div>
+        </li>
+
+        <li class="job reveal">
+          <div class="job-meta">
+            <span class="when">Nov 2024 — Jan 2025</span>
+            <span class="where">Gurugram</span>
+          </div>
+          <div class="job-body">
+            <h3>Content Creator <span class="at">Masters' Union — Academic Content Project</span></h3>
+            <ul>
+              <li>Grew Instagram reach to 30,000+ across the UK, Canada, Egypt, US and Australia with art, fashion and travel content.</li>
+              <li>Gained 400+ followers in 3 months at an 8% engagement rate through weekly painting posts.</li>
+              <li>Iterated on visual storytelling and content pacing based on audience feedback.</li>
+            </ul>
+            <div class="links" data-links="content">
+              <!-- Add links here -->
+            </div>
+          </div>
+        </li>
+
+        <li class="job reveal">
+          <div class="job-meta">
+            <span class="when">Apr 2023 — Jun 2023</span>
+            <span class="where">Delhi</span>
+          </div>
+          <div class="job-body">
+            <h3>Marketing &amp; Social Media Intern <span class="at">Fixderma — Skincare &amp; Dermatology</span></h3>
+            <ul>
+              <li>Designed marketing creatives and executed content strategies across multiple social platforms.</li>
+              <li>Supported the brand's digital presence through platform-specific content planning and execution.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section id="case-study" class="section case">
+      <div class="section-head reveal">
+        <span class="index">03</span>
+        <h2>Case study — Desh Ki Dukaan</h2>
+      </div>
+      <p class="case-intro reveal">
+        Three months. One Shopify store. A D2C lifestyle brand launched from a college
+        dropshipping curriculum and taken to ₹20L+ in revenue. Here's how it went.
+      </p>
+
+      <div class="case-grid">
+        <article class="case-step reveal">
+          <span class="step-num">Day 0–4</span>
+          <h3>Launch fast, sell faster</h3>
+          <p>Built a conversion-optimised Shopify store and went live with targeted Meta Ads. ₹6L in revenue within the first four days.</p>
         </article>
-        <article class="card">
-          <h3>[Project Two]</h3>
-          <p>[One or two sentences describing the project, your role, and the outcome.]</p>
-          <a href="#" class="card-link">View project →</a>
+        <article class="case-step reveal">
+          <span class="step-num">Day 5</span>
+          <h3>₹1L / day</h3>
+          <p>Daily sales crossed ₹1 lakh by day five — ad creative, offer and landing page iterated daily on live data.</p>
         </article>
-        <article class="card">
-          <h3>[Project Three]</h3>
-          <p>[One or two sentences describing the project, your role, and the outcome.]</p>
-          <a href="#" class="card-link">View project →</a>
+        <article class="case-step reveal">
+          <span class="step-num">Week 2–4</span>
+          <h3>Fix the leak: RTO</h3>
+          <p>Return-to-origin was eating margin at 60%. Broke delivery performance down by region, cut spend on high-RTO pincodes, and brought it to 30%.</p>
+        </article>
+        <article class="case-step reveal">
+          <span class="step-num">Month 3</span>
+          <h3>₹20L+ and the lowest CAC</h3>
+          <p>Crossed ₹20L in revenue with a ₹7 CAC — the lowest across every competing team. Featured in the Masters' Union Dropshipping Magazine.</p>
+        </article>
+      </div>
+
+      <div class="case-numbers reveal">
+        <div><strong>₹20L+</strong><span>revenue, 3 months</span></div>
+        <div><strong>₹7</strong><span>CAC</span></div>
+        <div><strong>60→30%</strong><span>RTO</span></div>
+        <div><strong>₹1L</strong><span>daily sales by day 5</span></div>
+      </div>
+      <div class="links" data-links="dkd">
+        <!-- Add links here: store, magazine feature, etc. -->
+      </div>
+    </section>
+
+    <!-- WINS -->
+    <section id="wins" class="section">
+      <div class="section-head reveal">
+        <span class="index">04</span>
+        <h2>Wins &amp; recognition</h2>
+      </div>
+      <div class="wins-grid">
+        <article class="win featured reveal">
+          <span class="win-tag">🥈 2nd Place · Feb 2024</span>
+          <h3>Microsoft Gen-AI Hackathon</h3>
+          <p class="win-sub">Microsoft × Masters' Union · ₹15,000 prize</p>
+          <p>Built an AI-powered mental-health diagnostics and engagement platform: a heuristic-based Gen-AI model that scores mental health on a dynamic 1–10 scale for early diagnosis and personalised interventions — optimised to reduce therapy session frequency while maintaining quality of care.</p>
+        </article>
+        <article class="win reveal">
+          <span class="win-tag">🏆 State-level winner</span>
+          <h3>Swachh Bharat Art Excellence Award</h3>
+          <p class="win-sub">2019–20</p>
+        </article>
+        <article class="win reveal">
+          <span class="win-tag">🎨 Art &amp; Design</span>
+          <h3>State &amp; National-level competitions</h3>
+          <p class="win-sub">Represented Maxfort School Rohini · Grade A in Visual Arts · Top 5 in batch for extra-curriculars</p>
+        </article>
+        <article class="win reveal">
+          <span class="win-tag">📰 Featured</span>
+          <h3>Masters' Union Dropshipping Magazine</h3>
+          <p class="win-sub">For Desh Ki Dukaan's lowest-CAC performance</p>
         </article>
       </div>
     </section>
 
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <ul class="tags">
-        <li>[Skill 1]</li>
-        <li>[Skill 2]</li>
-        <li>[Skill 3]</li>
-        <li>[Skill 4]</li>
-        <li>[Skill 5]</li>
-        <li>[Skill 6]</li>
-      </ul>
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="section">
+      <div class="section-head reveal">
+        <span class="index">05</span>
+        <h2>On the ground</h2>
+      </div>
+      <div class="two-col">
+        <article class="ground reveal">
+          <span class="when">2025</span>
+          <h3>India Art Fair</h3>
+          <p class="win-sub">Event Volunteer · Asia's leading contemporary &amp; modern art platform</p>
+          <p>Managed on-ground operations, artist–gallery coordination and customer-facing responsibilities at a large-scale cultural event.</p>
+        </article>
+        <article class="ground reveal">
+          <span class="when">2023</span>
+          <h3>Slush'd Delhi</h3>
+          <p class="win-sub">Event Volunteer · India's premier startup &amp; investor conference, 500+ attendees</p>
+          <p>Supported end-to-end planning and execution — registrations, on-site queries and operational flow for founders, investors and partners.</p>
+        </article>
+      </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Want to work together or just say hi? Reach out.</p>
-      <div class="contact-links">
-        <a href="mailto:sanchaligupta2005@gmail.com">Email</a>
-        <a href="https://github.com/sanchali07" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="section-head reveal">
+        <span class="index">06</span>
+        <h2>Education</h2>
       </div>
+      <div class="two-col">
+        <article class="edu reveal">
+          <span class="when">2023 — 2027</span>
+          <h3>Masters' Union, Gurugram</h3>
+          <p class="win-sub">BBA — Technology &amp; Business Management</p>
+          <p>Coursework includes <em>How to Build a Dropshipping Business</em> (OutClass curriculum) — the launchpad for Desh Ki Dukaan.</p>
+        </article>
+        <article class="edu reveal">
+          <span class="when">2010 — 2023</span>
+          <h3>Maxfort School Rohini, Delhi</h3>
+          <p class="win-sub">State &amp; national-level Art and Design · Top 5 in batch for extra-curriculars</p>
+          <p>Also: Diploma in Personal &amp; Social Skills Development — Network Myanmar.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="section-head reveal">
+        <span class="index">07</span>
+        <h2>Let's build something</h2>
+      </div>
+      <p class="big reveal">
+        Looking for someone who can own a brand end-to-end — from the strategy doc to the
+        carry bag? I'd love to hear about it.
+      </p>
+      <div class="contact-links reveal">
+        <a href="mailto:sanchaligupta2005@gmail.com" class="btn primary">Email me</a>
+        <a href="#" class="btn" data-link="linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/sanchali07" class="btn" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="location reveal">Delhi, India · Open to internships &amp; brand projects</p>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Sanchali Gupta. Built with plain HTML &amp; CSS.</p>
+    <p>© <span id="year"></span> Sanchali Gupta · Designed &amp; built by hand.</p>
+    <a href="#top">Back to top ↑</a>
   </footer>
 
   <script src="script.js"></script>

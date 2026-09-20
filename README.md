@@ -10,7 +10,7 @@ A simple, responsive personal portfolio built with plain HTML, CSS and JavaScrip
 
 ## Editing
 
-Open `index.html` and replace the text in `[square brackets]` with your own bio, projects, skills and links.
+Content lives in `index.html`. To add links to live work, fill the empty `<div class="links" data-links="…">` blocks (Hyeglo, content project, Desh Ki Dukaan) with `<a href="…" target="_blank" rel="noopener">Label ↗</a>` tags, and set the LinkedIn URL on the `data-link="linkedin"` button in the Contact section.
 
 ## Publishing with GitHub Pages
 
