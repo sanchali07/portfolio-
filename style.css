@@ -231,6 +231,7 @@ h3 { font-family: var(--sub); font-weight: 600; line-height: 1.2; color: var(--h
 .job-meta .where { font-size: 0.85rem; color: var(--brown); }
 .job h3 { font-family: var(--head); font-weight: 400; font-size: 2rem; margin-bottom: 0.8rem; line-height: 1; color: var(--indigo); }
 .job h3 .at { display: block; font-family: var(--sub); font-size: 1rem; font-weight: 500; color: var(--magenta); margin-top: 0.35rem; }
+.job-about { font-family: var(--sub); font-size: 0.9rem; color: var(--brown); margin: -0.3rem 0 0.9rem; max-width: 640px; }
 .job ul { padding-left: 1.1rem; }
 .job li { color: var(--brown); }
 .job li + li { margin-top: 0.45rem; }
