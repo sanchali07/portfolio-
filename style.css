@@ -98,6 +98,8 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .bg-teal { background: linear-gradient(135deg, #b9f0ff, var(--teal) 50%, #2aa6c9); }
 .bg-indigo { background: linear-gradient(135deg, #7d7ae0, var(--indigo) 55%, #2a2790); }
 .panel { position: relative; background: var(--cream); padding: 2rem 1.6rem 2.2rem; box-shadow: 0 8px 18px rgba(0,0,0,.25); }
+/* tall panels stay straight: a tilt swings their corners off-screen */
+.panel.tilt-l, .panel.tilt-r { transform: none; }
 .panel h2.display { margin-bottom: 1.2rem; }
 .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 1.6rem; }
 .entry + .entry { margin-top: 1.2rem; }
