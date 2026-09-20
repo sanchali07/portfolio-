@@ -117,6 +117,7 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .reel .reel-ph { display: block; width: 100%; aspect-ratio: 9 / 16; border: 0; background: #111; }
 .reel .instagram-media { margin: 0 !important; min-width: 0 !important; max-width: 100% !important; width: 100% !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
 .reel .reel-ph { display: grid; place-items: center; font-family: var(--hand); color: #fff; }
+.reel figcaption { padding: 6px 4px 2px; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
 .two h2.display { font-size: clamp(2rem, 7vw, 2.8rem); }
 
