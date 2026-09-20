@@ -25,7 +25,7 @@
 
   --head: "Londrina Solid", "Impact", sans-serif;
   --sub: "Fredoka", "Nunito", sans-serif;
-  --body: "Mulish", -apple-system, sans-serif;
+  --body: "Open Sans", -apple-system, sans-serif;
   --accentfont: "Neucha", "Comic Sans MS", cursive;
 }
 
@@ -219,15 +219,21 @@ h3 { font-family: var(--sub); font-weight: 600; line-height: 1.2; color: var(--h
 .tags li:nth-child(4n)   { background: var(--magenta); color: var(--cream); }
 .interests { font-family: var(--accentfont); font-size: 1.2rem; }
 
-/* Timeline (on indigo band) */
-.timeline { list-style: none; }
+/* Timeline (cards on cream) */
+.timeline { list-style: none; display: flex; flex-direction: column; gap: 1.4rem; }
 .job {
   display: grid; grid-template-columns: 200px 1fr; gap: 2rem;
-  padding: 2.2rem 0; border-top: 3px solid var(--indigo);
+  padding: 2rem 2rem 2rem 2.4rem; background: var(--surface); border-radius: 22px;
+  border-left: 10px solid var(--yellow); box-shadow: 6px 6px 0 var(--indigo);
 }
-.job:last-child { border-bottom: 3px solid var(--indigo); }
+.job:nth-child(2) { border-left-color: var(--magenta); }
+.job:nth-child(3) { border-left-color: var(--orange); }
+.job:nth-child(4) { border-left-color: var(--teal); }
+[data-theme="dark"] .job { box-shadow: 6px 6px 0 var(--yellow); }
+[data-theme="dark"] .job, [data-theme="dark"] .job li, [data-theme="dark"] .job-meta .where, [data-theme="dark"] .job-about { color: var(--cream); }
+[data-theme="dark"] .job h3 { color: var(--yellow); }
 .job-meta { display: flex; flex-direction: column; gap: 0.25rem; }
-.band-yellow .when { color: var(--magenta); }
+.job .when { color: var(--magenta); }
 .job-meta .where { font-size: 0.85rem; color: var(--brown); }
 .job h3 { font-family: var(--head); font-weight: 400; font-size: 2rem; margin-bottom: 0.8rem; line-height: 1; color: var(--indigo); }
 .job h3 .at { display: block; font-family: var(--sub); font-size: 1rem; font-weight: 500; color: var(--magenta); margin-top: 0.35rem; }
@@ -313,7 +319,7 @@ footer a { color: var(--magenta); font-weight: 600; }
 /* ---------- Responsive ---------- */
 @media (max-width: 800px) {
   .about-grid { grid-template-columns: 1fr; }
-  .job { grid-template-columns: 1fr; gap: 0.8rem; }
+  .job { grid-template-columns: 1fr; gap: 0.8rem; padding: 1.5rem 1.4rem 1.5rem 1.6rem; }
   .job-meta { flex-direction: row; gap: 1rem; align-items: baseline; }
   .hero::before { width: 50vw; height: 50vw; right: -20vw; top: 4%; }
   .hero::after { display: none; }

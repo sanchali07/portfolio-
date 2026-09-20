@@ -10,7 +10,7 @@ Built on the Dunku brand palette and type stack:
 |---|---|---|
 | Headings | Londrina Solid | Edible Indigo `#3F3BC6`, Nazar Battu Yellow `#FFEE04` |
 | Sub-headings / UI | Fredoka | Crate Magenta `#D9217A`, Zesty Tofu `#FF7B00` |
-| Body | Mulish | Kadhai Brown `#1F1915` on Tofu Cream `#FDFBE4` |
+| Body | Open Sans (per the designer's guideline note) | Kadhai Brown `#1F1915` on Tofu Cream `#FDFBE4` |
 | Accent / scribbles | Neucha (stand-in for Orinella Scribble, which is a paid font) | Crate Teal `#6BE1FF`, The another Teal `#25A7FF` |
 
 Fonts load from Google Fonts; no font files are bundled. To swap in Orinella Scribble, add its `@font-face` to `style.css` and change `--accentfont`.
