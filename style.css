@@ -79,8 +79,8 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 /* ---------- About ---------- */
 .about { padding-top: 2.5rem; }
 .yr-mark { display: block; font-size: 1.1rem; margin-bottom: 1rem; }
-.about-photo { float: right; width: min(42%, 250px); margin: 0 0 1rem 1.4rem; }
-.about-photo img { width: 100%; height: auto; object-fit: contain; }
+.about-photo { float: right; width: min(52%, 320px); margin: 0 0 1rem 1.4rem; }
+.about-photo img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: center 60%; }
 .about-photo .img { aspect-ratio: 4/3; }
 .about .big { margin-top: 1.4rem; }
 .body-col { color: var(--indigo); font-size: .92rem; max-width: 320px; margin-top: 1.4rem; text-align: justify; hyphens: auto; }
@@ -152,7 +152,7 @@ footer a { text-decoration: none; }
   .notes .note:first-child { grid-column: auto; }
   .shots { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
   .about-more { columns: 1; }
-  .about-photo { float: none; width: min(62%, 250px); margin: 0 0 1rem auto; }
+  .about-photo { float: none; width: min(85%, 320px); margin: 0 0 1rem auto; }
   .hero-note { position: relative; right: auto; top: auto; width: 80%; margin: 0 0 1rem auto; }
   .hero { padding-top: 2rem; }
   .work-photo { width: 80%; margin: 1.6rem auto 0; }
