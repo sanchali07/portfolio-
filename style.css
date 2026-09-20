@@ -117,7 +117,7 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .ig { background: #fff; color: #262626; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
 .ig-head { display: flex; align-items: center; gap: 8px; padding: 8px 8px; }
 .ig-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(45deg, var(--orange), var(--magenta)); color: #fff; display: grid; place-items: center; font-family: var(--head); font-size: .9rem; overflow: hidden; position: relative; }
-.ig-avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ig-avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; transform: scale(2.6); transform-origin: 50% 47%; }
 .ig-user { font-weight: 600; font-size: .8rem; }
 .ig-video { position: relative; display: block; aspect-ratio: 9 / 16; background: #111; overflow: hidden; cursor: pointer; }
 .ig-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
