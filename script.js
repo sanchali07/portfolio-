@@ -1,25 +1,6 @@
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ---------- Dark mode (remembers choice) ----------
-const toggle = document.getElementById('themeToggle');
-const root = document.documentElement;
-
-function applyTheme(theme) {
-  root.setAttribute('data-theme', theme);
-}
-
-let saved = null;
-try { saved = localStorage.getItem('theme'); } catch (e) {}
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-applyTheme(saved || (prefersDark ? 'dark' : 'light'));
-
-toggle.addEventListener('click', () => {
-  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  applyTheme(next);
-  try { localStorage.setItem('theme', next); } catch (e) {}
-});
-
 // ---------- Reveal on scroll ----------
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealEls = Array.from(document.querySelectorAll('.reveal'));

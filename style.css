@@ -84,7 +84,7 @@ h3 { font-family: var(--sub); font-weight: 600; line-height: 1.2; color: var(--h
 /* ---------- Nav ---------- */
 .nav {
   position: sticky; top: 0; z-index: 20;
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: center;
   padding: 0.9rem 5vw;
   background: var(--indigo);
   color: var(--cream);
@@ -92,7 +92,7 @@ h3 { font-family: var(--sub); font-weight: 600; line-height: 1.2; color: var(--h
 }
 .brand { font-family: var(--head); font-weight: 900; font-size: 1.9rem; color: var(--cream); line-height: 1; }
 .brand .dot { color: var(--yellow); }
-.nav nav { display: flex; gap: 1.5rem; }
+.nav nav { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
 .nav nav a { font-family: var(--sub); color: var(--cream); font-weight: 500; font-size: 1rem; }
 .nav nav a:hover { color: var(--yellow); }
 
@@ -325,7 +325,8 @@ footer a { color: var(--magenta); font-weight: 600; }
   .hero::after { display: none; }
 }
 @media (max-width: 600px) {
-  .nav nav { display: none; }
+  .nav nav { gap: 1rem; }
+  .nav nav a { font-size: 0.9rem; }
   .hero { min-height: 70vh; padding-top: 3.5rem; }
   .section { padding: 3.5rem 5vw; }
   .scroll-hint { display: none; }
