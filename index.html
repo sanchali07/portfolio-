@@ -7,297 +7,279 @@
   <meta name="description" content="Sanchali Gupta: brand strategy, campaigns, creative direction and the ads that carry them.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&family=Fredoka:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Neucha&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&family=Fredoka:wght@400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Neucha&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="nav">
-    <nav aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#case-study">Desh Ki Dukaan</a>
-      <a href="#wins">Wins</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="nav-wrap">
+    <div class="nav">
+      <a href="#top" class="wordmark">SANCHALI</a>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#case-study">Desh Ki Dukaan</a>
+        <a href="#wins">Wins</a>
+      </nav>
+      <a href="#contact" class="pill solid nav-cta">Say hello</a>
+    </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top">
-      <p class="eyebrow">Gurugram, India · Bachelor's in Business &amp; Technology @ Masters' Union · BMS, Delhi University</p>
-      <h1>
-        I love building <mark>brands</mark>.<br>
-        <span class="small">(And the ads. Especially the ads.)</span>
-      </h1>
-      <p class="lede">
-        Hi, I'm Sanchali. I love to strategise about brands and make things for them.
-        I shape how a brand looks, sounds, feels and sells: positioning, campaigns,
-        creative direction and the ads that carry them.
-      </p>
-      <div class="hero-actions">
-        <a href="#work" class="btn">See my work</a>
-        <a href="#contact" class="link-arrow">Say hello →</a>
-      </div>
-    </section>
+      <!-- Floating image slots: replace the <div class="ph"> with <img src="…" alt="…"> -->
+      <figure class="float f1"><div class="ph ph-magenta"></div><figcaption>the pop-up, Hyeglo</figcaption></figure>
+      <figure class="float f2"><div class="ph ph-teal"></div><figcaption>a painting</figcaption></figure>
+      <figure class="float f3"><div class="ph ph-orange"></div><figcaption>ad creative</figcaption></figure>
+      <figure class="float f4"><div class="ph ph-cream"></div><figcaption>on set</figcaption></figure>
 
-    <!-- TICKER LINE -->
-    <p class="ticker" aria-label="Highlights">
-      <span>₹20L+ revenue in 3 months</span>
-      <span>₹7 CAC, lowest of every team</span>
-      <span>30K+ Instagram reach across 5 countries</span>
-      <span>RTO halved from 60% to 30%</span>
-      <span>2nd, Microsoft Gen-AI Hackathon</span>
-    </p>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2>About</h2>
-      <div class="cols">
-        <div class="col-main">
-          <p class="big">
-            I started with a paintbrush. Somewhere between state-level art competitions and
-            my first ad account, I realised the thing I love most is giving a brand a voice,
-            making people <mark>feel</mark> something about it, and then watching the numbers move.
-          </p>
-          <p>
-            Today I'm studying Business &amp; Technology at Masters' Union while working
-            hands-on with brands: finding the story a brand should be telling, shaping its
-            positioning, then taking it on ground through content, campaigns and ads, and
-            checking whether what we made actually resonates.
-          </p>
-          <p>
-            I like being the person who can write the strategy <em>and</em> shoot the ad.
-            What I'm looking for next: work where strategy, storytelling and content creation
-            sit together, so I can help build brands and the campaigns that make people care.
-          </p>
+      <div class="hero-inner">
+        <p class="label">Sanchali Gupta</p>
+        <p class="kicker"><span class="brk">‹</span> I love building <span class="brk">›</span></p>
+        <h1>
+          <span class="display">Brands</span>
+          <span class="paren">(and the ads)</span>
+        </h1>
+        <p class="lede">
+          Hi, I'm Sanchali. I love to strategise about brands and make things for them.
+          I shape how a brand looks, sounds, feels and sells: positioning, campaigns,
+          creative direction and the ads that carry them.
+        </p>
+        <div class="ctas">
+          <a href="#work" class="pill solid">See my work</a>
+          <a href="#contact" class="pill ghost">Say hello</a>
         </div>
-        <aside class="col-side">
-          <h3>Toolkit</h3>
-          <p class="list">
-            Brand strategy, brand positioning, brand identity, go-to-market, website designing,
-            Meta Ads, Instagram growth, UGC &amp; creator programs, product copy, graphic design,
-            Runway, Claude Code, Higgsfield, CapCut, Gen-AI tooling.
-          </p>
-          <h3>Off the clock</h3>
-          <p class="list">Travel, painting, basketball, photography, cinema.</p>
-        </aside>
       </div>
     </section>
 
-    <!-- WORK -->
+    <!-- TICKER -->
+    <div class="ticker" aria-label="Highlights">
+      <div class="ticker-track">
+        <span>₹20L+ revenue in 3 months</span><span>₹7 CAC</span><span>30K+ Instagram reach</span><span>RTO halved</span><span>2nd, Microsoft Gen-AI Hackathon</span><span>Masters' Union · Delhi University</span>
+        <span>₹20L+ revenue in 3 months</span><span>₹7 CAC</span><span>30K+ Instagram reach</span><span>RTO halved</span><span>2nd, Microsoft Gen-AI Hackathon</span><span>Masters' Union · Delhi University</span>
+      </div>
+    </div>
+
+    <!-- ABOUT: display moment -->
+    <section id="about" class="section display-moment">
+      <p class="kicker"><span class="brk">‹</span> About <span class="brk">›</span></p>
+      <h2 class="statement">
+        I started with a paintbrush.<br>
+        <span class="paren">(then found an ad account)</span>
+      </h2>
+      <div class="about-text">
+        <p>
+          Somewhere between state-level art competitions and my first ad account, I realised the
+          thing I love most is giving a brand a voice, making people feel something about it,
+          and then watching the numbers move.
+        </p>
+        <p>
+          Today I'm studying Business &amp; Technology at Masters' Union while working hands-on
+          with brands: finding the story a brand should be telling, shaping its positioning,
+          then taking it on ground through content, campaigns and ads, and checking whether
+          what we made actually resonates.
+        </p>
+        <p>
+          I like being the person who can write the strategy <em>and</em> shoot the ad. What I'm
+          looking for next: work where strategy, storytelling and content creation sit together,
+          so I can help build brands and the campaigns that make people care.
+        </p>
+      </div>
+      <ul class="tabs" aria-label="Toolkit">
+        <li>Brand strategy</li><li>Positioning</li><li>Brand identity</li><li>Go-to-market</li>
+        <li>Website designing</li><li>Meta Ads</li><li>Instagram growth</li><li>UGC &amp; creators</li>
+        <li>Product copy</li><li>Graphic design</li><li>Runway</li><li>Claude Code</li>
+        <li>Higgsfield</li><li>CapCut</li><li>Gen-AI tooling</li>
+      </ul>
+    </section>
+
+    <!-- WORK: carousel -->
     <section id="work" class="section">
-      <h2>Work</h2>
-      <ol class="timeline">
-        <li class="job">
-          <div class="job-meta">
-            <span class="when">Apr 2026 to Jun 2026</span>
-            <span class="where">Remote / Delhi</span>
-          </div>
-          <div class="job-body">
-            <h3>Founder's Office Intern</h3>
-            <p class="at">Hyeglo Beauty, KAT Brands Pvt Ltd <span class="note">(India's first intelligent beauty brand)</span></p>
-            <ul>
-              <li>Led end-to-end brand strategy and content: website revamp briefs, PDP redesigns with UGC-style review formats, and product copy, strengthening the brand's digital retail presence.</li>
-              <li>Built a three-tier Instagram creator community from scratch; drafted brand partnership outreach for retail and pop-up collaborations.</li>
-              <li>Ran the brand's offline pop-up event end to end: planned and arranged the whole activation, and designed every asset (menus, carry bags and product collateral) under one cohesive brand language.</li>
-              <li>Managed cross-functional ops: inventory sheets, swatch documentation, and an internal AI creative-tools guide covering Higgsfield and CapCut.</li>
-            </ul>
-            <div class="links" data-links="hyeglo"></div>
-          </div>
-        </li>
+      <div class="section-head">
+        <p class="kicker"><span class="brk">‹</span> Work <span class="brk">›</span></p>
+        <h2>Where I've built</h2>
+      </div>
+      <div class="carousel" tabindex="0">
+        <article class="card">
+          <p class="card-when">Apr to Jun 2026 · Remote / Delhi</p>
+          <h3>Founder's Office Intern</h3>
+          <p class="card-at">Hyeglo Beauty, KAT Brands Pvt Ltd<br><span>India's first intelligent beauty brand</span></p>
+          <ul>
+            <li>Led end-to-end brand strategy and content: website revamp briefs, PDP redesigns with UGC-style review formats, and product copy.</li>
+            <li>Built a three-tier Instagram creator community from scratch; drafted brand partnership outreach for retail and pop-up collaborations.</li>
+            <li>Ran the brand's offline pop-up end to end: planned and arranged the whole activation and designed every asset under one brand language.</li>
+            <li>Managed cross-functional ops: inventory sheets, swatch documentation, and an internal AI creative-tools guide covering Higgsfield and CapCut.</li>
+          </ul>
+          <div class="card-ctas" data-links="hyeglo"></div>
+        </article>
 
-        <li class="job">
-          <div class="job-meta">
-            <span class="when">May 2025 to Jul 2025</span>
-            <span class="where">Delhi</span>
-          </div>
-          <div class="job-body">
-            <h3>Marketing &amp; Social Media Intern</h3>
-            <p class="at">Fixderma, Skincare &amp; Dermatology</p>
-            <ul>
-              <li>Designed marketing creatives and executed content strategies across multiple social platforms.</li>
-              <li>Supported the brand's digital presence through platform-specific content planning and execution.</li>
-            </ul>
-          </div>
-        </li>
+        <article class="card">
+          <p class="card-when">May to Jul 2025 · Delhi</p>
+          <h3>Marketing &amp; Social Media Intern</h3>
+          <p class="card-at">Fixderma, Skincare &amp; Dermatology</p>
+          <ul>
+            <li>Designed marketing creatives and executed content strategies across multiple social platforms.</li>
+            <li>Supported the brand's digital presence through platform-specific content planning and execution.</li>
+          </ul>
+        </article>
 
-        <li class="job">
-          <div class="job-meta">
-            <span class="when">Nov 2023 to Jan 2024</span>
-            <span class="where">Gurugram</span>
-          </div>
-          <div class="job-body">
-            <h3>Co-Founder</h3>
-            <p class="at">Desh Ki Dukaan, D2C Lifestyle E-Commerce</p>
-            <ul>
-              <li>Scaled the venture to <strong>₹20L+ revenue within 3 months</strong> of launch.</li>
-              <li>Hit ₹6L in revenue in the first 4 days; reached ₹1L in daily sales within 5 days via Meta Ads and a conversion-optimised Shopify store.</li>
-              <li>Halved RTO from 60% to 30% by analysing delivery performance by region and reallocating spend.</li>
-              <li>Lowest CAC (₹7) across all competing teams; featured in the Masters' Union Dropshipping Magazine.</li>
-            </ul>
-            <a href="#case-study" class="link-arrow">Full story ↓</a>
-          </div>
-        </li>
+        <article class="card">
+          <p class="card-when">Nov 2023 to Jan 2024 · Gurugram</p>
+          <h3>Co-Founder</h3>
+          <p class="card-at">Desh Ki Dukaan, D2C Lifestyle E-Commerce</p>
+          <ul>
+            <li>Scaled the venture to <strong>₹20L+ revenue within 3 months</strong> of launch.</li>
+            <li>₹6L in revenue in the first 4 days; ₹1L in daily sales within 5 days via Meta Ads and a conversion-optimised Shopify store.</li>
+            <li>Halved RTO from 60% to 30% by analysing delivery by region and reallocating spend.</li>
+            <li>Lowest CAC (₹7) across all competing teams; featured in the Masters' Union Dropshipping Magazine.</li>
+          </ul>
+          <div class="card-ctas"><a href="#case-study" class="pill solid sm">Full story</a></div>
+        </article>
 
-        <li class="job">
-          <div class="job-meta">
-            <span class="when">Nov 2024 to Jan 2025</span>
-            <span class="where">Gurugram</span>
-          </div>
-          <div class="job-body">
-            <h3>Content Creation Challenge</h3>
-            <p class="at">Masters' Union, Academic Content Project</p>
-            <ul>
-              <li>Grew Instagram reach to 30,000+ across the UK, Canada, Egypt, US and Australia with art, fashion and travel content.</li>
-              <li>Gained 400+ followers in 3 months at an 8% engagement rate through weekly painting posts.</li>
-              <li>Iterated on visual storytelling and content pacing based on audience feedback.</li>
-            </ul>
-            <div class="links" data-links="content"></div>
-          </div>
-        </li>
-      </ol>
+        <article class="card">
+          <p class="card-when">Nov 2024 to Jan 2025 · Gurugram</p>
+          <h3>Content Creation Challenge</h3>
+          <p class="card-at">Masters' Union, Academic Content Project</p>
+          <ul>
+            <li>Grew Instagram reach to 30,000+ across the UK, Canada, Egypt, US and Australia with art, fashion and travel content.</li>
+            <li>Gained 400+ followers in 3 months at an 8% engagement rate through weekly painting posts.</li>
+            <li>Iterated on visual storytelling and content pacing based on audience feedback.</li>
+          </ul>
+          <div class="card-ctas" data-links="content"></div>
+        </article>
+      </div>
+      <p class="scroll-note">scroll sideways →</p>
     </section>
 
     <!-- CASE STUDY -->
-    <section id="case-study" class="section case">
-      <div class="case-inner">
-        <p class="kicker">Case study</p>
-        <h2>Desh Ki Dukaan, in three months</h2>
-        <p class="lede">
-          One Shopify store, a college dropshipping curriculum, and a D2C lifestyle brand
-          taken to ₹20L+ in revenue. Here's how it went.
-        </p>
-
-        <ol class="steps">
-          <li>
-            <span class="step-when">Day 0 to 4</span>
-            <div>
-              <h3>Launch fast, sell faster</h3>
-              <p>Built a conversion-optimised Shopify store and went live with targeted Meta Ads. ₹6L in revenue within the first four days.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-when">Day 5</span>
-            <div>
-              <h3>₹1 lakh a day</h3>
-              <p>Daily sales crossed ₹1L by day five, with ad creative, offer and landing page iterated daily on live data.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-when">Weeks 2 to 4</span>
-            <div>
-              <h3>Fix the leak</h3>
-              <p>Return-to-origin was eating margin at 60%. Broke delivery performance down by region, cut spend on high-RTO pincodes, and brought it to 30%.</p>
-            </div>
-          </li>
-          <li>
-            <span class="step-when">Month 3</span>
-            <div>
-              <h3>₹20L+ and the lowest CAC</h3>
-              <p>Crossed ₹20L in revenue with a ₹7 CAC, the lowest across every competing team. Featured in the Masters' Union Dropshipping Magazine.</p>
-            </div>
-          </li>
-        </ol>
-        <div class="links" data-links="dkd"></div>
+    <section id="case-study" class="section display-moment">
+      <p class="kicker"><span class="brk">‹</span> Case study <span class="brk">›</span></p>
+      <h2 class="statement">
+        ₹20 lakh<br>
+        <span class="paren">(in three months)</span>
+      </h2>
+      <p class="about-text center">
+        Desh Ki Dukaan: one Shopify store, a college dropshipping curriculum, and a D2C
+        lifestyle brand taken to ₹20L+ in revenue.
+      </p>
+      <div class="grid4">
+        <div class="tile">
+          <span class="num">1</span>
+          <h3>Launch fast, sell faster</h3>
+          <p>Day 0 to 4. Conversion-optimised Shopify store, targeted Meta Ads. ₹6L in revenue in the first four days.</p>
+        </div>
+        <div class="tile">
+          <span class="num">2</span>
+          <h3>₹1 lakh a day</h3>
+          <p>Day 5. Daily sales crossed ₹1L, with ad creative, offer and landing page iterated daily on live data.</p>
+        </div>
+        <div class="tile">
+          <span class="num">3</span>
+          <h3>Fix the leak</h3>
+          <p>Weeks 2 to 4. RTO was eating margin at 60%. Broke delivery down by region, cut spend on bad pincodes, brought it to 30%.</p>
+        </div>
+        <div class="tile">
+          <span class="num">4</span>
+          <h3>Lowest CAC of every team</h3>
+          <p>Month 3. ₹20L+ revenue at a ₹7 CAC. Featured in the Masters' Union Dropshipping Magazine.</p>
+        </div>
       </div>
+      <div class="card-ctas center" data-links="dkd"></div>
     </section>
 
     <!-- WINS -->
     <section id="wins" class="section">
-      <h2>Wins &amp; recognition</h2>
-      <dl class="rows">
-        <div class="row">
-          <dt>Feb 2024</dt>
-          <dd>
-            <h3>2nd place, Microsoft Gen-AI Hackathon</h3>
-            <p class="sub">Microsoft × Masters' Union · ₹15,000 prize</p>
-            <p>Built an AI-powered mental-health diagnostics and engagement platform: a heuristic-based Gen-AI model that scores mental health on a dynamic 1 to 10 scale for early diagnosis and personalised interventions, optimised to reduce therapy session frequency while maintaining quality of care.</p>
-          </dd>
+      <div class="section-head">
+        <p class="kicker"><span class="brk">‹</span> Wins <span class="brk">›</span></p>
+        <h2>Recognition</h2>
+      </div>
+      <div class="grid4">
+        <div class="tile feature">
+          <p class="card-when">Feb 2024 · Microsoft × Masters' Union</p>
+          <h3>2nd place, Microsoft Gen-AI Hackathon</h3>
+          <p>₹15,000 prize. An AI-powered mental-health diagnostics and engagement platform: a heuristic Gen-AI model scoring mental health on a dynamic 1 to 10 scale for early diagnosis and personalised interventions, optimised to reduce therapy frequency while keeping quality of care.</p>
         </div>
-        <div class="row">
-          <dt>2019 to 20</dt>
-          <dd><h3>State-level winner, Swachh Bharat Art Excellence Award</h3></dd>
+        <div class="tile">
+          <p class="card-when">2019 to 20</p>
+          <h3>Swachh Bharat Art Excellence Award</h3>
+          <p>State-level winner.</p>
         </div>
-        <div class="row">
-          <dt>School</dt>
-          <dd>
-            <h3>State &amp; national-level Art and Design competitions</h3>
-            <p class="sub">Represented Maxfort School Rohini · Grade A in Visual Arts · Top 5 in batch for extra-curriculars</p>
-          </dd>
+        <div class="tile">
+          <p class="card-when">School</p>
+          <h3>Art &amp; Design, state and national level</h3>
+          <p>Represented Maxfort School Rohini. Grade A in Visual Arts. Top 5 in batch for extra-curriculars.</p>
         </div>
-        <div class="row">
-          <dt>Featured</dt>
-          <dd><h3>Masters' Union Dropshipping Magazine</h3><p class="sub">For Desh Ki Dukaan's lowest-CAC performance</p></dd>
+        <div class="tile">
+          <p class="card-when">Featured</p>
+          <h3>Masters' Union Dropshipping Magazine</h3>
+          <p>For Desh Ki Dukaan's lowest-CAC performance.</p>
         </div>
-      </dl>
+      </div>
     </section>
 
-    <!-- ON THE GROUND + EDUCATION -->
+    <!-- GROUND + EDUCATION -->
     <section id="more" class="section">
-      <div class="cols">
+      <div class="grid2">
         <div>
-          <h2>On the ground</h2>
-          <dl class="rows compact">
-            <div class="row">
-              <dt>2025</dt>
-              <dd>
-                <h3>India Art Fair</h3>
-                <p class="sub">Event Volunteer · Asia's leading contemporary &amp; modern art platform</p>
-                <p>Managed on-ground operations, artist–gallery coordination and customer-facing responsibilities at a large-scale cultural event.</p>
-              </dd>
-            </div>
-            <div class="row">
-              <dt>2023</dt>
-              <dd>
-                <h3>Slush'd Delhi</h3>
-                <p class="sub">Event Volunteer · India's premier startup &amp; investor conference, 500+ attendees</p>
-                <p>Supported end-to-end planning and execution: registrations, on-site queries and operational flow for founders, investors and partners.</p>
-              </dd>
-            </div>
-          </dl>
+          <div class="section-head">
+            <p class="kicker"><span class="brk">‹</span> On the ground <span class="brk">›</span></p>
+          </div>
+          <div class="tile">
+            <p class="card-when">2025</p>
+            <h3>India Art Fair</h3>
+            <p class="card-at">Event Volunteer · Asia's leading contemporary &amp; modern art platform</p>
+            <p>On-ground operations, artist–gallery coordination and customer-facing responsibilities at a large-scale cultural event.</p>
+          </div>
+          <div class="tile">
+            <p class="card-when">2023</p>
+            <h3>Slush'd Delhi</h3>
+            <p class="card-at">Event Volunteer · India's premier startup &amp; investor conference, 500+ attendees</p>
+            <p>End-to-end planning and execution: registrations, on-site queries and operational flow for founders, investors and partners.</p>
+          </div>
         </div>
         <div id="education">
-          <h2>Education</h2>
-          <dl class="rows compact">
-            <div class="row">
-              <dt>2023 to 2027</dt>
-              <dd>
-                <h3>Masters' Union, Gurugram</h3>
-                <p class="sub">Bachelor's in Business &amp; Technology</p>
-                <p>Coursework includes <em>How to Build a Dropshipping Business</em> (OutClass curriculum), the launchpad for Desh Ki Dukaan.</p>
-              </dd>
-            </div>
-            <div class="row">
-              <dt>Delhi University</dt>
-              <dd><h3>BMS</h3><p class="sub">Bachelor of Management Studies</p></dd>
-            </div>
-            <div class="row">
-              <dt>2010 to 2023</dt>
-              <dd>
-                <h3>Maxfort School Rohini, Delhi</h3>
-                <p class="sub">Also: Diploma in Personal &amp; Social Skills Development, Network Myanmar.</p>
-              </dd>
-            </div>
-          </dl>
+          <div class="section-head">
+            <p class="kicker"><span class="brk">‹</span> Education <span class="brk">›</span></p>
+          </div>
+          <div class="tile">
+            <p class="card-when">2023 to 2027</p>
+            <h3>Masters' Union, Gurugram</h3>
+            <p class="card-at">Bachelor's in Business &amp; Technology</p>
+            <p>Coursework includes <em>How to Build a Dropshipping Business</em> (OutClass curriculum), the launchpad for Desh Ki Dukaan.</p>
+          </div>
+          <div class="tile">
+            <p class="card-when">Delhi University</p>
+            <h3>BMS</h3>
+            <p class="card-at">Bachelor of Management Studies</p>
+          </div>
+          <div class="tile">
+            <p class="card-when">2010 to 2023</p>
+            <h3>Maxfort School Rohini, Delhi</h3>
+            <p class="card-at">Also: Diploma in Personal &amp; Social Skills Development, Network Myanmar</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact">
-      <h2>Let's build something</h2>
-      <p class="big">
+    <section id="contact" class="section display-moment contact">
+      <p class="kicker"><span class="brk">‹</span> Let's build <span class="brk">›</span></p>
+      <h2 class="statement">
+        Something<br>
+        <span class="paren">(together)</span>
+      </h2>
+      <p class="about-text center">
         Building a brand, or a campaign for one, and need someone who can own strategy,
         content and ads end to end? I'd love to hear about it.
       </p>
-      <p class="contact-links">
-        <a href="mailto:sanchaligupta2005@gmail.com">sanchaligupta2005@gmail.com</a>
-        <a href="#" data-link="linkedin" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/sanchali07" target="_blank" rel="noopener">GitHub</a>
-      </p>
-      <p class="note">Gurugram / Delhi · Open to brand, content &amp; marketing roles</p>
+      <div class="ctas">
+        <a href="mailto:sanchaligupta2005@gmail.com" class="pill solid">Email me</a>
+        <a href="#" data-link="linkedin" class="pill ghost" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/sanchali07" class="pill ghost" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="hand">Gurugram / Delhi · open to brand, content &amp; marketing roles</p>
     </section>
   </main>
 

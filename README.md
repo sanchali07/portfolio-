@@ -2,18 +2,23 @@
 
 A simple, responsive personal portfolio built with plain HTML, CSS and JavaScript. No build step required.
 
-## Brand system
+## Design
 
-Built on the Dunku brand palette and type stack:
+Modelled on the Impossible Foods web style (dark canvas, floating pill nav, oversized centred display type with a parenthetical second line, bracket accents, pill CTAs, flat cards, organically masked floating images), translated into the Dunku palette:
 
-| Role | Font | Colours |
-|---|---|---|
-| Headings | Londrina Solid | Edible Indigo `#3F3BC6`, Nazar Battu Yellow `#FFEE04` |
-| Sub-headings / UI | Fredoka | Crate Magenta `#D9217A`, Zesty Tofu `#FF7B00` |
-| Body | Open Sans (per the designer's guideline note) | Kadhai Brown `#1F1915` on Tofu Cream `#FDFBE4` |
-| Accent / scribbles | Neucha (stand-in for Orinella Scribble, which is a paid font) | Crate Teal `#6BE1FF`, The another Teal `#25A7FF` |
+| Impossible role | Dunku colour |
+|---|---|
+| Page canvas | Edible Indigo `#3F3BC6` |
+| Card surfaces | deeper indigo `#2E2B9E` |
+| Accent (all emphasis, CTAs, display type) | Nazar Battu Yellow `#FFEE04` |
+| Body text | Tofu Cream `#FDFBE4` |
+| Bracket accents | Crate Magenta `#D9217A` |
+| Floating image placeholders | Magenta, Crate Teal, Zesty Tofu, Cream |
 
-Fonts load from Google Fonts; no font files are bundled. To swap in Orinella Scribble, add its `@font-face` to `style.css` and change `--accentfont`.
+Type: Londrina Solid (display), Fredoka (UI, labels, sub-heads), Open Sans (body), Neucha (handwritten asides; stand-in for Orinella Scribble).
+
+### Adding photos
+The hero has four `<figure class="float">` slots. Replace each `<div class="ph …">` with `<img src="…" alt="…">`; the organic clip-path mask is applied automatically.
 
 ## Structure
 
