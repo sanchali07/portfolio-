@@ -1,7 +1,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // Ad-creative frames: show the video once its file loads; otherwise keep the Instagram link
-document.querySelectorAll('.ig-video video').forEach(v => {
+document.querySelectorAll('.ig-video video, .ai-video video').forEach(v => {
   v.addEventListener('loadeddata', () => v.parentElement.classList.add('has-video'));
   v.addEventListener('error', () => v.parentElement.classList.remove('has-video'));
 });
@@ -11,10 +11,9 @@ const soundButtons = document.querySelectorAll('.ig-sound');
 soundButtons.forEach(btn => {
   btn.addEventListener('click', e => {
     e.preventDefault(); e.stopPropagation();
-    const ig = btn.closest('.ig');
-    const video = ig.querySelector('video');
+    const video = btn.closest('.ig, .aiv').querySelector('video');
     const turnOn = video.muted;
-    document.querySelectorAll('.ig video').forEach(v => { v.muted = true; });
+    document.querySelectorAll('.ig video, .aiv video').forEach(v => { v.muted = true; });
     soundButtons.forEach(b => { b.setAttribute('aria-pressed', 'false'); b.setAttribute('aria-label', 'Turn sound on'); });
     if (turnOn) {
       video.muted = false; video.volume = 1;
