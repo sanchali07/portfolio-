@@ -4,21 +4,18 @@ A simple, responsive personal portfolio built with plain HTML, CSS and JavaScrip
 
 ## Design
 
-Modelled on the Impossible Foods web style (dark canvas, floating pill nav, oversized centred display type with a parenthetical second line, bracket accents, pill CTAs, flat cards, organically masked floating images), translated into the Dunku palette:
+Crumpled-paper scrapbook: cream paper with a grain texture, tilted white-bordered photos with paper clips, yellow pinned notes, cut-paper display type. Dunku palette: Zesty Tofu orange for display type, Tofu Cream paper, Nazar Battu Yellow notes, Edible Indigo body text, Crate Magenta for taped-on notes, and teal / orange / indigo photo-backed bands.
 
-| Impossible role | Dunku colour |
-|---|---|
-| Page canvas | Edible Indigo `#3F3BC6` |
-| Card surfaces | deeper indigo `#2E2B9E` |
-| Accent (all emphasis, CTAs, display type) | Nazar Battu Yellow `#FFEE04` |
-| Body text | Tofu Cream `#FDFBE4` |
-| Bracket accents | Crate Magenta `#D9217A` |
-| Floating image placeholders | Magenta, Crate Teal, Zesty Tofu, Cream |
-
-Type: Londrina Solid (display), Fredoka (UI, labels, sub-heads), Open Sans (body), Neucha (handwritten asides; stand-in for Orinella Scribble).
+Type: Londrina Solid (display), Fredoka (labels), Open Sans (body), Neucha (handwritten notes).
 
 ### Adding photos
-The hero has four `<figure class="float">` slots. Replace each `<div class="ph …">` with `<img src="…" alt="…">`; the organic clip-path mask is applied automatically.
+There are three placeholder slots, each a `<div class="img …">` inside a `<figure class="photo">`:
+
+1. Hero, wide (`.hero-photo`)
+2. About, portrait (`.about-photo`)
+3. Work panel (`.work-photo`)
+
+Replace the `<div class="img …">…</div>` with `<img src="images/your-file.jpg" alt="…">`. The white border, tilt and paper clip stay as they are.
 
 ## Structure
 
