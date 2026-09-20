@@ -110,8 +110,13 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .links { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-top: .5rem; }
 .links:empty { display: none; }
 .links a { font-family: var(--hand); font-size: 1.05rem; color: var(--magenta); }
-.work-photo { width: min(55%, 300px); margin: 2rem 0 0 auto; }
-.work-photo .img { aspect-ratio: 5/4; }
+.reels { margin-top: 2.2rem; }
+.reels .small { font-size: 1.5rem; }
+.reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1rem; align-items: start; }
+.reel { padding: 6px; }
+.reel .reel-ph { display: block; width: 100%; aspect-ratio: 9 / 16; border: 0; background: #111; }
+.reel .instagram-media { margin: 0 !important; min-width: 0 !important; max-width: 100% !important; width: 100% !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
+.reel .reel-ph { display: grid; place-items: center; font-family: var(--hand); color: #fff; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
 .two h2.display { font-size: clamp(2rem, 7vw, 2.8rem); }
 
@@ -155,6 +160,6 @@ footer a { text-decoration: none; }
   .about-photo { float: none; width: min(85%, 320px); margin: 0 0 1rem auto; }
   .hero-note { position: relative; right: auto; top: auto; width: 80%; margin: 0 0 1rem auto; }
   .hero { padding-top: 2rem; }
-  .work-photo { width: 80%; margin: 1.6rem auto 0; }
+  .reel-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; gap: 2rem; }
   .r-total span { float: none; display: block; text-align: right; }
 }
