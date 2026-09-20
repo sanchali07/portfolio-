@@ -149,6 +149,8 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .ai-video.has-video .ig-fallback { display: none; }
 .ai-video .ig-sound { top: 10px; }
 .aiv figcaption { padding: 6px 4px 2px; }
+.aiv figcaption strong { display: block; font-family: var(--sub); font-weight: 600; color: var(--indigo); font-size: .95rem; }
+.fig-body { display: block; font-family: var(--body); font-size: .8rem; color: var(--brown); line-height: 1.5; margin-top: .35rem; }
 
 /* ---------- Case study receipt ---------- */
 .case { padding-top: 3rem; }
