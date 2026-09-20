@@ -94,14 +94,6 @@ h1, h2, h3 { color: var(--accent); }
 .ph-magenta { background: var(--magenta); } .ph-teal { background: var(--teal); }
 .ph-orange { background: var(--orange); }  .ph-cream { background: var(--yellow); }
 
-/* ---------- Ticker ---------- */
-.ticker { overflow: hidden; background: var(--magenta); color: var(--cream); padding: 10px 0; font-family: var(--sub); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
-.ticker-track { display: flex; width: max-content; animation: slide 38s linear infinite; }
-.ticker-track span { padding: 0 1.4rem; white-space: nowrap; }
-.ticker-track span::after { content: "✦"; margin-left: 2.8rem; color: var(--yellow); }
-@keyframes slide { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
-
 /* ---------- Sections ---------- */
 .section { padding: 5.5rem 5vw 3.5rem; scroll-margin-top: 20px; }
 .section > * { max-width: var(--w); margin-left: auto; margin-right: auto; }
