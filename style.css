@@ -142,10 +142,14 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .reels { margin-top: 2.2rem; }
 .reels .small { font-size: 1.5rem; }
 /* Folder that the reels pop out of */
-.folder { display: flex; flex-direction: column; align-items: center; gap: .3rem; margin: 1rem auto .4rem; padding: 0; background: none; border: 0; cursor: pointer; transition: transform .18s ease; }
-.folder img { width: clamp(130px, 32vw, 175px); height: auto; display: block; mix-blend-mode: multiply; }
-.folder:hover { transform: translateY(-4px) rotate(-1.5deg); }
-.folder:active { transform: translateY(0) rotate(-1deg); }
+.folder { display: flex; flex-direction: column; align-items: center; gap: .3rem; margin: 1rem auto .4rem; padding: 0; background: none; border: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+/* the lift lives on the image: a transform on the button would create a stacking
+   context and break the blend that hides the artwork's white background */
+.folder img { width: clamp(130px, 32vw, 175px); height: auto; display: block; mix-blend-mode: multiply; transition: transform .18s ease; }
+.folder:hover img { transform: translateY(-4px) rotate(-1.5deg); }
+.folder:active img { transform: translateY(0) rotate(-1deg); }
+.folder:focus { outline: none; }
+.folder:focus-visible .folder-label { text-decoration: underline; text-underline-offset: 3px; }
 .folder-label { font-family: var(--hand); font-size: 1.1rem; color: var(--indigo); }
 
 .reel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin-top: 1rem; align-items: start; }
