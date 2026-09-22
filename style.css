@@ -82,7 +82,8 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .hero { padding-top: 4.5rem; padding-bottom: 2.5rem; }
 .hero-photo { margin: 1rem .4rem 0; }
 .hero-photo .img { aspect-ratio: 5/4; }
-.hero-photo img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: 45% 40%; }
+.hero-photo { overflow: hidden; }
+.hero-photo img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: 54% 44%; transform: scale(1.26); transform-origin: 55% 52%; }
 .hero-photo .name { position: absolute; left: 22px; bottom: 26px; font-size: clamp(2.4rem, 9vw, 3.6rem); text-shadow: 2px 2px 0 #fff; }
 .hero-note { position: absolute; right: 1.2rem; top: 1.4rem; width: min(62%, 280px); padding: 1.7rem 1.2rem 1rem; z-index: 2; }
 .hero-note .small { display: block; font-size: 1rem; }
