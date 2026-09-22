@@ -113,10 +113,8 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .brand-logo.fx { padding: 2px; }
 .brand-logo.fx img { width: 100%; height: auto; object-fit: contain; }
 /* Masters' Union: crop the circle to their scribble mark */
-.brand-logo.mu { background-image: url("images/logos/mu-mark.png"); background-repeat: no-repeat; background-size: 164px auto; background-position: -21px -24px; }
+.brand-logo.mu { background-image: url("images/logos/mu-mark.png"); background-repeat: no-repeat; background-size: 132px auto; background-position: -13px -15px; }
 .brand-logo.dark { background-color: var(--brown); }
-.brand-logo.mono { font-family: var(--sub); font-weight: 600; font-size: .8rem; color: var(--cream); }
-.brand-logo.ti { background-color: var(--indigo); }
 .entry .meta { font-family: var(--sub); font-weight: 500; font-size: .78rem; color: var(--magenta); margin: .15rem 0 .5rem; line-height: 1.35; }
 .entry ul { padding-left: 1rem; font-size: .8rem; color: var(--indigo); text-align: justify; hyphens: auto; }
 .entry li + li { margin-top: .3rem; }
@@ -151,6 +149,17 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .ig-cap { font-size: .78rem; padding: 2px 8px 8px; color: #262626; }
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
 .two h2.display { font-size: clamp(2rem, 7vw, 2.8rem); }
+
+/* Button link */
+.btn-link {
+  display: inline-flex; align-items: center; gap: .45rem; margin-top: 1rem;
+  font-family: var(--sub); font-weight: 600; font-size: .92rem;
+  background: var(--indigo); color: var(--cream); text-decoration: none;
+  padding: .6rem 1.1rem; border-radius: 6px; box-shadow: 0 3px 0 #2a2790;
+  transition: transform .12s, box-shadow .12s, background .12s;
+}
+.btn-link:hover { background: var(--magenta); box-shadow: 0 3px 0 #9c1257; transform: translateY(-1px); }
+.btn-link:active { transform: translateY(2px); box-shadow: 0 1px 0 #9c1257; }
 
 /* ---------- AI video (landscape) ---------- */
 .ai { margin-top: 2.4rem; }
