@@ -104,7 +104,15 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem 1.6rem; }
 .entry + .entry { margin-top: 1.2rem; }
 .entries .entry + .entry { margin-top: 0; }
-.entry .small { font-size: 1.15rem; }
+.entry .small { font-size: 1.15rem; display: flex; align-items: center; gap: .55rem; }
+.brand-logo { flex: 0 0 auto; height: 30px; width: 30px; border-radius: 7px; overflow: hidden; background: #fff; display: inline-flex; align-items: center; justify-content: center; }
+.brand-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.brand-logo.wide { width: auto; padding: 5px 8px; }
+.brand-logo.wide img { height: 17px; max-height: 17px; width: auto; max-width: none; }
+.brand-logo.dark { background: var(--brown); }
+.brand-logo.mono { font-family: var(--sub); font-weight: 600; font-size: .78rem; letter-spacing: .02em; color: var(--cream); }
+.brand-logo.dkd { background: var(--magenta); }
+.brand-logo.ti { background: var(--indigo); }
 .entry .meta { font-family: var(--sub); font-weight: 500; font-size: .78rem; color: var(--magenta); margin: .15rem 0 .5rem; line-height: 1.35; }
 .entry ul { padding-left: 1rem; font-size: .8rem; color: var(--indigo); text-align: justify; hyphens: auto; }
 .entry li + li { margin-top: .3rem; }
