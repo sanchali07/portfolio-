@@ -97,6 +97,7 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .about-photo img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; object-position: center 60%; }
 .about-photo .img { aspect-ratio: 4/3; }
 .about .big { margin-top: 1.4rem; }
+.about .big.oneline { clear: right; white-space: nowrap; font-size: clamp(2.6rem, 11.5vw, 5.4rem); }
 .body-col { color: var(--indigo); font-size: .92rem; max-width: 320px; margin-top: 1.4rem; text-align: justify; hyphens: auto; }
 .body-col.wide { max-width: 520px; }
 .caps-list { list-style: none; font-family: var(--sub); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--indigo); margin: 1.4rem 0 0 1.2rem; line-height: 1.8; clear: both; }
