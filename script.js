@@ -99,3 +99,35 @@ function setupHandwriting(el) {
 }
 
 document.querySelectorAll('.handwrite').forEach(setupHandwriting);
+
+// ---------- Ad creatives folder ----------
+const folder = document.querySelector('.folder');
+if (folder) {
+  const grid = document.getElementById('reel-grid');
+  const label = folder.querySelector('.folder-label');
+  folder.addEventListener('click', () => {
+    const isOpen = folder.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      grid.classList.remove('open');
+      grid.querySelectorAll('video').forEach(v => { v.pause(); v.muted = true; });
+      setTimeout(() => grid.classList.add('stashed'), 380);
+      folder.setAttribute('aria-expanded', 'false');
+      label.textContent = 'open the folder';
+    } else {
+      grid.classList.remove('stashed');
+      void grid.offsetWidth;
+      grid.classList.add('open');
+      folder.setAttribute('aria-expanded', 'true');
+      label.textContent = 'close the folder';
+      grid.querySelectorAll('video').forEach(v => {
+        if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); }
+      });
+      setTimeout(() => {
+        grid.querySelectorAll('video').forEach(v => {
+          const r = v.getBoundingClientRect();
+          if (r.top < innerHeight && r.bottom > 0) v.play().catch(() => {});
+        });
+      }, 420);
+    }
+  });
+}

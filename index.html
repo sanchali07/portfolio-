@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Fredoka:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Neucha&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=18">
+  <link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
 <svg class="defs" aria-hidden="true"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .12 0"/><feComposite operator="in" in2="SourceGraphic"/><feBlend in2="SourceGraphic" mode="multiply"/></filter></svg>
@@ -169,7 +169,11 @@
       <div class="reels">
         <h3 class="small">But honestly, human-made hits harder</h3>
         <p class="scrawl">ad creatives · four of my favourites, playing</p>
-        <div class="reel-grid">
+        <button class="folder" type="button" aria-expanded="false" aria-controls="reel-grid">
+          <img src="images/folder.png" alt="">
+          <span class="folder-label">open the folder</span>
+        </button>
+        <div class="reel-grid stashed" id="reel-grid">
           <figure class="photo tilt-r reel">
             <span class="clip" aria-hidden="true"></span>
             <div class="ig">
@@ -401,6 +405,6 @@
   </section>
 
 </main>
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 </body>
 </html>
