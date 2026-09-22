@@ -23,6 +23,19 @@ strong { font-weight: 600; }
 .display { font-family: var(--head); font-weight: 900; color: var(--orange); text-transform: uppercase; line-height: .88; letter-spacing: .02em; }
 .small { font-family: var(--head); font-weight: 400; color: var(--orange); text-transform: uppercase; letter-spacing: .05em; line-height: 1.1; }
 .scrawl { font-family: var(--hand); font-size: 1.25rem; color: var(--indigo); }
+
+/* Handwriting draw-on */
+.handwrite.writing { position: relative; }
+.handwrite.writing .hw-ch { opacity: 0; }
+.handwrite.writing .hw-ch.inked { opacity: 1; transition: opacity .09s linear; }
+.hw-nib { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; opacity: 0; transition: opacity .18s; }
+.hw-nib::before {
+  content: ""; position: absolute; width: 2px; height: 12px;
+  background: currentColor; border-radius: 2px 2px 70% 70%;
+  transform: rotate(-30deg) translate(-1px, -10px);
+}
+.hw-nib.on { opacity: .85; }
+@media (prefers-reduced-motion: reduce) { .handwrite.writing .hw-ch { opacity: 1; } .hw-nib { display: none; } }
 .scrawl-link { font-family: var(--hand); font-size: 1.15rem; color: var(--magenta); text-decoration: none; display: inline-block; margin-top: .4rem; }
 h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .big { font-size: clamp(3.6rem, 13vw, 6rem); }

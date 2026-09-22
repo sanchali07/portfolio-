@@ -22,3 +22,60 @@ soundButtons.forEach(btn => {
     }
   });
 });
+
+// ---------- Handwriting draw-on ----------
+// Neucha is an outline font, so instead of stroking SVG paths this inks the line
+// character by character with a pen nib riding the end of the text.
+function setupHandwriting(el) {
+  const text = el.textContent;
+  el.textContent = '';
+  el.classList.add('writing');
+
+  const chars = Array.from(text).map(ch => {
+    const span = document.createElement('span');
+    span.className = 'hw-ch';
+    span.textContent = ch === ' ' ? '\u00A0' : ch;
+    el.appendChild(span);
+    return { span, isSpace: ch === ' ' };
+  });
+
+  const nib = document.createElement('span');
+  nib.className = 'hw-nib';
+  el.appendChild(nib);
+
+  function write() {
+    const box = el.getBoundingClientRect();
+    let i = 0;
+    nib.classList.add('on');
+    (function step() {
+      if (i >= chars.length) {
+        nib.classList.remove('on');
+        setTimeout(() => nib.remove(), 260);
+        return;
+      }
+      const { span, isSpace } = chars[i];
+      span.classList.add('inked');
+      const r = span.getBoundingClientRect();
+      const top = el.getBoundingClientRect();
+      nib.style.transform = 'translate(' + (r.right - top.left) + 'px,' + (r.bottom - top.top) + 'px)';
+      i++;
+      setTimeout(step, isSpace ? 16 : 34);
+    })();
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    chars.forEach(c => c.span.classList.add('inked'));
+    nib.remove();
+    return;
+  }
+
+  if (!('IntersectionObserver' in window)) { write(); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { io.unobserve(entry.target); setTimeout(write, 220); }
+    });
+  }, { threshold: 0.6 });
+  io.observe(el);
+}
+
+document.querySelectorAll('.handwrite').forEach(setupHandwriting);
