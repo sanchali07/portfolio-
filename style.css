@@ -220,20 +220,24 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 /* Wiggling blob that the AI clips live behind */
 .blob { display: flex; flex-direction: column; align-items: center; gap: .2rem; margin: 1rem auto .4rem; padding: 0; background: none; border: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .blob img {
-  width: clamp(120px, 30vw, 165px); height: auto; display: block;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 56%, transparent 72%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 56%, transparent 72%);
-  animation: blobWiggle 7s ease-in-out infinite;
+  width: clamp(130px, 32vw, 180px); height: auto; display: block;
+  /* tight mask: cuts the artwork's pale blue backdrop away entirely */
+  -webkit-mask-image: radial-gradient(circle at 50% 49%, #000 37%, rgba(0,0,0,.92) 43%, transparent 52%);
+  mask-image: radial-gradient(circle at 50% 49%, #000 37%, rgba(0,0,0,.92) 43%, transparent 52%);
+  filter: url(#liquid);
+  animation: blobWiggle 6s ease-in-out infinite;
+  will-change: transform;
 }
-.blob:hover img { animation-duration: 3.2s; }
+.blob:hover img { animation-duration: 2.6s; }
 .blob:focus { outline: none; }
 .blob:focus-visible .folder-label { text-decoration: underline; text-underline-offset: 3px; }
 @keyframes blobWiggle {
-  0%   { transform: rotate(-2deg)  scale(1)    translateY(0); }
-  25%  { transform: rotate(1.5deg) scale(1.03) translateY(-5px); }
-  50%  { transform: rotate(-1deg)  scale(1.01) translateY(3px); }
-  75%  { transform: rotate(2.5deg) scale(1.04) translateY(-3px); }
-  100% { transform: rotate(-2deg)  scale(1)    translateY(0); }
+  0%   { transform: rotate(-4deg) scale(1)    translate(0, 0)     skewX(0deg); }
+  20%  { transform: rotate(3deg)  scale(1.06) translate(4px, -9px) skewX(-2.5deg); }
+  40%  { transform: rotate(-2deg) scale(.98)  translate(-5px, 5px) skewX(2deg); }
+  60%  { transform: rotate(5deg)  scale(1.05) translate(3px, -6px) skewX(-1.5deg); }
+  80%  { transform: rotate(-3deg) scale(1.02) translate(-3px, 4px) skewX(2.5deg); }
+  100% { transform: rotate(-4deg) scale(1)    translate(0, 0)     skewX(0deg); }
 }
 @media (prefers-reduced-motion: reduce) { .blob img { animation: none; } }
 
