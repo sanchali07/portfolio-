@@ -6,6 +6,26 @@ document.querySelectorAll('.ig-video video, .ai-video video').forEach(v => {
   v.addEventListener('error', () => v.parentElement.classList.remove('has-video'));
 });
 
+// Load and play a clip only while it is on screen, so the page doesn't pull every video at once
+const clips = document.querySelectorAll('.ig-video video, .ai-video video');
+if ('IntersectionObserver' in window) {
+  const clipWatcher = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        if (v.preload !== 'auto') { v.preload = 'auto'; v.load(); }
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+        if (!v.muted) { v.muted = true; }
+      }
+    });
+  }, { rootMargin: '200px 0px', threshold: 0.25 });
+  clips.forEach(v => clipWatcher.observe(v));
+} else {
+  clips.forEach(v => { v.preload = 'auto'; v.play().catch(() => {}); });
+}
+
 // Sound: autoplay must start muted; tapping the speaker unmutes that reel and mutes the others
 const soundButtons = document.querySelectorAll('.ig-sound');
 soundButtons.forEach(btn => {

@@ -139,7 +139,7 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .links a { font-family: var(--hand); font-size: 1.05rem; color: var(--magenta); }
 .reels { margin-top: 2.2rem; }
 .reels .small { font-size: 1.5rem; }
-.reel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1rem; align-items: start; }
+.reel-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin-top: 1rem; align-items: start; }
 .reel { padding: 6px; }
 .ig { background: #fff; color: #262626; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; position: relative; }
 .ig-sound { position: absolute; right: 10px; top: 52px; width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(0,0,0,.55); cursor: pointer; display: grid; place-items: center; z-index: 4; }
