@@ -106,14 +106,15 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .entries .entry + .entry { margin-top: 0; }
 .entry .small { font-size: 1.15rem; display: flex; align-items: center; gap: .55rem; }
 .brand-logo {
-  flex: 0 0 auto; width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+  flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; overflow: hidden;
   display: inline-flex; align-items: center; justify-content: center; background: #fff;
 }
 .brand-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .brand-logo.fx { padding: 2px; }
 .brand-logo.fx img { width: 100%; height: auto; object-fit: contain; }
 /* Masters' Union: crop the circle to their scribble mark */
-.brand-logo.mu { background-image: url("images/logos/mu-mark.png"); background-repeat: no-repeat; background-size: 132px auto; background-position: -13px -15px; }
+/* Masters' Union: the whole lockup (mark + wordmark) centred in the circle */
+.brand-logo.mu { background-image: url("images/logos/mu-mark.png"); background-repeat: no-repeat; background-size: 58px auto; background-position: center 50%; }
 .brand-logo.dark { background-color: var(--brown); }
 .entry .meta { font-family: var(--sub); font-weight: 500; font-size: .78rem; color: var(--magenta); margin: .15rem 0 .5rem; line-height: 1.35; }
 .entry ul { padding-left: 1rem; font-size: .8rem; color: var(--indigo); text-align: justify; hyphens: auto; }
