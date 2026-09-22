@@ -106,6 +106,15 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .strip { margin: 2rem -.4rem 0; background: #fff; padding: .8rem 1.2rem; font-size: .82rem; color: var(--indigo); box-shadow: 0 4px 10px rgba(0,0,0,.12); }
 .strip .small { display: block; font-size: .95rem; margin-bottom: .2rem; }
 
+/* Apps */
+.apps { margin-top: 1.6rem; }
+.apps .small { display: block; font-size: .95rem; margin-bottom: .55rem; }
+.app-grid { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; }
+.app-grid li { display: flex; align-items: center; gap: .45rem; background: #fff; border-radius: 999px; padding: .28rem .85rem .28rem .3rem; font-family: var(--sub); font-weight: 500; font-size: .82rem; color: var(--indigo); }
+.app-ic { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: #fff; }
+.app-ic img { width: 84%; height: 84%; object-fit: contain; display: block; }
+.app-ic.mono { background: var(--indigo); color: var(--cream); font-family: var(--sub); font-weight: 600; font-size: .72rem; }
+
 /* ---------- Photo-backed bands with a paper panel ---------- */
 .bg { position: relative; padding: 2.6rem 1.2rem; overflow: hidden; }
 .bg-orange { background: linear-gradient(135deg, #f6b97a, #e8873a 50%, #c9612a); }
