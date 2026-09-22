@@ -98,10 +98,10 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .about-photo .img { aspect-ratio: 4/3; }
 .about .big { margin-top: 1.4rem; }
 .about .big.oneline { clear: right; white-space: nowrap; font-size: clamp(2.6rem, 11.5vw, 5.4rem); }
-.body-col { color: var(--indigo); font-size: .92rem; max-width: 320px; margin-top: 1.4rem; text-align: justify; hyphens: auto; }
+.body-col { color: var(--indigo); font-size: .95rem; max-width: 330px; margin-top: 1.4rem; }
 .body-col.wide { max-width: 520px; }
 .caps-list { list-style: none; font-family: var(--sub); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--indigo); margin: 1.4rem 0 0 1.2rem; line-height: 1.8; clear: both; }
-.about-more { columns: 2; column-gap: 1.6rem; margin-top: 1.8rem; font-size: .86rem; color: var(--indigo); text-align: justify; hyphens: auto; }
+.about-more { columns: 2; column-gap: 1.8rem; margin-top: 1.6rem; font-size: .88rem; color: var(--indigo); }
 .about-more p + p { margin-top: .8rem; }
 .strip { margin: 2rem -.4rem 0; background: #fff; padding: .8rem 1.2rem; font-size: .82rem; color: var(--indigo); box-shadow: 0 4px 10px rgba(0,0,0,.12); }
 .strip .small { display: block; font-size: .95rem; margin-bottom: .2rem; }
@@ -131,8 +131,9 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .brand-logo.mu { background-image: url("images/logos/mu-mark.png"); background-repeat: no-repeat; background-size: 58px auto; background-position: center 50%; }
 .brand-logo.dark { background-color: var(--brown); }
 .entry .meta { font-family: var(--sub); font-weight: 500; font-size: .78rem; color: var(--magenta); margin: .15rem 0 .5rem; line-height: 1.35; }
-.entry ul { padding-left: 1rem; font-size: .8rem; color: var(--indigo); text-align: justify; hyphens: auto; }
-.entry li + li { margin-top: .3rem; }
+.entry ul { padding-left: 1rem; font-size: .82rem; color: var(--indigo); }
+.entry li + li { margin-top: .35rem; }
+.entry li strong { color: var(--magenta); font-weight: 600; }
 .entry li::marker { color: var(--orange); }
 .entry > p:not(.meta) { font-size: .8rem; color: var(--indigo); }
 .links { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-top: .5rem; }
