@@ -160,6 +160,14 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 }
 .btn-link:hover { background: var(--magenta); box-shadow: 0 3px 0 #9c1257; transform: translateY(-1px); }
 .btn-link:active { transform: translateY(2px); box-shadow: 0 1px 0 #9c1257; }
+.btn-link.ghost { background: transparent; color: var(--indigo); border: 2px solid var(--indigo); box-shadow: 0 3px 0 rgba(63,59,198,.35); padding: .5rem 1rem; }
+.btn-link.ghost:hover { background: var(--indigo); color: var(--cream); box-shadow: 0 3px 0 rgba(63,59,198,.35); }
+.btn-link.small-btn { margin-top: 0; padding: .45rem .9rem; font-size: .82rem; }
+/* buttons on the yellow contact note */
+.contact .btn-link { background: var(--indigo); color: var(--cream); box-shadow: 0 3px 0 #2a2790; }
+.contact .btn-link:hover { background: var(--magenta); box-shadow: 0 3px 0 #9c1257; }
+.contact .btn-link.ghost { background: transparent; color: var(--indigo); border-color: var(--indigo); box-shadow: 0 3px 0 rgba(63,59,198,.3); }
+.contact .btn-link.ghost:hover { background: var(--indigo); color: var(--cream); }
 
 /* ---------- AI video (landscape) ---------- */
 .ai { margin-top: 2.4rem; }
@@ -210,7 +218,7 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .contact-note p { font-size: .92rem; color: var(--indigo); }
 .contact-links { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; margin-top: 1rem; font-family: var(--sub); font-weight: 600; }
 .contact .scrawl { text-align: center; margin-top: 1.6rem; }
-footer { margin-top: 2.5rem; display: flex; justify-content: space-between; font-family: var(--hand); font-size: 1rem; color: var(--indigo); }
+footer { margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-family: var(--hand); font-size: 1rem; color: var(--indigo); }
 footer a { text-decoration: none; }
 
 /* ---------- Responsive ---------- */
