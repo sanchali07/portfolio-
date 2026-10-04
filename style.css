@@ -140,6 +140,7 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 /* Masters' Union: the whole lockup (mark + wordmark) centred in the circle */
 .brand-logo.mu { background-image: url("images/logos/mu-mark.png"); background-repeat: no-repeat; background-size: 58px auto; background-position: center 50%; }
 .brand-logo.dark { background-color: var(--brown); }
+.tag-label { display: inline-block; font-family: var(--sub); font-weight: 600; font-size: .68rem; text-transform: uppercase; letter-spacing: .09em; color: var(--cream); background: var(--magenta); padding: .16rem .5rem; border-radius: 3px; margin-bottom: .4rem; }
 .entry .meta { font-family: var(--sub); font-weight: 500; font-size: .78rem; color: var(--magenta); margin: .15rem 0 .5rem; line-height: 1.35; }
 .entry ul { padding-left: 1rem; font-size: .82rem; color: var(--indigo); }
 .entry li + li { margin-top: .35rem; }
