@@ -243,6 +243,7 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 @media (prefers-reduced-motion: reduce) { .blob img { animation: none; } }
 
 .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1rem; align-items: start; }
+.ai-grid .aiv:only-child { grid-column: span 2; }
 .ai-grid.stashed { display: none; }
 .ai-grid .aiv { opacity: 0; transform: translateY(28px) scale(.94); transition: opacity .45s ease, transform .5s cubic-bezier(.2,.85,.3,1); }
 .ai-grid.open .aiv.tilt-l { opacity: 1; transform: rotate(-1.5deg); }
