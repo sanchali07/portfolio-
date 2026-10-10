@@ -101,9 +101,9 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .about .big.oneline { clear: right; white-space: nowrap; font-size: clamp(2.6rem, 11.5vw, 5.4rem); }
 .body-col { color: var(--indigo); font-size: .95rem; max-width: 330px; margin-top: 1.4rem; }
 .body-col.wide { max-width: 520px; }
-.caps-list { list-style: none; font-family: var(--sub); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--indigo); margin: 1.4rem 0 0 1.2rem; line-height: 1.8; clear: both; }
-.about-more { columns: 2; column-gap: 1.8rem; margin-top: 1.6rem; font-size: .88rem; color: var(--indigo); }
-.about-more p + p { margin-top: .8rem; }
+.caps-list { list-style: none; display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font-family: var(--sub); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--indigo); margin: 1.3rem 0 0; clear: both; }
+.about-line { margin-top: 1.4rem; font-size: .92rem; color: var(--indigo); max-width: 620px; }
+
 .strip { margin: 2rem -.4rem 0; background: #fff; padding: .8rem 1.2rem; font-size: .82rem; color: var(--indigo); box-shadow: 0 4px 10px rgba(0,0,0,.12); }
 .strip .small { display: block; font-size: .95rem; margin-bottom: .2rem; }
 
@@ -306,7 +306,6 @@ footer a { text-decoration: none; }
   .entries, .two, .notes { grid-template-columns: 1fr; }
   .notes .note:first-child { grid-column: auto; }
   .shots { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
-  .about-more { columns: 1; }
   .about-photo { float: none; width: min(85%, 320px); margin: 0 0 1rem auto; }
   .hero-note { position: relative; right: auto; top: auto; width: 80%; margin: 0 0 1rem auto; }
   .hero { padding-top: 2rem; }
