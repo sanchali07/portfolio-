@@ -44,49 +44,71 @@ soundButtons.forEach(btn => {
 });
 
 // ---------- Handwriting draw-on ----------
-// Neucha is an outline font, so instead of stroking SVG paths this inks the line
-// character by character with a pen nib riding the end of the text.
+// Neucha is an outline font, so rather than stroking SVG paths this inks the line
+// character by character with a pen nib riding the end of the text. With
+// data-phrases it loops: writes a line, holds, erases, writes the next.
 function setupHandwriting(el) {
-  const text = el.textContent;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const phrases = el.dataset.phrases
+    ? el.dataset.phrases.split('|').map(p => p.trim())
+    : [el.textContent.trim()];
+  const loop = phrases.length > 1;
+
   el.textContent = '';
   el.classList.add('writing');
-
-  const chars = Array.from(text).map(ch => {
-    const span = document.createElement('span');
-    span.className = 'hw-ch';
-    span.textContent = ch === ' ' ? '\u00A0' : ch;
-    el.appendChild(span);
-    return { span, isSpace: ch === ' ' };
-  });
-
+  const ink = document.createElement('span');
+  el.appendChild(ink);
   const nib = document.createElement('span');
   nib.className = 'hw-nib';
   el.appendChild(nib);
 
-  function write() {
+  if (reduce) { ink.textContent = phrases[0]; nib.remove(); return; }
+
+  let p = 0;
+  function place(span) {
     const box = el.getBoundingClientRect();
-    let i = 0;
+    const r = span.getBoundingClientRect();
+    nib.style.transform = 'translate(' + (r.right - box.left) + 'px,' + (r.bottom - box.top) + 'px)';
+  }
+  function write() {
+    const text = phrases[p];
+    const chars = Array.from(text).map(ch => {
+      const s = document.createElement('span');
+      s.className = 'hw-ch inked';
+      s.textContent = ch === ' ' ? '\u00A0' : ch;
+      s.style.opacity = '0';
+      ink.appendChild(s);
+      return { s, space: ch === ' ' };
+    });
     nib.classList.add('on');
+    let i = 0;
     (function step() {
       if (i >= chars.length) {
         nib.classList.remove('on');
-        setTimeout(() => nib.remove(), 260);
+        if (loop) setTimeout(erase, 2200);
+        else setTimeout(() => nib.remove(), 260);
         return;
       }
-      const { span, isSpace } = chars[i];
-      span.classList.add('inked');
-      const r = span.getBoundingClientRect();
-      const top = el.getBoundingClientRect();
-      nib.style.transform = 'translate(' + (r.right - top.left) + 'px,' + (r.bottom - top.top) + 'px)';
+      const { s, space } = chars[i];
+      s.style.opacity = '1';
+      place(s);
       i++;
-      setTimeout(step, isSpace ? 16 : 34);
+      setTimeout(step, space ? 16 : 34);
     })();
   }
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    chars.forEach(c => c.span.classList.add('inked'));
-    nib.remove();
-    return;
+  function erase() {
+    nib.classList.add('on');
+    (function back() {
+      const last = ink.lastElementChild;
+      if (!last) {
+        p = (p + 1) % phrases.length;
+        setTimeout(write, 320);
+        return;
+      }
+      last.remove();
+      if (ink.lastElementChild) place(ink.lastElementChild);
+      setTimeout(back, 16);
+    })();
   }
 
   if (!('IntersectionObserver' in window)) { write(); return; }
@@ -99,6 +121,44 @@ function setupHandwriting(el) {
 }
 
 document.querySelectorAll('.handwrite').forEach(setupHandwriting);
+
+// ---------- Scroll reveal ----------
+(function () {
+  const sel = '.hero-photo, .hero-note, .about-photo, .apps, .strip, .entry, .receipt, .proofs .photo, .shots .photo, .wins .note, .tile, .contact-note, .folder, .blob';
+  const items = Array.from(document.querySelectorAll(sel));
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  items.forEach(el => el.classList.add('rv'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      io.unobserve(entry.target);
+      const group = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('in'), Math.min(group, 5) * 70);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  items.forEach(el => io.observe(el));
+})();
+
+// ---------- Pointer tilt on the big photos ----------
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  document.querySelectorAll('.hero-photo, .about-photo').forEach(card => {
+    const base = getComputedStyle(card).getPropertyValue('--tilt') || '0deg';
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.classList.add('tilting');
+      card.style.transform = 'perspective(900px) rotate(' + base + ') rotateY(' + (x * 7).toFixed(2) + 'deg) rotateX(' + (-y * 7).toFixed(2) + 'deg) translateY(-4px)';
+    });
+    card.addEventListener('pointerleave', () => {
+      card.classList.remove('tilting');
+      card.style.transform = '';
+    });
+  });
+})();
+
 
 // ---------- Collapsible clip drawers (folder + blob) ----------
 function setupDrawer(btnSelector, gridId, openLabel, closeLabel) {
