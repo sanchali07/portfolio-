@@ -66,7 +66,9 @@ Repo: https://github.com/sanchali07/portfolio-
 **May–Jul 2025 · Skincare & dermatology**
 - Marketing creatives across the brand's social platforms.
 - Platform-specific content plans, written and executed.
+- Grew **Teenilicious**, Fixderma's sister brand, and was the face of the brand — https://www.instagram.com/teenilicious.care/
 - Reels: https://www.instagram.com/reel/DKmZUScS_G2/ · https://www.instagram.com/reel/DKuFGnYyngx/
+- Posts: https://www.instagram.com/p/DKw3TlpISgM/ · https://www.instagram.com/p/DMc68-ITgPf/
 
 ### Desh Ki Dukaan — Co-Founder
 **Nov 2023–Jan 2024 · D2C lifestyle e-commerce**
@@ -80,6 +82,11 @@ Repo: https://github.com/sanchali07/portfolio-
 - 1.5M+ reach across the UK, Canada, Egypt, US and Australia with art, fashion and travel content.
 - 1K followers gained in 3 months at 8% engagement.
 - Storytelling and pacing iterated weekly on audience feedback.
+
+### Theater XYZ — Brand collaboration
+**Video**
+- Brand video made in collaboration with Theater XYZ.
+- https://www.instagram.com/reel/DW_PIoKETu7/ · https://www.instagram.com/reel/DUFSeFbEegB/
 
 ### Titanium Protein — Website design & build (self-initiated creative project)
 **2026 · D2C protein brand**
@@ -161,6 +168,11 @@ https://www.youtube.com/watch?v=LuO4_mPJAM0
 | Reel — building the Titanium Protein website | https://www.instagram.com/reel/DdgRl6Wxjgb/ |
 | Reel — Fixderma | https://www.instagram.com/reel/DKmZUScS_G2/ |
 | Reel — Fixderma | https://www.instagram.com/reel/DKuFGnYyngx/ |
+| Teenilicious (sister brand) | https://www.instagram.com/teenilicious.care/ |
+| Post — Teenilicious | https://www.instagram.com/p/DKw3TlpISgM/ |
+| Post — Teenilicious | https://www.instagram.com/p/DMc68-ITgPf/ |
+| Reel — Theater XYZ | https://www.instagram.com/reel/DW_PIoKETu7/ |
+| Reel — Theater XYZ | https://www.instagram.com/reel/DUFSeFbEegB/ |
 | Portfolio repo | https://github.com/sanchali07/portfolio- |
 
 ---
