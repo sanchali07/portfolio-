@@ -66,6 +66,7 @@ Repo: https://github.com/sanchali07/portfolio-
 **May–Jul 2025 · Skincare & dermatology**
 - Marketing creatives across the brand's social platforms.
 - Platform-specific content plans, written and executed.
+- Reels: https://www.instagram.com/reel/DKmZUScS_G2/ · https://www.instagram.com/reel/DKuFGnYyngx/
 
 ### Desh Ki Dukaan — Co-Founder
 **Nov 2023–Jan 2024 · D2C lifestyle e-commerce**
@@ -158,6 +159,8 @@ https://www.youtube.com/watch?v=LuO4_mPJAM0
 | Reel — the spaghetti one (14.4K likes · 324K views) | https://www.instagram.com/reel/DT-UsgijV-m/ |
 | Reel — the dark painting (1,078 likes · 16K views) | https://www.instagram.com/reel/DW_PIoKETu7/ |
 | Reel — building the Titanium Protein website | https://www.instagram.com/reel/DdgRl6Wxjgb/ |
+| Reel — Fixderma | https://www.instagram.com/reel/DKmZUScS_G2/ |
+| Reel — Fixderma | https://www.instagram.com/reel/DKuFGnYyngx/ |
 | Portfolio repo | https://github.com/sanchali07/portfolio- |
 
 ---

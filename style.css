@@ -160,7 +160,14 @@ h2.display { font-size: clamp(2.6rem, 9vw, 4rem); }
 .entry > p:not(.meta) { font-size: .8rem; color: var(--indigo); }
 .links { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-top: .5rem; }
 .links:empty { display: none; }
-.links a { font-family: var(--hand); font-size: 1.05rem; color: var(--magenta); }
+.links a {
+  font-family: var(--sub); font-weight: 600; font-size: .82rem;
+  color: var(--indigo); background: var(--cream);
+  border: 1.5px solid var(--indigo); border-radius: 999px;
+  padding: .3rem .8rem; text-decoration: none;
+  transition: background .15s, color .15s, transform .15s;
+}
+.links a:hover { background: var(--indigo); color: var(--cream); transform: translateY(-2px); }
 .reels { margin-top: 2.2rem; }
 .reels .small { font-size: 1.5rem; }
 /* Folder that the reels pop out of */
