@@ -1,436 +1,1051 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanchali Gupta</title>
-  <meta name="description" content="Sanchali Gupta: brand strategy, campaigns, creative direction and the ads that carry them.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Fredoka:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Neucha&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=34">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sanchali General Store</title>
+<meta name="description" content="Sanchali Gupta: brand strategy, campaigns, content and the ads that carry them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Neucha&family=Permanent+Marker&display=swap">
+<style>
+/* Layout: one long sheet of paper. Hand-drawn shop front on the cover, then each project is an item off the shelf,
+   introduced by a marker heading + a price tag, with its proof inside a torn colour block. */
+:root {
+  color-scheme: light;
+  /* Dunku palette, spread across sections */
+  --paper: #FBFAF6;
+  --paper-2: #F3F0E4;
+  --ink: #1F1915;          /* Kadhai Brown */
+  --ink-soft: #5B5049;
+  --marker: #3F3BC6;       /* Edible Indigo: the pen, all text */
+  --yellow: #FFEE04;       /* Nazar Battu Yellow */
+  --cream: #FDFBE4;        /* Tofu Cream */
+  --zest: #FF7B00;         /* Zesty Tofu: the third colour, for shapes not text */
+  --lemon: #FFF7B0;
+  --indigo-soft: #C9C8F2;
+  --kraft: #E4D7BC;
+  --wood: #7A4E33;
+
+  --f-marker: "Permanent Marker", "Marker Felt", "Comic Sans MS", cursive;
+  --f-hand: "Neucha", "Bradley Hand", "Comic Sans MS", cursive;
+  --f-body: "Merriweather", Georgia, "Times New Roman", serif;
+  --f-mono: "Courier Prime", "Courier New", ui-monospace, monospace;
+
+  --gutter: clamp(1rem, 4vw, 3rem);
+}
+* { box-sizing: border-box; }
+html { font-size: clamp(16px, 0.62vw + 8px, 23px); }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .12  0 0 0 0 .1  0 0 0 0 .08  0 0 0 .06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  color: var(--ink);
+  font: 400 0.9375rem/1.75 var(--f-body);
+  overflow-x: hidden;
+}
+img, video { max-width: 100%; display: block; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 0.1875rem dashed var(--marker); outline-offset: 0.25rem; border-radius: 0.25rem; }
+.page { max-width: 80rem; margin-inline: auto; padding-inline: var(--gutter); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- type ---------- */
+.marker {
+  font-family: var(--f-marker);
+  font-weight: 400;
+  color: var(--marker);
+  text-transform: uppercase;
+  line-height: .95;
+  letter-spacing: .01em;
+  margin: 0;
+  filter: url(#rough-text);
+  text-wrap: balance;
+}
+.hand { font-family: var(--f-hand); color: var(--marker); font-weight: 400; margin: 0; }
+.hand em, .intro em { font-style: normal; color: var(--marker); background: linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%); padding-inline: .1em; }
+h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
+
+/* ---------- top bar ---------- */
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 1.375rem 0; }
+.topbar .hand { font-size: 1.375rem; text-decoration: none; }
+.topbar nav { display: flex; gap: 1.375rem; flex-wrap: wrap; }
+.topbar nav a { font-family: var(--f-hand); font-size: 1.25rem; color: var(--ink); text-decoration: none; background-image: linear-gradient(var(--yellow), var(--yellow)); background-size: 0 40%; background-position: 0 85%; background-repeat: no-repeat; transition: background-size .25s; }
+.topbar nav a:hover { background-size: 100% 40%; }
+
+/* ---------- hero / shop ---------- */
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto 1fr; gap: 0 2.5rem; padding-block: 1.5rem 1.5rem; align-items: start; position: relative; }
+.hero h1 { grid-column: 1; grid-row: 1; font-size: clamp(3rem, 6.9vw, 9.5rem); white-space: nowrap; margin-top: 2.5rem; position: relative; z-index: 1; }
+.hero-text { grid-column: 1; grid-row: 2; }
+.hero .shop-wrap { grid-column: 2; grid-row: 1 / span 2; }
+.intro { font-family: var(--f-hand); color: var(--marker); font-size: clamp(1.3125rem, 2.1vw, 1.5625rem); line-height: 1.32; margin: 1.625rem 0 0; max-width: 26ch; }
+.stocking { margin-top: 1.625rem; font-family: var(--f-hand); font-size: 1.25rem; color: var(--ink-soft); }
+.stocking .cycle { display: block; color: var(--marker); font-size: clamp(1.375rem, 2.3vw, 1.6875rem); min-height: 1.3em; line-height: 1.3; }
+.stocking .cycle span { display: inline-block; clip-path: inset(0 0 0 0); }
+.stocking .cycle span.write { animation: write 1.6s steps(28, end) both; }
+.stocking .cycle span.erase { animation: erase .7s ease-in both; }
+@keyframes write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes erase { from { clip-path: inset(0 0 0 0); } to { clip-path: inset(0 0 0 100%); } }
+
+.shop-wrap { position: relative; width: 100%; max-width: max(20rem, calc((100svh - 17rem) * 1.25)); justify-self: center; }
+.shop { width: 100%; height: auto; overflow: visible; }
+.shop .s { stroke: var(--marker); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.shop .thin { stroke-width: 2.5; }
+.shop .r { filter: url(#rough); }
+.f-paper { fill: var(--paper); } .f-cream { fill: var(--cream); } .f-yellow { fill: var(--yellow); }
+.f-marker { fill: var(--marker); } .f-lemon { fill: var(--lemon); }
+.f-soft { fill: var(--indigo-soft); } .f-zest { fill: var(--zest); } .f-kraft { fill: var(--kraft); }
+.f-ink { fill: var(--ink); } .f-none { fill: none; }
+.shop .slot { fill: none; stroke: var(--marker); stroke-width: 2.5; stroke-dasharray: 7 7; opacity: .55; }
+.shop text { font-family: var(--f-hand); fill: var(--ink); }
+.shop .sign-big { font-family: var(--f-marker); font-size: 2.75rem; fill: var(--marker); letter-spacing: 0.125rem; }
+.shop .sign-small { font-size: 1.1875rem; fill: var(--marker); letter-spacing: 0.125rem; }
+.shop .lbl { font-size: 0.8125rem; }
+.shop .lbl-m { font-family: var(--f-marker); font-size: 0.875rem; }
+.shop .counter-txt { font-size: 1.5625rem; fill: var(--cream); letter-spacing: 1px; }
+.shop .note-txt { font-size: 1.3125rem; fill: var(--marker); }
+.shop .item { cursor: pointer; }
+.shop .item > g { transition: transform .25s cubic-bezier(.3,1.6,.5,1); transform-box: fill-box; transform-origin: 50% 100%; }
+.shop .item:hover > g, .shop .item:focus-visible > g { transform: translateY(-7px) rotate(-3deg); }
+.shop .item:focus-visible { outline: none; }
+.shop .item:focus-visible > g { filter: drop-shadow(0 0 0 var(--marker)); }
+@media (prefers-reduced-motion: no-preference) {
+  .shop .item > g { animation: plonk .6s cubic-bezier(.3,1.5,.5,1) both; animation-delay: calc(var(--i, 0) * 90ms + 200ms); }
+  @keyframes plonk { from { transform: translateY(-16px); } to { transform: none; } }
+}
+
+.legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.125rem; margin-top: 0.25rem; }
+.legend p { margin: 0; font-size: 0.8125rem; line-height: 1.5; text-align: center; }
+.legend b { display: block; font-weight: 700; font-size: 0.84375rem; }
+.arrow { display: block; width: 4rem; height: 5rem; margin: 0 auto 0.25rem; overflow: visible; }
+.arrow { fill: none; stroke: var(--marker); stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
+.arrow use { filter: url(#rough); }
+.arrow.flip { transform: scaleX(-1); }
+.arrow.tilt-l { transform: rotate(18deg); }
+.arrow.tilt-r { transform: scaleX(-1) rotate(18deg); }
+@media (prefers-reduced-motion: no-preference) {
+  .arrow use { stroke-dasharray: 320; stroke-dashoffset: 0; animation: draw 1.1s ease-out both .9s; }
+  @keyframes draw { from { stroke-dashoffset: 320; } to { stroke-dashoffset: 0; } }
+}
+
+.speck { position: absolute; border-radius: 47% 53% 40% 60%; background: var(--marker); opacity: .28; filter: url(#rough-lg); pointer-events: none; }
+
+/* ---------- divider (paper bag) ---------- */
+.divider { display: block; width: 3.625rem; height: 4.25rem; margin: 4.375rem auto; }
+
+/* ---------- about ---------- */
+.about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 2.5rem 4rem; align-items: center; padding-block: 1.875rem; }
+.tag-photo { position: relative; max-width: 26.25rem; margin-inline: auto; width: 100%; }
+.tag-photo svg { width: 100%; height: auto; overflow: visible; display: block; }
+.tag-photo svg path, .tag-photo svg circle { fill: none; stroke: var(--marker); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; filter: url(#rough-lg); }
+.tag-photo img { position: absolute; left: 17%; top: 33%; width: 66%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: 50% 58%; border-radius: 50%; border: 0.375rem solid var(--marker); }
+.tag-photo .tag-note { position: absolute; left: 58%; top: 6%; font-family: var(--f-hand); color: var(--marker); font-size: 1.125rem; line-height: 1.15; transform: rotate(8deg); width: 11em; }
+.about h2 { font-size: clamp(3.25rem, 8vw, 6.25rem); }
+.about-body { display: grid; gap: 1.375rem; margin-top: 1.375rem; }
+.about-body p { margin: 0.375rem 0 0; max-width: 54ch; }
+.apps { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 0.625rem; align-items: center; }
+.apps img { width: 2.375rem; height: 2.375rem; object-fit: contain; border-radius: 0.5625rem; background: #fff; padding: 0.3125rem; box-shadow: 0 0 0 0.125rem var(--ink); }
+.apps .chip { font-family: var(--f-hand); font-size: 1.0625rem; padding: 0.25rem 0.75rem; border-radius: 0.5625rem; box-shadow: 0 0 0 0.125rem var(--ink); background: #fff; line-height: 1.6; }
+.about-foot { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 1.375rem; margin-top: 0.25rem; }
+.about-foot p { font-size: 0.84375rem; line-height: 1.6; overflow-wrap: anywhere; }
+
+/* ---------- in stock (skills) ---------- */
+.stock { padding-block: 2.5rem 0.625rem; text-align: center; }
+.stock .ask { font-size: clamp(1.625rem, 3.4vw, 2.25rem); color: var(--marker); text-align: left; transform: rotate(-3deg); margin-bottom: 0.875rem; }
+.blob { position: relative; isolation: isolate; padding: clamp(2.75rem, 6vw, 5rem) clamp(1.75rem, 7vw, 6.875rem); margin-inline: auto; max-width: 61.25rem; }
+.blob::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--marker); border-radius: 46% 54% 48% 52% / 58% 46% 54% 42%; filter: url(#rough-lg); }
+.blob ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem 2.375rem; }
+.blob li { font-family: var(--f-hand); font-size: clamp(1.25rem, 2.3vw, 1.6875rem); color: var(--cream); line-height: 1.2; }
+.blob li.core { font-family: var(--f-marker); color: var(--marker); background: var(--cream); padding: 1.125rem 2.125rem; border-radius: 52% 48% 55% 45% / 60% 50% 50% 40%; filter: url(#rough); font-size: clamp(1.375rem, 2.6vw, 1.875rem); text-transform: uppercase; }
+.stock .tagline { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--marker); text-align: right; transform: rotate(-2deg); margin-top: 1.125rem; }
+
+/* ---------- the bill ---------- */
+.bill-sec { display: grid; justify-items: center; padding-block: 1.875rem 0.625rem; }
+.receipt-wrap { filter: drop-shadow(0 0.625rem 1.125rem rgba(31,25,21,.14)); transform: rotate(-1.4deg); width: min(100%, 27.5rem); }
+.receipt { --r: #FFFFFF; background: var(--r); position: relative; padding: 2.125rem 1.875rem 1.875rem; font: 400 0.875rem/1.55 var(--f-mono); color: var(--ink); }
+.receipt::before, .receipt::after { content: ""; position: absolute; left: 0; width: 100%; height: 0.75rem;
+  background: linear-gradient(45deg, transparent 33.333%, var(--r) 33.333%, var(--r) 66.667%, transparent 66.667%), linear-gradient(-45deg, transparent 33.333%, var(--r) 33.333%, var(--r) 66.667%, transparent 66.667%);
+  background-size: 1.375rem 2.75rem; }
+.receipt::after { bottom: -12px; background-position: 0 -22px; }
+.receipt::before { top: -12px; background-position: 0 1.375rem; transform: scaleY(-1); }
+.receipt .center { text-align: center; }
+.receipt .store { font-weight: 700; font-size: 1.0625rem; letter-spacing: .08em; }
+.receipt hr { border: 0; border-top: 0.125rem dashed var(--ink); margin: 0.875rem 0; opacity: .6; }
+.receipt .row { display: flex; gap: 0.5rem; align-items: baseline; position: relative; }
+.receipt .row .k { flex: 1 1 auto; min-width: 0; display: flex; gap: 0.375rem; }
+.receipt .row .k::after { content: ""; flex: 1; border-bottom: 0.125rem dotted rgba(31,25,21,.4); transform: translateY(-5px); min-width: 0.75rem; }
+.receipt .row .v { font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.receipt .row + .row { margin-top: 0.375rem; }
+.receipt .total { font-weight: 700; font-size: 1rem; }
+.receipt .barcode { height: 2.875rem; margin: 1rem auto 0.375rem; width: 78%;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 0.125rem, transparent 0.125rem 0.25rem, var(--ink) 0.25rem 0.4375rem, transparent 0.4375rem 0.5625rem, var(--ink) 0.5625rem 0.625rem, transparent 0.625rem 0.8125rem); }
+.scribble { position: absolute; left: calc(100% + 2.875rem); top: -4px; width: 13.125rem; font-family: var(--f-hand); color: var(--marker); font-size: 1.1875rem; line-height: 1.2; transform: rotate(-3deg); font-weight: 400; }
+.scribble svg { position: absolute; left: -50px; top: 0.125rem; width: 2.875rem; height: 1.625rem; overflow: visible; }
+.scribble.l { left: auto; right: calc(100% + 2.875rem); text-align: right; transform: rotate(2deg); }
+.scribble.l svg { left: auto; right: -50px; transform: scaleX(-1); }
+.scribble svg path { fill: none; stroke: var(--marker); stroke-width: 3; stroke-linecap: round; filter: url(#rough); }
+
+/* ---------- logo shelf ---------- */
+.stocked { text-align: center; padding-block: 3.125rem 0; }
+.stocked h3 { font-size: 1.75rem; }
+.logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.125rem 1.625rem; margin-top: 1.125rem; }
+.logos .lg { height: 4.875rem; display: grid; place-items: center; padding: 0.625rem 1rem; background: #fff; border-radius: 0.375rem; box-shadow: 0 0 0 0.125rem var(--ink), 0.25rem 0.3125rem 0 var(--ink); }
+.logos .lg:nth-child(odd) { transform: rotate(-2deg); } .logos .lg:nth-child(even) { transform: rotate(1.5deg); }
+.logos img { height: 3.625rem; width: auto; max-width: 11.875rem; object-fit: contain; }
+.logos .lg.dark { background: #000; }
+.logos .lg.dkd { padding: 0; overflow: hidden; } .logos .lg.dkd img { height: 4.875rem; width: 9.375rem; max-width: none; object-fit: cover; }
+
+/* ---------- projects ---------- */
+.project { padding-top: 0.625rem; }
+.proj-head { text-align: center; position: relative; }
+.proj-head h2 { font-size: clamp(3.5rem, 8.6vw, 6.5rem); display: inline-block; }
+.proj-head h2 .num { font-size: .62em; vertical-align: .05em; margin-left: .18em; }
+.proj-head .sub { font-size: clamp(1.5625rem, 3.4vw, 2.375rem); line-height: 1.1; margin-top: 0.375rem; text-wrap: balance; }
+.price-tag { position: absolute; right: 2%; top: 0.25rem; transform: rotate(7deg); display: inline-flex; flex-direction: column; align-items: flex-start; background: var(--c, var(--yellow)); color: var(--on, var(--ink)); padding: 0.625rem 1.25rem 0.6875rem 2.5rem; clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 1.5rem 100%, 0 50%); font-family: var(--f-marker); font-size: clamp(1.375rem, 2.6vw, 1.875rem); line-height: 1; text-align: left; }
+.price-tag::before { content: ""; position: absolute; left: 1rem; top: 50%; width: 0.625rem; height: 0.625rem; margin-top: -5px; border-radius: 50%; background: var(--paper); box-shadow: inset 0 0 0 0.125rem rgba(31,25,21,.35); }
+.price-tag small { font-family: var(--f-hand); font-size: 0.9375rem; margin-top: 0.3125rem; letter-spacing: .02em; }
+.price-tag.left { right: auto; left: 2%; transform: rotate(-7deg); }
+
+.proj-meta { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 1.75rem 3rem; margin-top: 2.75rem; align-items: start; }
+.proj-meta .desc { margin: 0; font-size: 0.90625rem; }
+.proj-meta p { margin: 0.375rem 0 0; font-size: 0.84375rem; line-height: 1.6; }
+.proj-meta .apps img { width: 2rem; height: 2rem; padding: 0.25rem; }
+
+.ovals { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.875rem 1.375rem; margin-top: 2.25rem; }
+.oval { position: relative; padding: 1.25rem 2.125rem; font-size: 0.8125rem; line-height: 1.45; text-align: center; max-width: 18.125rem; }
+.oval::before { content: ""; position: absolute; inset: 0; border: 0.1875rem solid var(--marker); border-radius: 50%; filter: url(#rough); }
+.oval:nth-child(2) { transform: rotate(-2deg); } .oval:nth-child(3) { transform: rotate(1.5deg); }
+
+.torn { --c: var(--marker); --on: var(--cream); position: relative; background: var(--c); color: var(--on); margin-top: 4.5rem; padding-block: 2.75rem 3.25rem; }
+.torn > svg.edge { position: absolute; left: 0; width: 100%; height: 1.875rem; color: var(--c); fill: currentColor; pointer-events: none; }
+.torn > svg.edge.top { top: -29px; }
+.torn > svg.edge.bottom { bottom: -29px; transform: scaleY(-1); }
+.torn .hand { color: var(--on); }
+.torn[style*="--yellow"] .hand { color: var(--marker); }
+.torn[style*="--zest"] .taped::before { background: rgba(255, 238, 4, .85); }
+.torn a { color: var(--on); }
+
+/* torn block contents */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.cap { font-family: var(--f-hand); font-size: 1.3125rem; line-height: 1.2; margin: 0.625rem 0 0; }
+.notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.note-card { background: var(--cream); color: var(--ink); padding: 1rem 1.125rem 1.125rem; font-size: 0.8125rem; line-height: 1.55; box-shadow: 0.1875rem 0.25rem 0 rgba(31,25,21,.25); }
+.note-card:nth-child(1) { transform: rotate(-1.5deg); } .note-card:nth-child(2) { transform: rotate(1deg); }
+.note-card:nth-child(3) { transform: rotate(.8deg); } .note-card:nth-child(4) { transform: rotate(-1deg); }
+.note-card b { display: block; font-family: var(--f-marker); font-weight: 400; color: var(--marker); font-size: 1.125rem; letter-spacing: .02em; margin-bottom: 0.25rem; }
+.taped { position: relative; background: #fff; padding: 0.625rem; box-shadow: 0.1875rem 0.3125rem 0 rgba(31,25,21,.22); }
+.taped::before { content: ""; position: absolute; top: -12px; left: 50%; width: 5.75rem; height: 1.5rem; margin-left: -46px; background: rgba(255, 123, 0, .72); transform: rotate(-4deg); }
+.taped img { width: 100%; height: auto; }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.125rem; align-items: start; }
+.pair figure { margin: 0; }
+.pair figure:first-child .taped { transform: rotate(-1.5deg); } .pair figure:last-child .taped { transform: rotate(1.5deg); }
+.stickers { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.125rem; }
+.stickers a { font-family: var(--f-hand); font-size: 1.1875rem; text-decoration: none; padding: 0.375rem 0.875rem 0.3125rem; border-radius: 1.875rem; background: var(--paper); color: var(--ink); box-shadow: 0 0 0 0.125rem var(--ink), 0.1875rem 0.1875rem 0 var(--ink); transition: transform .15s; }
+.stickers a:hover { transform: translate(-1px, -2px) rotate(-2deg); }
+.big-link { font-family: var(--f-marker); font-size: clamp(1.875rem, 4.4vw, 3.25rem); line-height: 1; text-decoration: none; display: inline-block; border-bottom: 0.3125rem solid currentColor; padding-bottom: 0.375rem; }
+.big-link:hover { transform: rotate(-2deg); }
+.ticks { list-style: none; padding: 0; margin: 1.375rem 0 0; display: grid; gap: 0.5rem; font-family: var(--f-hand); font-size: 1.375rem; line-height: 1.25; }
+.ticks li::before { content: "✓"; margin-right: 0.625rem; font-family: var(--f-marker); }
+
+/* reels */
+.reels { max-width: calc(3 * 62svh * 9 / 16 + 3.5rem); margin-inline: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; }
+.phone { background: var(--ink); border-radius: 1.625rem; padding: 0.5rem; position: relative; box-shadow: 0.3125rem 0.375rem 0 rgba(31,25,21,.25); }
+.phone video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 1.1875rem; background: #2b2420; }
+.phone .sound { position: absolute; right: 1.125rem; bottom: 1.125rem; font-family: var(--f-hand); font-size: 0.9375rem; color: var(--cream); background: rgba(31,25,21,.62); border: 0; border-radius: 1.25rem; padding: 0.1875rem 0.6875rem; cursor: pointer; }
+.reel-meta { margin-top: 0.75rem; color: var(--on, var(--ink)); }
+.reel-meta .t { font-family: var(--f-hand); font-size: 1.375rem; line-height: 1.15; }
+.reel-meta .n { font-size: 0.78125rem; margin-top: 0.125rem; }
+.reel-meta a { font-size: 0.78125rem; }
+.solo-video { max-width: min(21.25rem, 62svh * 9 / 16); }
+.wide-video { max-width: 35rem; }
+.wide-video .phone video { aspect-ratio: auto; }
+
+/* Instagram reel shown inside the phone frame, cropped to the video */
+.ig-screen { position: relative; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 1.2rem; background: #2b2420; }
+.ig-screen iframe { position: absolute; top: -60px; left: -22.5%; width: 145%; height: calc(102% + 260px); border: 0; }
+
+/* ---------- the wall ---------- */
+.wall-head { text-align: center; }
+.wall-head h2 { font-size: clamp(3.25rem, 8vw, 6.25rem); }
+.wall-head .sub { font-size: clamp(1.4375rem, 3vw, 2rem); margin-top: 0.375rem; }
+.frames { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.125rem 1.625rem; margin-top: 3.375rem; }
+.frame { position: relative; background: var(--paper-2); border: 0.6875rem solid var(--wood); box-shadow: inset 0 0 0 0.375rem var(--cream), 0.25rem 0.375rem 0 rgba(31,25,21,.2); padding: 1.375rem 1.125rem 1.25rem; text-align: center; }
+.frame::before { content: ""; position: absolute; top: -30px; left: 50%; width: 0.625rem; height: 0.625rem; margin-left: -5px; border-radius: 50%; background: var(--ink); }
+.frame::after { content: ""; position: absolute; top: -26px; left: 50%; width: 60%; height: 1.375rem; transform: translateX(-50%); border-top: 0.125rem solid var(--ink); border-left: 0.125rem solid var(--ink); border-right: 0.125rem solid var(--ink); border-radius: 50% 50% 0 0 / 100% 100% 0 0; opacity: .5; z-index: -1; }
+.frame:nth-child(odd) { transform: rotate(-1.4deg); } .frame:nth-child(even) { transform: rotate(1.2deg); }
+.frame .big { font-family: var(--f-marker); color: var(--marker); font-size: 1.875rem; line-height: 1.05; }
+.frame .what { font-weight: 700; font-size: 0.8125rem; line-height: 1.45; margin-top: 0.625rem; }
+.frame .why { font-size: 0.78125rem; line-height: 1.5; margin-top: 0.375rem; color: var(--ink-soft); }
+.ground { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr); gap: 1.25rem 2.5rem; margin-top: 3.75rem; align-items: start; }
+.ground h3 { font-size: 1.875rem; color: var(--marker); transform: rotate(-3deg); }
+.ground p { margin: 0; font-size: 0.84375rem; }
+.ground b { font-family: var(--f-hand); font-weight: 400; font-size: 1.375rem; color: var(--marker); display: block; line-height: 1.2; }
+
+/* ---------- order / contact ---------- */
+.order { text-align: center; padding-block: 1.25rem 0; }
+.order h2 { font-size: clamp(3.25rem, 8vw, 6.25rem); }
+.order .sub { font-size: clamp(1.4375rem, 3vw, 2rem); margin-top: 0.375rem; }
+.order-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.25rem; align-items: end; margin-top: 2.5rem; }
+.order-grid .bag { width: min(100%, 15.625rem); height: auto; margin-inline: auto; display: block; overflow: visible; }
+.order-col { display: grid; justify-items: center; gap: 0.25rem; }
+.order-col .arrow { width: 5rem; height: 6rem; }
+.order-col .val { font-size: 0.9375rem; }
+.order-col .val a { text-decoration: none; border-bottom: 0.125rem solid var(--yellow); }
+.order-col .lbl { font-family: var(--f-hand); color: var(--marker); font-size: 1.4375rem; }
+.copy { font-family: var(--f-hand); font-size: 1.0625rem; border: 0; background: var(--zest); color: var(--ink); border-radius: 1.25rem; padding: 0.125rem 0.875rem; margin-top: 0.375rem; cursor: pointer; }
+.order-mid { display: grid; justify-items: center; gap: 0.25rem; }
+.status { display: inline-block; margin-top: 2.5rem; font-family: var(--f-hand); font-size: 1.375rem; color: var(--ink); background: var(--yellow); padding: 0.375rem 1.125rem; transform: rotate(-1.5deg); }
+
+/* ---------- closing ---------- */
+.bye { text-align: center; padding-block: 6.25rem 2.5rem; }
+.bye h2 { font-size: clamp(4rem, 11vw, 8.75rem); }
+.bye .hand { font-size: 1.5rem; margin-top: 0.25rem; color: var(--marker); }
+.shutter { width: min(100%, 35rem); height: auto; margin: 0.625rem auto 0; display: block; overflow: visible; }
+.shutter { fill: none; stroke: var(--marker); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.shutter g { filter: url(#rough); }
+footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padding-block: 1.875rem 2.5rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .frames { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .scribble { position: static; display: block; width: auto; margin: 0.125rem 0 0.375rem; transform: none; font-size: 1.0625rem; }
+  .scribble svg { display: none; }
+  .receipt .row { flex-wrap: wrap; }
+  .receipt .row .k { flex: 1 1 0; }
+  .receipt .row .scribble { flex-basis: 100%; }
+}
+@media (max-width: 820px) {
+  .hero, .about, .split, .pair { grid-template-columns: minmax(0, 1fr); }
+  .hero h1 { grid-column: 1; grid-row: auto; font-size: clamp(2.75rem, 13.5vw, 10.5rem); white-space: normal; margin-top: 0.625rem; }
+  .hero-text, .hero .shop-wrap { grid-column: 1; grid-row: auto; }
+  .hero .shop-wrap { margin-top: 2rem; }
+  .intro { max-width: none; }
+  .about-foot { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .proj-meta { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .proj-meta .desc { grid-column: 1 / -1; }
+  .price-tag, .price-tag.left { position: relative; right: auto; left: auto; top: auto; display: flex; width: fit-content; margin: 1.125rem auto 0; transform: rotate(-3deg); }
+  .proj-head { display: flex; flex-direction: column; align-items: center; }
+  .reels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ground { grid-template-columns: minmax(0, 1fr); }
+  .order-grid { grid-template-columns: minmax(0, 1fr); align-items: center; }
+  .order-grid .order-mid { order: -1; }
+  .order-col .arrow { display: none; }
+}
+@media (max-width: 560px) {
+  .legend { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .legend .arrow { display: none; }
+  .legend p { text-align: left; border-left: 0.1875rem solid var(--marker); padding-left: 0.75rem; }
+  .notes, .reels, .frames, .about-foot, .proj-meta { grid-template-columns: minmax(0, 1fr); }
+  .blob { padding-inline: 1.375rem; }
+  .receipt { padding-inline: 1.25rem; font-size: 0.8125rem; }
+  .blob::before { border-radius: 2.75rem 3.75rem 3.125rem 4.375rem / 3.75rem 2.75rem 4.375rem 3.125rem; }
+  .blob ul { gap: 0.625rem 1.375rem; }
+  .topbar nav { gap: 0.875rem; }
+  .divider { margin: 3.125rem auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .stocking .cycle span { animation: none !important; }
+}
+</style>
 </head>
 <body>
-<svg class="defs" aria-hidden="true"><filter id="liquid" x="-20%" y="-20%" width="140%" height="140%">
-  <feTurbulence type="fractalNoise" baseFrequency="0.013 0.022" numOctaves="2" seed="7" result="noise">
-    <animate attributeName="baseFrequency" dur="13s" values="0.013 0.022;0.024 0.012;0.016 0.026;0.013 0.022" repeatCount="indefinite"/>
-  </feTurbulence>
-  <feDisplacementMap in="SourceGraphic" in2="noise" xChannelSelector="R" yChannelSelector="G" result="disp">
-    <animate attributeName="scale" dur="9s" values="10;20;12;18;10" repeatCount="indefinite"/>
-  </feDisplacementMap>
-</filter><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .12 0"/><feComposite operator="in" in2="SourceGraphic"/><feBlend in2="SourceGraphic" mode="multiply"/></filter></svg>
 
-<main class="page">
+<!-- shared drawing defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough-lg" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="9" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough-text" x="-5%" y="-10%" width="110%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <symbol id="edge" viewBox="0 0 1000 40" preserveAspectRatio="none">
+      <path d="M0,40 L0,24 C40,10 80,30 130,20 S220,6 270,18 S360,34 420,22 S520,4 580,16 S680,32 740,20 S840,6 890,18 S960,28 1000,14 L1000,40 Z"/>
+    </symbol>
+    <symbol id="bag" viewBox="0 0 60 72">
+      <g style="filter:url(#rough)">
+        <circle cx="30" cy="21" r="10" fill="#FF7B00" stroke="#3F3BC6" stroke-width="2.5"/>
+        <path d="M27,11 C28,6 33,5 35,7" fill="none" stroke="#3F3BC6" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M9,26 L51,26 L55,68 L5,68 Z" fill="#E4D7BC" stroke="#3F3BC6" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M9,26 L13,33 L47,33 L51,26" fill="none" stroke="#3F3BC6" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M22,40 C22,48 38,48 38,40" fill="none" stroke="#3F3BC6" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+    </symbol>
+    <symbol id="arrow-down" viewBox="0 0 80 100">
+      <path d="M52,4 C26,14 18,38 36,48 C50,56 56,40 44,36 C30,32 24,56 34,74 C38,82 40,88 38,95"/>
+      <path d="M27,85 L38,96 L48,84"/>
+    </symbol>
+  </defs>
+</svg>
 
-  <!-- ============ HERO ============ -->
-  <section class="paper hero" id="top">
-    <!-- PHOTO SLOT 1 (wide): replace the .img div with <img src="images/…" alt="…"> -->
-    <figure class="photo tilt-l hero-photo">
-      <img src="images/hero-stairs.jpg" alt="Sanchali Gupta on a red staircase holding a bouquet, standing among cut-out figures">
-      <div class="name display">Sanchali<br>Gupta</div>
-    </figure>
-    <div class="note yellow tilt-r hero-note">
-      <span class="clip" aria-hidden="true"></span>
-      <span class="small">Brand</span>
-      <span class="display">Portfolio</span>
-      <span class="yr">2026</span>
-    </div>
-    <p class="scrawl hero-tag handwrite" data-phrases="strategy, story, and everything in between.|brands, ads, and the ideas behind them.|i make people feel something about brands."></p>
-  </section>
+<div class="page topbar">
+  <a class="hand" href="#top">Sanchali General Store</a>
+  <nav aria-label="Sections">
+    <a href="#shelf">The shelf</a>
+    <a href="#bill">The bill</a>
+    <a href="#wall">The wall</a>
+    <a href="#order">Place an order</a>
+  </nav>
+</div>
 
+<!-- ================= COVER ================= -->
+<header class="page hero" id="top">
+  <span class="speck" style="width:22px;height:18px;left:-6px;top:120px" aria-hidden="true"></span>
+  <span class="speck" style="width:12px;height:10px;left:2%;top:420px" aria-hidden="true"></span>
+  <span class="speck" style="width:34px;height:28px;right:4px;top:30px;opacity:.2" aria-hidden="true"></span>
 
-  <!-- ============ BRAND STRIP ============ -->
-  <section class="brandbar" aria-label="Brands I've worked with">
-    <p class="bar-label">brands I've worked with</p>
-    <ul class="bar-logos">
-      <li><span class="brand-logo"><img src="images/logos/hyeglo.png" alt=""></span>Hyeglo Beauty</li>
-      <li><span class="brand-logo fx"><img src="images/logos/fixderma.svg" alt=""></span>Fixderma</li>
-      <li><span class="brand-logo"><img src="images/logos/desh-ki-dukaan.webp" alt=""></span>Desh Ki Dukaan</li>
-      <li><span class="brand-logo dark mu" role="img" aria-label="Masters' Union"></span>Masters' Union</li>
-      <li><span class="brand-logo ti-chip">T</span>Teenilicious</li>
-      <li><span class="brand-logo ti-chip">TX</span>Theater XYZ</li>
-      <li><span class="brand-logo ti-chip">Ti</span>Titanium Protein</li>
-    </ul>
-    <ul class="bar-stats">
-      <li><strong>₹20L+</strong><span>revenue driven</span></li>
-      <li><strong>₹7</strong><span>lowest CAC</span></li>
-      <li><strong>1.5M+</strong><span>content reach</span></li>
-      <li><strong>324K</strong><span>views, top reel</span></li>
-    </ul>
-  </section>
-
-  <!-- ============ WORK ============ -->
-  <section class="bg bg-orange" id="work">
-    <div class="panel tilt-l">
-      <h2 class="display">Work</h2>
-      <div class="entries">
-        <article class="entry">
-          <h3 class="small"><span class="brand-logo"><img src="images/logos/hyeglo.png" alt="Hyeglo Beauty logo"></span>Hyeglo Beauty</h3>
-          <p class="meta">Founder's Office Intern · Apr–Jun 2026 · KAT Brands · India's first intelligent beauty brand</p>
-          <ul>
-            <li><strong>Brand strategy and content end to end</strong> — website revamp briefs, PDP redesigns, product copy.</li>
-            <li><strong>3-tier creator community</strong> built from scratch, plus partnership outreach for retail and pop-ups.</li>
-            <li><strong>Pop-up run end to end</strong> — planned, arranged and every asset designed.</li>
-          </ul>
-          <div class="links" data-links="hyeglo"></div>
-        </article>
-        <article class="entry">
-          <h3 class="small"><span class="brand-logo fx"><img src="images/logos/fixderma.svg" alt="Fixderma logo"></span>Fixderma</h3>
-          <p class="meta">Marketing &amp; Social Media Intern · May–Jul 2025 · Skincare</p>
-          <ul>
-            <li><strong>Marketing creatives</strong> and platform-specific content plans across social.</li>
-            <li><strong>Grew Teenilicious</strong>, Fixderma's sister brand — and was the face of the brand.</li>
-          </ul>
-          <div class="links">
-            <a href="https://www.instagram.com/reel/DKmZUScS_G2/" target="_blank" rel="noopener">reel <span aria-hidden="true">↗</span></a>
-            <a href="https://www.instagram.com/reel/DKuFGnYyngx/" target="_blank" rel="noopener">reel <span aria-hidden="true">↗</span></a>
-            <a href="https://www.instagram.com/teenilicious.care/" target="_blank" rel="noopener">@teenilicious.care <span aria-hidden="true">↗</span></a>
-            <a href="https://www.instagram.com/p/DKw3TlpISgM/" target="_blank" rel="noopener">post <span aria-hidden="true">↗</span></a>
-            <a href="https://www.instagram.com/p/DMc68-ITgPf/" target="_blank" rel="noopener">post <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="entry">
-          <h3 class="small"><span class="brand-logo"><img src="images/logos/desh-ki-dukaan.webp" alt="Desh Ki Dukaan logo"></span>Desh Ki Dukaan</h3>
-          <p class="meta">Co-Founder · Nov 2023–Jan 2024 · D2C lifestyle e-commerce</p>
-          <ul>
-            <li><strong>₹20L+ revenue</strong> in 3 months.</li>
-            <li><strong>₹7 CAC</strong>, lowest of every competing team.</li>
-            <li><strong>RTO 60% → 30%</strong>.</li>
-          </ul>
-          <a class="btn-link ghost" href="#case-study">Read the full story <span aria-hidden="true">↓</span></a>
-        </article>
-        <article class="entry">
-          <h3 class="small"><span class="brand-logo dark mu" role="img" aria-label="Masters' Union logo"></span>Masters' Union</h3>
-          <p class="meta">Content Creation Challenge · Nov 2024–Jan 2025</p>
-          <ul>
-            <li><strong>1.5M+ reach</strong> across 5 countries.</li>
-            <li><strong>1K followers</strong> in 3 months at 8% engagement.</li>
-          </ul>
-          <div class="links" data-links="content"></div>
-        </article>
-        <article class="entry">
-          <h3 class="small"><span class="brand-logo mono tx">TX</span>Theater XYZ</h3>
-          <p class="meta">Brand collaboration · video</p>
-          <ul>
-            <li><strong>Brand video</strong> made in collaboration with Theater XYZ.</li>
-          </ul>
-          <div class="links">
-            <a href="https://www.instagram.com/reel/DW_PIoKETu7/" target="_blank" rel="noopener">watch it <span aria-hidden="true">↗</span></a>
-            <a href="https://www.instagram.com/reel/DUFSeFbEegB/" target="_blank" rel="noopener">and this <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-        <article class="entry">
-          <h3 class="small">Titanium Protein</h3>
-          <p class="tag-label">Creative project</p>
-          <p class="meta">Website design &amp; build · 2026 · D2C protein brand</p>
-          <ul>
-            <li><strong>Designed and built end to end</strong> — structure, copy, visuals, run-club invite flow.</li>
-          </ul>
-          <a class="btn-link" href="https://sanchali07.github.io/titanium-protein/" target="_blank" rel="noopener">See the website <span aria-hidden="true">↗</span></a>
-        </article>
-      </div>
-      <!-- AI VIDEO & AD CREATION. To add more clips, copy the figure below and point it at
-           videos/ai-2.mp4, ai-3.mp4 and so on. -->
-      <div class="ai">
-        <h3 class="small">Eating AI up before it eats me up</h3>
-        <p class="scrawl">AI video &amp; ad creation · Higgsfield · Runway workflows · Google Veo · Google Flow · Seedance 2.0 · ElevenLabs</p>
-        <button class="blob" type="button" aria-expanded="false" aria-controls="ai-grid">
-          <img src="images/ai-blob.webp" alt="">
-          <span class="folder-label">poke it to open</span>
-        </button>
-        <div class="ai-grid stashed" id="ai-grid">
-          <figure class="photo tilt-l aiv">
-            <span class="clip" aria-hidden="true"></span>
-            <div class="ai-video">
-              <video src="videos/ai-1.mp4" muted loop playsinline preload="none"></video>
-              <span class="ig-fallback">video coming</span>
-              <button class="ig-sound" type="button" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M17 9l5 5M22 9l-5 5"/></svg></button>
-            </div>
-            <figcaption>
-              <strong>Enheal · AI-generated pre-launch ad · made with Google Veo, voice-over by ElevenLabs</strong>
-              <span class="fig-body">
-                A joint-health nutraceutical. Pre-launch ad for a Cambodian audience: shift workers 40+ in jobs that are hard on the joints.
-              </span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <!-- AD CREATIVES. Drop the exported reels in as videos/reel-1.mp4, reel-2.mp4, reel-3.mp4
-           (Instagram: reel → ⋯ → Download). Until a file exists, the frame shows a link to the reel. -->
-      <div class="reels">
-        <h3 class="small">But honestly, human-made hits harder</h3>
-        <p class="scrawl">ad creatives · four of my favourites, playing</p>
-        <button class="folder" type="button" aria-expanded="false" aria-controls="reel-grid">
-          <img src="images/folder.png" alt="">
-          <span class="folder-label">open the folder</span>
-        </button>
-        <div class="reel-grid stashed" id="reel-grid">
-          <figure class="photo tilt-r reel">
-            <span class="clip" aria-hidden="true"></span>
-            <div class="ig">
-              <div class="ig-head"><span class="ig-avatar"><img src="images/ig-avatar.webp" alt="" onerror="this.remove()">S</span><span class="ig-user">sanchaligupta_</span></div>
-              <a class="ig-video" href="https://www.instagram.com/p/DdlWwkLRiuZ/" target="_blank" rel="noopener" aria-label="Open this reel on Instagram">
-                <video src="videos/reel-0.mp4" muted loop playsinline preload="none"></video>
-                <span class="ig-fallback">video coming</span>
-              </a>
-              <button class="ig-sound" type="button" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M17 9l5 5M22 9l-5 5"/></svg></button>
-              <div class="ig-foot">
-                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8 3.4 4.5 6.9 4.5c2 0 3.4 1.1 4.1 2.2.7-1.1 2.1-2.2 4.1-2.2 3.5 0 5.9 3.5 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 3C6.9 3 3 6.6 3 11c0 2.3 1.1 4.4 2.9 5.9L5 21l4.3-1.7c.9.2 1.8.3 2.7.3 5.1 0 9-3.6 9-8S17.1 3 12 3z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7.5 2.5L13 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="right"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="logo"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
-              </div>
-              <p class="ig-cap">learning how to swim</p>
-            </div>
-          </figure>
-          <figure class="photo tilt-l reel">
-            <span class="clip" aria-hidden="true"></span>
-            <div class="ig">
-              <div class="ig-head"><span class="ig-avatar"><img src="images/ig-avatar.webp" alt="" onerror="this.remove()">S</span><span class="ig-user">sanchaligupta_</span></div>
-              <a class="ig-video" href="https://www.instagram.com/reel/DT-UsgijV-m/" target="_blank" rel="noopener" aria-label="Open this reel on Instagram">
-                <video src="videos/reel-1.mp4" muted loop playsinline preload="none"></video>
-                <span class="ig-fallback">video coming · watch on Instagram ↗</span>
-              </a>
-              <button class="ig-sound" type="button" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M17 9l5 5M22 9l-5 5"/></svg></button>
-              <div class="ig-foot">
-                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8 3.4 4.5 6.9 4.5c2 0 3.4 1.1 4.1 2.2.7-1.1 2.1-2.2 4.1-2.2 3.5 0 5.9 3.5 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 3C6.9 3 3 6.6 3 11c0 2.3 1.1 4.4 2.9 5.9L5 21l4.3-1.7c.9.2 1.8.3 2.7.3 5.1 0 9-3.6 9-8S17.1 3 12 3z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7.5 2.5L13 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="right"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="logo"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
-              </div>
-              <p class="ig-stats"><strong>14.4K likes</strong> · 324K views</p>
-              <p class="ig-cap">shot &amp; cut: the spaghetti one</p>
-            </div>
-          </figure>
-          <figure class="photo tilt-r reel">
-            <span class="clip" aria-hidden="true"></span>
-            <div class="ig">
-              <div class="ig-head"><span class="ig-avatar"><img src="images/ig-avatar.webp" alt="" onerror="this.remove()">S</span><span class="ig-user">sanchaligupta_</span></div>
-              <a class="ig-video" href="https://www.instagram.com/reel/DW_PIoKETu7/" target="_blank" rel="noopener" aria-label="Open this reel on Instagram">
-                <video src="videos/reel-2.mp4" muted loop playsinline preload="none"></video>
-                <span class="ig-fallback">video coming · watch on Instagram ↗</span>
-              </a>
-              <button class="ig-sound" type="button" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M17 9l5 5M22 9l-5 5"/></svg></button>
-              <div class="ig-foot">
-                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8 3.4 4.5 6.9 4.5c2 0 3.4 1.1 4.1 2.2.7-1.1 2.1-2.2 4.1-2.2 3.5 0 5.9 3.5 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 3C6.9 3 3 6.6 3 11c0 2.3 1.1 4.4 2.9 5.9L5 21l4.3-1.7c.9.2 1.8.3 2.7.3 5.1 0 9-3.6 9-8S17.1 3 12 3z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7.5 2.5L13 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="right"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="logo"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
-              </div>
-              <p class="ig-stats"><strong>1,078 likes</strong> · 16K views</p>
-              <p class="ig-cap">the dark painting</p>
-            </div>
-          </figure>
-          <figure class="photo tilt-l reel">
-            <span class="clip" aria-hidden="true"></span>
-            <div class="ig">
-              <div class="ig-head"><span class="ig-avatar"><img src="images/ig-avatar.webp" alt="" onerror="this.remove()">S</span><span class="ig-user">theothergupta</span></div>
-              <a class="ig-video" href="https://www.instagram.com/reel/DdgRl6Wxjgb/" target="_blank" rel="noopener" aria-label="Open this reel on Instagram">
-                <video src="videos/reel-3.mp4" muted loop playsinline preload="none"></video>
-                <span class="ig-fallback">video coming · watch on Instagram ↗</span>
-              </a>
-              <button class="ig-sound" type="button" aria-label="Turn sound on" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M17 9l5 5M22 9l-5 5"/></svg></button>
-              <div class="ig-foot">
-                <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8 3.4 4.5 6.9 4.5c2 0 3.4 1.1 4.1 2.2.7-1.1 2.1-2.2 4.1-2.2 3.5 0 5.9 3.5 4.4 7.3C19.5 16.4 12 21 12 21z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M12 3C6.9 3 3 6.6 3 11c0 2.3 1.1 4.4 2.9 5.9L5 21l4.3-1.7c.9.2 1.8.3 2.7.3 5.1 0 9-3.6 9-8S17.1 3 12 3z"/></svg>
-                <svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l7.5 2.5L13 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="right"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
-                <svg viewBox="0 0 24 24" class="logo"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
-              </div>
-              <p class="ig-cap">building the Titanium Protein website</p>
-            </div>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CASE STUDY ============ -->
-  <section class="paper case" id="case-study">
-    <span class="small yr-mark">Case study</span>
-    <h2 class="display big">₹20 lakh<br><span>in 3 months</span></h2>
-    <p class="body-col wide">One Shopify store, built in a college dropshipping term. Here's how it went.</p>
-    <div class="receipt tilt-r">
-      <span class="clip" aria-hidden="true"></span>
-      <p class="r-head">Desh Ki Dukaan<br><span>Nov 2023 – Jan 2024</span></p>
-      <ol>
-        <li><span>Day 0 to 4</span> Shopify store live, Meta Ads running. ₹6L in four days.</li>
-        <li><span>Day 5</span> ₹1L a day, creative and offer iterated daily on live data.</li>
-        <li><span>Weeks 2 to 4</span> RTO was eating 60% of margin. Cut spend on bad pincodes, brought it to 30%.</li>
-        <li><span>Month 3</span> ₹20L+ revenue at a ₹7 CAC, the lowest of every team.</li>
-      </ol>
-      <p class="r-total"><span>Revenue</span> ₹20L+<br><span>CAC</span> ₹7<br><span>RTO</span> 60% → 30%</p>
-      <div class="links" data-links="dkd"></div>
-    </div>
-
-    <p class="scrawl proof-head handwrite">the proof</p>
-    <div class="proofs">
-      <figure class="photo tilt-l">
-        <span class="clip" aria-hidden="true"></span>
-        <img src="images/mu-dropshipping.png" alt="Masters' Union course card: 0 to ₹1Cr+ in 90 days. Build a ₹1Cr+ E-Commerce Business in Term 1. From branding to accounting, students learn how to build and scale dropshipping businesses.">
-        <figcaption>the cohort: 0 → ₹1Cr+ in 90 days</figcaption>
-      </figure>
-      <figure class="photo tilt-r yt">
-        <span class="clip" aria-hidden="true"></span>
-        <div class="yt-frame">
-          <iframe src="https://www.youtube-nocookie.com/embed/LuO4_mPJAM0" title="Build a ₹1Cr+ E-Commerce Business in Term 1, Masters' Union" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-        <figcaption>the term where Desh Ki Dukaan was built</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ KIND WORDS ============ -->
-  <section class="bg bg-teal" id="kind-words">
-    <div class="panel tilt-r">
-      <h2 class="display">Kind words</h2>
-      <p class="scrawl">straight from the chats</p>
-      <div class="shots">
-        <figure class="photo tilt-l">
-          <span class="clip" aria-hidden="true"></span>
-          <img src="images/hyeglo-whatsapp.webp" alt="WhatsApp message from the founder of Hyeglo Beauty: Thanks Sanchali for today. You did a great job and loved the energy! So glad with what we achieved! So much love, you were very cool with people who came in. Good stuff." loading="lazy">
-          <figcaption>Founder, Hyeglo Beauty · after the pop-up</figcaption>
-        </figure>
-        <figure class="photo tilt-r">
-          <span class="clip" aria-hidden="true"></span>
-          <img src="images/hyeglo-story.webp" alt="Instagram story reply from the founder of Hyeglo Beauty on the hyeglobeauty.com launch: Great job!!" loading="lazy">
-          <figcaption>Founder, Hyeglo Beauty · the website launch</figcaption>
-        </figure>
-        <figure class="photo tilt-l">
-          <span class="clip" aria-hidden="true"></span>
-          <img src="images/fixderma-message.webp" alt="Message from the Fixderma team: Fd will miss the enthusiasm and brightness you got to the office! Take care, intern, stay in touch!!" loading="lazy">
-          <figcaption>Fixderma team · last day of the internship</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WINS ============ -->
-  <section class="paper wins" id="wins">
-    <h2 class="display">Wins</h2>
-    <div class="notes">
-      <div class="note yellow tilt-l">
-        <span class="clip" aria-hidden="true"></span>
-        <span class="small">Feb 2024</span>
-        <h3>2nd place, Microsoft Gen-AI Hackathon</h3>
-        <p>Microsoft × Masters' Union · ₹15,000 prize. An AI mental-health platform scoring wellbeing 1–10 for early diagnosis and personalised intervention.</p>
-      </div>
-      <div class="note white tilt-r">
-        <span class="small">2019 to 20</span>
-        <h3>Swachh Bharat Art Excellence Award</h3>
-        <p>State-level winner.</p>
-      </div>
-      <div class="note white tilt-l">
-        <span class="small">School</span>
-        <h3>Art &amp; Design, state and national level</h3>
-        <p>Grade A in Visual Arts · Top 5 in batch for extra-curriculars.</p>
-      </div>
-      <div class="note magenta tilt-r">
-        <span class="small">Featured</span>
-        <h3>Masters' Union Dropshipping Magazine</h3>
-        <p>For Desh Ki Dukaan's lowest CAC.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ABOUT ============ -->
-  <section class="paper about closing" id="about">
-    <!-- PHOTO SLOT 2 (portrait) -->
-    <figure class="photo tilt-r about-photo">
-      <span class="clip" aria-hidden="true"></span>
-      <img src="images/sanchali-portrait.webp" alt="Sanchali Gupta sitting on a boat in an orange and cream patterned vest, sea and green headland behind her">
-    </figure>
-    <h1 class="display big oneline">I'm Sanchali</h1>
-    <p class="body-col">
-      I shape how a brand looks, sounds and sells — positioning, campaigns,
-      creative direction and the ads that carry them.
+  <h1 class="marker">Portfolio</h1>
+  <div class="hero-text">
+    <p class="intro">Hi, this is <em>Sanchali</em>.<br>
+      Welcome to my <em>store</em>.<br>
+      Everything on these shelves was made to <em>sell</em>: brands, ads, and the ideas behind them.<br>
+      Come in, look around.<br>
+      No bargaining ;)</p>
+    <p class="stocking">currently stocking:
+      <span class="cycle" aria-live="off"><span>strategy, story, and everything in between.</span></span>
     </p>
-    <ul class="caps-list">
+  </div>
+
+  <div class="shop-wrap" id="shelf">
+    <svg class="shop" viewBox="0 0 700 560" role="img" aria-labelledby="shopTitle">
+      <title id="shopTitle">A hand-drawn shop front, Sanchali General Store. Each project is an item on the shelves.</title>
+
+      <!-- shop body + counter -->
+      <g class="r">
+        <rect class="s f-paper" x="80" y="176" width="480" height="350"/>
+        <rect class="s f-cream" x="110" y="206" width="420" height="226"/>
+        <rect class="s thin f-marker" x="110" y="278" width="420" height="7"/>
+        <rect class="s thin f-marker" x="110" y="354" width="420" height="7"/>
+        <rect class="s f-marker" x="80" y="432" width="480" height="94"/>
+        <path class="s f-none" d="M20,528 C200,522 420,532 690,526"/>
+      </g>
+      <text class="counter-txt" x="320" y="488" text-anchor="middle">brands · ads · content</text>
+
+      <!-- awning -->
+      <clipPath id="awn"><path d="M90,116 L550,116 L580,176 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 Z"/></clipPath>
+      <g class="r">
+        <g clip-path="url(#awn)">
+          <polygon class="f-zest" points="90,116 147.5,116 117.5,196 50,196"/>
+          <polygon class="f-cream" points="147.5,116 205,116 185,196 117.5,196"/>
+          <polygon class="f-zest" points="205,116 262.5,116 252.5,196 185,196"/>
+          <polygon class="f-cream" points="262.5,116 320,116 320,196 252.5,196"/>
+          <polygon class="f-zest" points="320,116 377.5,116 387.5,196 320,196"/>
+          <polygon class="f-cream" points="377.5,116 435,116 455,196 387.5,196"/>
+          <polygon class="f-zest" points="435,116 492.5,116 522.5,196 455,196"/>
+          <polygon class="f-cream" points="492.5,116 550,116 590,196 522.5,196"/>
+        </g>
+        <path class="s f-none" d="M90,116 L550,116 L580,176 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 a32.5,20 0 0 1 -65,0 Z"/>
+        <!-- sign -->
+        <line class="s thin" x1="160" y1="102" x2="160" y2="116"/>
+        <line class="s thin" x1="480" y1="102" x2="480" y2="116"/>
+        <rect class="s f-yellow" x="110" y="16" width="420" height="88" rx="6"/>
+      </g>
+      <text class="sign-big" x="320" y="64" text-anchor="middle">SANCHALI</text>
+      <text class="sign-small" x="320" y="91" text-anchor="middle">GENERAL STORE · EST. 2023</text>
+
+      <!-- shelf 1 -->
+      <a class="item" href="#dkd" transform="translate(150 0)" style="--i:0"><title>Desh Ki Dukaan: ₹20 lakh in 3 months</title>
+        <g><g class="r">
+          <rect class="s thin f-zest" x="132" y="214" width="46" height="14" rx="3"/>
+          <rect class="s thin f-yellow" x="127" y="228" width="56" height="50" rx="9"/>
+          <rect class="f-paper" x="136" y="240" width="38" height="22" rx="2"/>
+        </g>
+        <text class="lbl-m" x="155" y="257" text-anchor="middle" style="fill:var(--marker)">DKD</text></g>
+      </a>
+      <a class="item" href="#hyeglo" transform="translate(-78 0)" style="--i:1"><title>Hyeglo Beauty: Founder's Office</title>
+        <g><g class="r">
+          <path class="s thin f-none" d="M233,222 L233,206 L247,206"/>
+          <rect class="s thin f-ink" x="226" y="220" width="14" height="10" rx="2"/>
+          <rect class="s thin f-lemon" x="211" y="230" width="44" height="48" rx="11"/>
+        </g>
+        <text class="lbl" x="233" y="259" text-anchor="middle">hyeglo</text></g>
+      </a>
+      <a class="item" href="#fixderma" transform="translate(-72 0)" style="--i:2"><title>Fixderma and Teenilicious</title>
+        <g><g class="r">
+          <rect class="s thin f-ink" x="296" y="208" width="18" height="12" rx="2"/>
+          <path class="s thin f-lemon" d="M290,220 L320,220 L327,272 L283,272 Z"/>
+          <rect class="s thin f-lemon" x="281" y="270" width="48" height="8" rx="2"/>
+        </g>
+        <text class="lbl-m" x="305" y="253" text-anchor="middle">FD</text></g>
+      </a>
+      <a class="item" href="#reels" style="--i:3"><title>Reels: 1.5M+ reach</title>
+        <g><g class="r">
+          <circle class="s thin f-yellow" cx="380" cy="248" r="29"/>
+          <circle class="f-paper" cx="380" cy="234" r="6"/><circle class="f-paper" cx="367" cy="254" r="6"/><circle class="f-paper" cx="393" cy="254" r="6"/>
+          <circle class="f-ink" cx="380" cy="248" r="3.5"/>
+        </g></g>
+      </a>
+      <a class="item" href="#ai" style="--i:4"><title>AI ad for Enheal</title>
+        <g><g class="r">
+          <path class="s thin f-lemon" style="fill-opacity:.55" d="M434,278 L434,238 Q434,212 461,212 Q488,212 488,238 L488,278 Z"/>
+          <path class="f-yellow s thin" d="M461,226 L465,238 L477,242 L465,246 L461,258 L457,246 L445,242 L457,238 Z"/>
+        </g>
+        <text class="lbl-m" x="461" y="272" text-anchor="middle">AI</text></g>
+      </a>
+
+      <!-- shelf 2 -->
+      <a class="item" href="#titanium" style="--i:5"><title>Titanium Protein website</title>
+        <g><g class="r">
+          <rect class="s thin f-paper" x="128" y="300" width="76" height="54" rx="4"/>
+          <rect class="s thin f-zest" x="128" y="300" width="76" height="12" rx="3"/>
+        </g>
+        <text class="lbl-m" x="166" y="340" text-anchor="middle">www</text></g>
+      </a>
+      <a class="item" href="#about" style="--i:6"><title>About me: started with a paintbrush</title>
+        <g><g class="r">
+          <path class="s thin f-none" d="M236,322 L230,290 M248,322 L250,286 M260,322 L268,292"/>
+          <path class="f-zest" d="M226,292 L232,284 L234,294 Z"/><path class="f-yellow s thin" d="M247,288 L250,278 L254,288 Z"/><path class="f-marker" d="M264,294 L270,286 L272,296 Z"/>
+          <rect class="s thin f-soft" x="226" y="318" width="44" height="36" rx="7"/>
+        </g></g>
+      </a>
+      <a class="item" href="#bill" style="--i:7"><title>The bill: headline numbers</title>
+        <g><g class="r">
+          <path class="s thin f-paper" d="M296,354 L296,300 L302,306 L308,300 L314,306 L320,300 L326,306 L332,300 L338,306 L338,354 Z"/>
+          <path class="s thin f-none" d="M304,318 L330,318 M304,328 L326,328 M304,338 L330,338"/>
+        </g></g>
+      </a>
+      <a class="item" href="#wall" style="--i:8"><title>The wall: awards</title>
+        <g><g class="r">
+          <path class="s thin f-yellow" d="M366,296 L406,296 Q405,326 386,330 Q367,326 366,296 Z"/>
+          <path class="s thin f-none" d="M366,302 Q354,304 358,314 Q362,320 369,318 M406,302 Q418,304 414,314 Q410,320 403,318"/>
+          <rect class="s thin f-yellow" x="382" y="330" width="8" height="12"/>
+          <rect class="s thin f-zest" x="372" y="342" width="28" height="12" rx="2"/>
+        </g>
+</g>
+      </a>
+      <rect class="slot" x="430" y="300" width="42" height="52" rx="4"/>
+      <rect class="slot" x="482" y="310" width="36" height="42" rx="4"/>
+
+      <!-- bottom shelf: empty, for the future -->
+      <rect class="slot" x="128" y="374" width="58" height="54" rx="5"/>
+      <rect class="slot" x="198" y="384" width="44" height="44" rx="5"/>
+      <rect class="slot" x="254" y="370" width="52" height="58" rx="5"/>
+      <text class="note-txt" x="418" y="408" text-anchor="middle">your brand here?</text>
+
+      <!-- WIP outside the shop -->
+      <g class="r">
+        <path class="s thin f-kraft" d="M596,474 L676,474 L676,526 L596,526 Z"/>
+        <path class="s thin f-kraft" d="M596,474 L584,460 L664,460 L676,474"/>
+        <rect class="f-yellow" x="626" y="474" width="20" height="52" style="fill-opacity:.8"/>
+      </g>
+      <text class="lbl" x="636" y="502" text-anchor="middle" style="font-size:14px">paintings</text>
+      <text class="lbl" x="636" y="518" text-anchor="middle" style="font-size:12px;fill:var(--ink-soft)">fragile</text>
+    </svg>
+
+    <div class="legend">
+      <p><svg class="arrow tilt-r" aria-hidden="true"><use href="#arrow-down"/></svg><b>On the shelf: polished work</b>Ready to go. Tap anything to pick it up.</p>
+      <p><svg class="arrow" aria-hidden="true"><use href="#arrow-down"/></svg><b>Bottom shelf: empty</b>Saved for future projects. Maybe the brands we stock together.</p>
+      <p><svg class="arrow tilt-l" aria-hidden="true"><use href="#arrow-down"/></svg><b>Outside the shop: WIP</b>My paintings, still being packed before they go on the shelf.</p>
+    </div>
+  </div>
+</header>
+
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ABOUT ================= -->
+<section class="page about" id="about" aria-labelledby="aboutH">
+  <div class="tag-photo">
+    <svg viewBox="0 0 400 520" aria-hidden="true">
+      <path d="M200,22 L362,150 L362,488 Q362,506 344,506 L56,506 Q38,506 38,488 L38,150 Z"/>
+      <circle cx="200" cy="112" r="17"/>
+      <path d="M200,95 C188,58 226,44 214,8 C208,-8 228,-20 246,-14"/>
+    </svg>
+    <img src="assets/sanchali-portrait.webp" alt="Sanchali on a boat, sea and a green headland behind her" width="720" height="1280" loading="lazy">
+    <p class="tag-note">open to work :)</p>
+  </div>
+  <div>
+    <h2 class="marker" id="aboutH">About me</h2>
+    <div class="about-body">
+      <div>
+        <h3 class="hand">Helloooo :)</h3>
+        <p>I'm Sanchali Gupta. I started with a paintbrush and ended up in ad accounts. I shape how a brand looks, sounds and sells: positioning, campaigns, creative direction, and the ads that carry them.</p>
+      </div>
+      <div>
+        <h3 class="hand">Education</h3>
+        <p>Bachelor's in Business &amp; Technology at <b>Masters' Union</b>, Gurugram (2023–2027). BMS at <b>Delhi University</b>.</p>
+      </div>
+      <div>
+        <h3 class="hand">Apps</h3>
+        <div class="apps">
+          <img src="assets/apps/meta.svg" alt="Meta Ads" title="Meta Ads">
+          <img src="assets/apps/runway.png" alt="Runway" title="Runway">
+          <img src="assets/apps/higgsfield.png" alt="Higgsfield" title="Higgsfield">
+          <img src="assets/apps/google.svg" alt="Google Veo and Flow" title="Google Veo · Google Flow">
+          <img src="assets/apps/elevenlabs.png" alt="ElevenLabs" title="ElevenLabs">
+          <img src="assets/apps/capcut.png" alt="CapCut" title="CapCut">
+          <img src="assets/apps/claude.png" alt="Claude Code" title="Claude Code">
+          <span class="chip">Seedance 2.0</span>
+        </div>
+      </div>
+      <div class="about-foot">
+        <div><h3 class="hand">Contact</h3><p>sanchaligupta2005@gmail.com<br><a href="https://instagram.com/sanchaligupta_" target="_blank" rel="noopener">@sanchaligupta_</a></p></div>
+        <div><h3 class="hand">Based</h3><p>Gurugram / Delhi, India</p></div>
+        <div><h3 class="hand">Looking for</h3><p>Brand, content &amp; marketing roles, hands-on and on-ground.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= IN STOCK ================= -->
+<section class="page stock" aria-labelledby="stockH">
+  <p class="hand ask" id="stockH">What do I bring to the counter?</p>
+  <div class="blob">
+    <ul>
       <li>Brand strategy</li>
       <li>Positioning &amp; identity</li>
       <li>Campaigns &amp; ads</li>
       <li>Content</li>
       <li>Creative direction</li>
+      <li class="core">In stock</li>
       <li>Website design</li>
+      <li>Go-to-market</li>
+      <li>Instagram growth</li>
+      <li>UGC &amp; creator programs</li>
+      <li>Product copy</li>
+      <li>Graphic design</li>
     </ul>
-    <p class="about-line">
-      Started with a paintbrush, ended up in ad accounts. I like giving a brand a voice,
-      then watching the numbers move.
-    </p>
-    <div class="apps">
-      <span class="small">Apps I use</span>
-      <ul class="app-grid">
-        <li><span class="app-ic"><img src="images/apps/meta.svg" alt=""></span>Meta Ads</li>
-        <li><span class="app-ic"><img src="images/apps/runway.png" alt=""></span>Runway</li>
-        <li><span class="app-ic"><img src="images/apps/higgsfield.png" alt=""></span>Higgsfield</li>
-        <li><span class="app-ic"><img src="images/apps/google.svg" alt=""></span>Google Veo</li>
-        <li><span class="app-ic"><img src="images/apps/google.svg" alt=""></span>Google Flow</li>
-        <li><span class="app-ic"><img src="images/apps/elevenlabs.png" alt=""></span>ElevenLabs</li>
-        <li><span class="app-ic"><img src="images/apps/capcut.png" alt=""></span>CapCut</li>
-        <li><span class="app-ic"><img src="images/apps/claude.png" alt=""></span>Claude Code</li>
-        <li><span class="app-ic mono">S</span>Seedance 2.0</li>
-      </ul>
-    </div>
-  </section>
+  </div>
+  <p class="hand tagline">Everything comes with a bill. Here's mine.</p>
+</section>
 
-  <!-- ============ GROUND + EDUCATION ============ -->
-  <section class="bg bg-indigo" id="more">
-    <div class="panel tilt-l">
-      <div class="two">
-        <div>
-          <h2 class="display">On the ground</h2>
-          <article class="entry">
-            <h3 class="small">India Art Fair · 2025</h3>
-            <p class="meta">Event Volunteer · on-ground ops and artist–gallery coordination</p>
-          </article>
-          <article class="entry">
-            <h3 class="small">Slush'd Delhi · 2023</h3>
-            <p class="meta">Event Volunteer · startup &amp; investor conference, 500+ attendees</p>
-          </article>
-        </div>
-        <div id="education">
-          <h2 class="display">Education</h2>
-          <article class="entry">
-            <h3 class="small">Masters' Union, Gurugram</h3>
-            <p class="meta">Bachelor's in Business &amp; Technology · 2023–2027</p>
-          </article>
-          <article class="entry">
-            <h3 class="small">Delhi University</h3>
-            <p class="meta">BMS · Bachelor of Management Studies</p>
-          </article>
-          <article class="entry">
-            <h3 class="small">Maxfort School Rohini, Delhi</h3>
-            <p class="meta">2010–2023</p>
-          </article>
+<!-- ================= THE BILL ================= -->
+<section class="page bill-sec" id="bill" aria-label="Headline numbers">
+  <div class="receipt-wrap">
+    <div class="receipt">
+      <div class="center">
+        <div class="store">SANCHALI GENERAL STORE</div>
+        <div>Gurugram · Delhi</div>
+        <div>BILL NO. 2023–26 &nbsp;·&nbsp; CASHIER: S.G.</div>
+      </div>
+      <hr>
+      <div class="row"><span class="k">Revenue, Desh Ki Dukaan, 3 mo</span><span class="v">₹20L+</span></div>
+      <div class="row"><span class="k">Customer acquisition cost</span><span class="v">₹7</span>
+        <span class="scribble"><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>lowest of every competing team</span></div>
+      <div class="row"><span class="k">RTO</span><span class="v">60% → 30%</span>
+        <span class="scribble l"><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>halved, by cutting spend on bad pincodes</span></div>
+      <div class="row"><span class="k">Content reach, 5 countries</span><span class="v">1.5M+</span></div>
+      <div class="row"><span class="k">Followers in 3 months</span><span class="v">1K</span></div>
+      <div class="row"><span class="k">Engagement rate</span><span class="v">8%</span></div>
+      <div class="row"><span class="k">Views, top reel</span><span class="v">324K</span></div>
+      <div class="row"><span class="k">Microsoft Gen-AI Hackathon</span><span class="v">2nd</span></div>
+      <hr>
+      <div class="row total"><span class="k">AMOUNT DUE</span><span class="v">1 coffee chat</span></div>
+      <hr>
+      <div class="center">THANK YOU · VISIT AGAIN</div>
+      <div class="barcode" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="stocked">
+    <h3 class="hand">Brands I've stocked so far</h3>
+    <div class="logos">
+      <span class="lg"><img src="assets/logos/hyeglo.png" alt="Hyeglo Beauty"></span>
+      <span class="lg"><img src="assets/logos/fixderma.svg" alt="Fixderma"></span>
+      <span class="lg dkd"><img src="assets/logos/desh-ki-dukaan.webp" alt="Desh Ki Dukaan"></span>
+      <span class="lg dark"><img src="assets/logos/mu-mark.png" alt="Masters' Union"></span>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ITEM 1: HYEGLO ================= -->
+<section class="project" id="hyeglo" aria-labelledby="hyH">
+  <div class="page">
+    <header class="proj-head">
+      <span class="price-tag" style="--c:var(--yellow)">1 pop-up<small>planned and run end to end</small></span>
+      <h2 class="marker" id="hyH">Item<span class="num">1</span></h2>
+      <p class="hand sub">Hyeglo Beauty, Founder's Office</p>
+    </header>
+    <div class="proj-meta">
+      <p class="desc">India's first intelligent beauty brand. I worked on brand strategy and content end to end, and ran their offline pop-up with every asset designed under one brand language.</p>
+      <div><h3 class="hand">Role</h3><p>Founder's Office Intern<br>KAT Brands Pvt Ltd<br>Apr – Jun 2026</p></div>
+      <div><h3 class="hand">Also did</h3><p>Inventory sheets, swatch docs, and an internal guide to AI creative tools.</p></div>
+    </div>
+    <div class="ovals">
+      <p class="oval">Website revamp briefs, PDP redesigns with UGC-style reviews, product copy</p>
+      <p class="oval">A 3-tier Instagram creator community, built from scratch</p>
+      <p class="oval">Brand partnership outreach for retail and pop-ups</p>
+    </div>
+  </div>
+  <div class="torn" style="--c:var(--yellow);--on:var(--ink)">
+    <div class="page">
+      <div class="pair">
+        <figure>
+          <div class="taped"><img src="assets/hyeglo-whatsapp.webp" alt="WhatsApp from the Hyeglo founder: Thanks Sanchali for today. You did a great job and loved the energy. So glad with what we achieved." width="1306" height="1180" loading="lazy"></div>
+          <figcaption class="cap">The founder, the night of the pop-up</figcaption>
+        </figure>
+        <figure>
+          <div class="taped"><img src="assets/hyeglo-story.webp" alt="Instagram story reply from the Hyeglo founder on the website launch: Great job!!" width="1310" height="1236" loading="lazy"></div>
+          <figcaption class="cap">…and on the website launch</figcaption>
+        </figure>
+      </div>
+      <div style="margin-top:3.5rem">
+        <h3 class="hand" style="font-size:1.875rem;margin-bottom:1.25rem">Reels I made for Hyeglo</h3>
+        <div class="reels">
+          <div>
+            <div class="phone"><div class="ig-screen"><iframe src="https://www.instagram.com/reel/DW80kPUiRP8/embed/" title="Hyeglo reel: the lip oil one" loading="lazy" scrolling="no"></iframe></div></div>
+            <div class="reel-meta"><div class="t">the lip oil one</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DW80kPUiRP8/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+          </div>
+          <div>
+            <div class="phone"><div class="ig-screen"><iframe src="https://www.instagram.com/reel/DWyhLrSCZi7/embed/" title="Hyeglo reel: does it really adapt to my skin?" loading="lazy" scrolling="no"></iframe></div></div>
+            <div class="reel-meta"><div class="t">does it really adapt to my skin?</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DWyhLrSCZi7/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+          </div>
+          <div>
+            <div class="phone"><div class="ig-screen"><iframe src="https://www.instagram.com/reel/DZ1oKr5htjc/embed/" title="Hyeglo reel: hyeglo at the onpoint event" loading="lazy" scrolling="no"></iframe></div></div>
+            <div class="reel-meta"><div class="t">hyeglo at the onpoint event</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DZ1oKr5htjc/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="paper contact" id="contact">
-    <div class="note yellow tilt-r contact-note">
-      <span class="clip" aria-hidden="true"></span>
-      <h2 class="display">Say hello</h2>
-      <p>Building a brand, or a campaign for one? I'd love to hear about it.</p>
-      <p class="contact-links">
-        <a class="btn-link" href="mailto:sanchaligupta2005@gmail.com">Email me <span aria-hidden="true">✉</span></a>
-        <a class="btn-link ghost" href="#" data-link="linkedin" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
-        <a class="btn-link ghost" href="https://github.com/sanchali07" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
-      </p>
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ITEM 2: FIXDERMA ================= -->
+<section class="project" id="fixderma" aria-labelledby="fxH">
+  <div class="page">
+    <header class="proj-head">
+      <h2 class="marker" id="fxH">Item<span class="num">2</span></h2>
+      <p class="hand sub">Fixderma × Teenilicious</p>
+      <span class="price-tag left" style="--c:var(--zest)">the face<small>of Teenilicious</small></span>
+    </header>
+    <div class="proj-meta">
+      <p class="desc">Skincare and dermatology. I made marketing creatives across the brand's social platforms, wrote platform-specific content plans, and grew Teenilicious, Fixderma's sister brand, as the face of it.</p>
+      <div><h3 class="hand">Role</h3><p>Marketing &amp; Social Media Intern<br>May – Jul 2025</p></div>
+      <div><h3 class="hand">Tools used</h3><p>CapCut · Meta</p>
+        <div class="apps"><img src="assets/apps/capcut.png" alt="CapCut"><img src="assets/apps/meta.svg" alt="Meta"></div></div>
     </div>
-    <p class="scrawl">Gurugram / Delhi · open to brand, content &amp; marketing roles</p>
-    <footer>
-      <span>© <span id="year"></span> Sanchali Gupta</span>
-      <a class="btn-link small-btn" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-    </footer>
-  </section>
+  </div>
+  <div class="torn" style="--c:var(--marker);--on:var(--cream)">
+    <div class="page split" style="align-items:center">
+      <figure style="margin:0">
+        <div class="taped" style="transform:rotate(-1.2deg)"><img src="assets/fixderma-message.webp" alt="Farewell message from the Fixderma team: Fd will miss the enthusiasm and brightness you got to the office" width="1806" height="890" loading="lazy"></div>
+        <figcaption class="cap">The Fixderma team, on my last day</figcaption>
+      </figure>
+      <div>
+        <h3 class="hand" style="font-size:30px">Pick one up</h3>
+        <div class="stickers">
+          <a href="https://www.instagram.com/reel/DKmZUScS_G2/" target="_blank" rel="noopener">Reel ↗</a>
+          <a href="https://www.instagram.com/reel/DKuFGnYyngx/" target="_blank" rel="noopener">Reel ↗</a>
+          <a href="https://www.instagram.com/p/DKw3TlpISgM/" target="_blank" rel="noopener">Post ↗</a>
+          <a href="https://www.instagram.com/p/DMc68-ITgPf/" target="_blank" rel="noopener">Post ↗</a>
+          <a href="https://www.instagram.com/teenilicious.care/" target="_blank" rel="noopener">@teenilicious.care ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-</main>
-<script src="script.js?v=8"></script>
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ITEM 3: DESH KI DUKAAN ================= -->
+<section class="project" id="dkd" aria-labelledby="dkdH">
+  <div class="page">
+    <header class="proj-head">
+      <h2 class="marker" id="dkdH">Item<span class="num">3</span></h2>
+      <p class="hand sub">Desh Ki Dukaan, ₹20 lakh in 3 months</p>
+      <span class="price-tag" style="--c:var(--yellow)">₹20L+<small>revenue in 90 days</small></span>
+    </header>
+    <div class="proj-meta">
+      <p class="desc">One Shopify store, built during a college dropshipping term. I co-founded it, ran the Meta Ads, and fixed what was quietly eating the margin.</p>
+      <div><h3 class="hand">Role</h3><p>Co-Founder<br>D2C lifestyle e-commerce<br>Nov 2023 – Jan 2024</p></div>
+      <div><h3 class="hand">Tools used</h3><p>Meta Ads · Shopify</p>
+        <div class="apps"><img src="assets/apps/meta.svg" alt="Meta Ads"></div></div>
+    </div>
+  </div>
+  <div class="torn" style="--c:var(--zest);--on:var(--ink)">
+    <div class="page split">
+      <div>
+        <h3 class="hand" style="font-size:30px;margin-bottom:18px">How it went</h3>
+        <div class="notes">
+          <div class="note-card"><b>Day 0–4</b>Store live, Meta Ads running. ₹6L in four days.</div>
+          <div class="note-card"><b>Day 5</b>₹1L a day. Creative, offer and landing page changed daily on live data.</div>
+          <div class="note-card"><b>Weeks 2–4</b>RTO was eating 60% of margin. Cut spend on weak pincodes and brought it to 30%.</div>
+          <div class="note-card"><b>Month 3</b>₹20L+ revenue at ₹7 CAC, the lowest of every team.</div>
+        </div>
+      </div>
+      <div style="display:grid;gap:30px">
+        <figure style="margin:0">
+          <div class="taped" style="transform:rotate(1.5deg)"><img src="assets/mu-dropshipping.png" alt="Masters' Union course card: Build a ₹1Cr+ e-commerce business in Term 1" width="756" height="620" loading="lazy"></div>
+          <figcaption class="cap">The Masters' Union term it was built in. We were featured in their Dropshipping Magazine for the lowest CAC.</figcaption>
+        </figure>
+        <div class="stickers">
+          <a href="https://www.youtube.com/watch?v=LuO4_mPJAM0" target="_blank" rel="noopener">Watch the Masters' Union video ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ITEM 4: AI ================= -->
+<section class="project" id="ai" aria-labelledby="aiH">
+  <div class="page">
+    <header class="proj-head">
+      <span class="price-tag left" style="--c:var(--zest)">26 sec<small>no camera, no crew</small></span>
+      <h2 class="marker" id="aiH">Item<span class="num">4</span></h2>
+      <p class="hand sub">Eating AI up before it eats me up</p>
+    </header>
+    <div class="proj-meta">
+      <p class="desc">A pre-launch ad for Enheal, a joint-health nutraceutical from a pharmaceutical company. Made for a Cambodian audience: shift workers aged 40+ in jobs that are hard on the joints.</p>
+      <div><h3 class="hand">Made with</h3><p>Google Veo for picture<br>ElevenLabs for voice-over</p></div>
+      <div><h3 class="hand">Also use</h3><p>Higgsfield · Runway workflows · Google Flow · Seedance 2.0</p>
+        <div class="apps"><img src="assets/apps/google.svg" alt="Google Veo"><img src="assets/apps/elevenlabs.png" alt="ElevenLabs"><img src="assets/apps/higgsfield.png" alt="Higgsfield"><img src="assets/apps/runway.png" alt="Runway"></div></div>
+    </div>
+  </div>
+  <div class="torn" style="--c:var(--ink);--on:var(--cream)">
+    <div class="page split" style="align-items:center">
+      <div class="wide-video" style="margin-inline:auto;width:100%">
+        <div class="phone">
+          <video muted loop playsinline preload="none" data-src="ai-1.mp4" aria-label="Enheal AI-generated pre-launch ad"></video>
+          <button class="sound" type="button">tap for sound</button>
+        </div>
+      </div>
+      <div>
+        <p class="hand" style="font-size:clamp(26px,3vw,34px);line-height:1.2">Not a single camera on set. Picture by Google Veo, voice by ElevenLabs, made before the product launched.</p>
+        <p class="cap" style="color:var(--yellow);margin-top:18px">Enheal · pre-launch · Cambodia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ITEM 5: REELS ================= -->
+<section class="project" id="reels" aria-labelledby="rlH">
+  <div class="page">
+    <header class="proj-head">
+      <h2 class="marker" id="rlH">Item<span class="num">5</span></h2>
+      <p class="hand sub">But honestly, human-made hits harder</p>
+      <span class="price-tag" style="--c:var(--yellow)">1.5M+<small>reach, 5 countries</small></span>
+    </header>
+    <div class="proj-meta">
+      <p class="desc">Masters' Union content challenge: art, fashion and travel content that reached the UK, Canada, Egypt, the US and Australia. I changed the storytelling and pacing every week based on what the audience did.</p>
+      <div><h3 class="hand">Numbers</h3><p>1.5M+ reach<br>1K followers in 3 months<br>8% engagement</p></div>
+      <div><h3 class="hand">When</h3><p>Nov 2024 – Jan 2025<br>Shot and cut by me</p>
+        <div class="apps"><img src="assets/apps/capcut.png" alt="CapCut"></div></div>
+    </div>
+  </div>
+  <div class="torn" style="--c:var(--marker);--on:var(--cream)">
+    <div class="page">
+      <div class="reels">
+        <div>
+          <div class="phone">
+            <video muted loop playsinline preload="none" data-src="reel-1.mp4" aria-label="Reel: the spaghetti one"></video>
+            <button class="sound" type="button">tap for sound</button>
+          </div>
+          <div class="reel-meta"><div class="t">the spaghetti one</div><div class="n">324K views · 14.4K likes</div><a href="https://www.instagram.com/reel/DT-UsgijV-m/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div>
+          <div class="phone">
+            <video muted loop playsinline preload="none" data-src="reel-2.mp4" aria-label="Reel: the dark painting"></video>
+            <button class="sound" type="button">tap for sound</button>
+          </div>
+          <div class="reel-meta"><div class="t">the dark painting</div><div class="n">16K views · 1,078 likes</div><a href="https://www.instagram.com/reel/DW_PIoKETu7/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+        <div>
+          <div class="phone">
+            <video muted loop playsinline preload="none" data-src="reel-0.mp4" aria-label="Reel: learning how to swim"></video>
+            <button class="sound" type="button">tap for sound</button>
+          </div>
+          <div class="reel-meta"><div class="t">learning how to swim</div><div class="n">52 seconds of flailing</div><a href="https://www.instagram.com/p/DdlWwkLRiuZ/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ITEM 6: TITANIUM ================= -->
+<section class="project" id="titanium" aria-labelledby="tiH">
+  <div class="page">
+    <header class="proj-head">
+      <span class="price-tag left" style="--c:var(--marker);--on:var(--cream)">1 site<small>designed and built solo</small></span>
+      <h2 class="marker" id="tiH">Item<span class="num">6</span></h2>
+      <p class="hand sub">Titanium Protein, website</p>
+    </header>
+    <div class="proj-meta">
+      <p class="desc">A self-initiated project for a D2C protein brand. I designed and built the website end to end, and filmed the build as a reel.</p>
+      <div><h3 class="hand">Role</h3><p>Design, copy, build<br>2026</p></div>
+      <div><h3 class="hand">Tools used</h3><p>Claude Code · GitHub Pages</p>
+        <div class="apps"><img src="assets/apps/claude.png" alt="Claude Code"></div></div>
+    </div>
+  </div>
+  <div class="torn" style="--c:var(--zest);--on:var(--ink)">
+    <div class="page split" style="align-items:center">
+      <div class="solo-video" style="margin-inline:auto;width:100%">
+        <div class="phone">
+          <video muted loop playsinline preload="none" data-src="reel-3.mp4" aria-label="Reel: building the Titanium Protein website"></video>
+          <button class="sound" type="button">tap for sound</button>
+        </div>
+        <div class="reel-meta"><div class="t">building it, on camera</div><a href="https://www.instagram.com/reel/DdgRl6Wxjgb/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+      </div>
+      <div>
+        <a class="big-link" href="https://sanchali07.github.io/titanium-protein/" target="_blank" rel="noopener">Visit the live&nbsp;site<span style="font-family:var(--f-body);font-size:.7em;margin-left:.2em">↗</span></a>
+        <ul class="ticks">
+          <li>Site structure</li>
+          <li>Copy</li>
+          <li>Visuals</li>
+          <li>Run-club invite flow</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= THE WALL ================= -->
+<section class="page" id="wall" aria-labelledby="wallH">
+  <header class="wall-head">
+    <h2 class="marker" id="wallH">The wall</h2>
+    <p class="hand sub">Every store frames its certificates. Here are mine.</p>
+  </header>
+  <div class="frames">
+    <div class="frame"><div class="big">2nd place</div><div class="what">Microsoft Gen-AI Hackathon</div><div class="why">Feb 2024, Microsoft × Masters' Union. An AI mental-health platform that scores wellbeing 1–10 for early diagnosis.</div></div>
+    <div class="frame"><div class="big">State winner</div><div class="what">Swachh Bharat Art Excellence Award</div><div class="why">2019–20. Back when it was all paintbrush.</div></div>
+    <div class="frame"><div class="big">Grade A</div><div class="what">Visual Arts, state &amp; national level</div><div class="why">Top 5 in batch for extra-curriculars, Maxfort School Rohini.</div></div>
+    <div class="frame"><div class="big">Featured</div><div class="what">Masters' Union Dropshipping Magazine</div><div class="why">For Desh Ki Dukaan's ₹7 CAC.</div></div>
+  </div>
+  <div class="ground">
+    <h3 class="hand">On the ground</h3>
+    <p><b>India Art Fair, 2025</b>Event volunteer. On-ground ops and artist–gallery coordination.</p>
+    <p><b>Slush'd Delhi, 2023</b>Event volunteer at a startup and investor conference with 500+ attendees.</p>
+  </div>
+</section>
+
+<svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
+
+<!-- ================= ORDER ================= -->
+<section class="page order" id="order" aria-labelledby="orderH">
+  <h2 class="marker" id="orderH">Place an order</h2>
+  <p class="hand sub">or just say hello</p>
+  <div class="order-grid">
+    <div class="order-col">
+      <svg class="arrow tilt-r" aria-hidden="true"><use href="#arrow-down"/></svg>
+      <span class="lbl">email</span>
+      <span class="val" id="emailVal">sanchaligupta2005@gmail.com</span>
+      <button class="copy" type="button" data-copy="sanchaligupta2005@gmail.com">copy</button>
+    </div>
+    <div class="order-mid">
+      <svg class="bag" viewBox="0 0 60 72" role="img" aria-label="A paper shopping bag with an orange in it"><use href="#bag"/></svg>
+    </div>
+    <div class="order-col">
+      <svg class="arrow tilt-l" aria-hidden="true"><use href="#arrow-down"/></svg>
+      <span class="lbl">instagram</span>
+      <span class="val"><a href="https://instagram.com/sanchaligupta_" target="_blank" rel="noopener">@sanchaligupta_</a></span>
+      <span class="val"><a href="https://www.instagram.com/theothergupta/" target="_blank" rel="noopener">@theothergupta</a></span>
+    </div>
+  </div>
+  <div class="order-col" style="margin-top:6px">
+    <svg class="arrow" aria-hidden="true" style="width:60px;height:72px"><use href="#arrow-down"/></svg>
+    <span class="lbl">github</span>
+    <span class="val"><a href="https://github.com/sanchali07" target="_blank" rel="noopener">github.com/sanchali07</a></span>
+  </div>
+  <p class="status">Open to brand, content &amp; marketing roles</p>
+</section>
+
+<!-- ================= CLOSING ================= -->
+<section class="page bye" aria-label="Goodbye">
+  <h2 class="marker">Phir aana!</h2>
+  <p class="hand">(come again)</p>
+  <svg class="shutter" viewBox="0 0 560 230" aria-hidden="true"><g>
+    <path d="M30,30 L530,30"/>
+    <rect x="50" y="30" width="460" height="180"/>
+    <line x1="50" y1="60" x2="510" y2="60"/>
+    <line x1="50" y1="90" x2="510" y2="90"/>
+    <line x1="50" y1="120" x2="510" y2="120"/>
+    <line x1="50" y1="150" x2="510" y2="150"/>
+    <line x1="50" y1="180" x2="510" y2="180"/>
+    <rect x="262" y="186" width="36" height="24" rx="4"/>
+    <path d="M270,186 L270,178 Q280,166 290,178 L290,186"/>
+    <path d="M10,212 C160,208 380,216 550,210"/>
+  </g></svg>
+</section>
+
+<footer class="page">© 2026 Sanchali Gupta · drawn and built by hand, mostly</footer>
+
+<script>
+(() => {
+  // Videos live in this repo under videos/.
+  const VIDEO_BASE = "videos/";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // torn paper edges on every colour block
+  document.querySelectorAll(".torn").forEach(el => {
+    for (const pos of ["top", "bottom"]) {
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("class", "edge " + pos);
+      svg.setAttribute("aria-hidden", "true");
+      svg.setAttribute("preserveAspectRatio", "none");
+      svg.setAttribute("viewBox", "0 0 1000 40");
+      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      use.setAttribute("href", "#edge");
+      svg.appendChild(use);
+      pos === "top" ? el.prepend(svg) : el.append(svg);
+    }
+  });
+
+  // videos: load and play only while on screen; tap toggles sound
+  const vids = [...document.querySelectorAll("video[data-src]")];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(({ target: v, isIntersecting }) => {
+      if (isIntersecting) {
+        if (!v.src) v.src = VIDEO_BASE + v.dataset.src;
+        if (!reduce) v.play().catch(() => {});
+      } else if (!v.paused) v.pause();
+    });
+  }, { rootMargin: "200px 0px" });
+  vids.forEach(v => io.observe(v));
+  document.querySelectorAll(".phone").forEach(ph => {
+    const v = ph.querySelector("video"), b = ph.querySelector(".sound");
+    const toggle = () => {
+      if (!v.src) v.src = VIDEO_BASE + v.dataset.src;
+      v.muted = !v.muted;
+      if (!v.muted) { vids.forEach(o => { if (o !== v) { o.muted = true; o.parentElement.querySelector(".sound").textContent = "tap for sound"; } }); v.play().catch(() => {}); }
+      b.textContent = v.muted ? "tap for sound" : "sound on";
+    };
+    b.addEventListener("click", toggle);
+    v.addEventListener("click", toggle);
+  });
+
+  // "currently stocking" line writes, erases, and cycles
+  const phrases = ["strategy, story, and everything in between.", "brands, ads, and the ideas behind them.", "i make people feel something about brands."];
+  const holder = document.querySelector(".stocking .cycle");
+  if (holder && !reduce) {
+    let i = 0;
+    const show = () => {
+      const s = document.createElement("span");
+      s.textContent = phrases[i];
+      s.className = "write";
+      holder.replaceChildren(s);
+      setTimeout(() => { s.className = "erase"; }, 4200);
+      setTimeout(() => { i = (i + 1) % phrases.length; show(); }, 5000);
+    };
+    setTimeout(show, 3000);
+  }
+
+  // copy email
+  document.querySelectorAll("[data-copy]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(btn.dataset.copy); btn.textContent = "copied!"; }
+      catch { const r = document.createRange(); r.selectNodeContents(document.getElementById("emailVal")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "selected, press copy"; }
+      setTimeout(() => { btn.textContent = "copy"; }, 2200);
+    });
+  });
+})();
+</script>
 </body>
 </html>
