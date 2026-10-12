@@ -261,7 +261,19 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .wide-video { max-width: 35rem; }
 .wide-video .phone video { aspect-ratio: auto; }
 
-/* Instagram reel shown inside the phone frame, cropped to the video */
+/* Hyeglo website walkthrough in a phone */
+.web-show { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2.5rem 4rem; align-items: center; margin-bottom: 4.5rem; }
+.device { position: relative; width: min(19rem, calc(78svh * 0.46), 80vw); background: var(--ink); border-radius: 2.9rem; padding: .65rem; box-shadow: .5rem .6rem 0 rgba(31,25,21,.25); }
+.device::before, .device::after { content: ""; position: absolute; width: .25rem; border-radius: .2rem; background: var(--ink); }
+.device::before { left: -.25rem; top: 22%; height: 3.2rem; }
+.device::after { right: -.25rem; top: 28%; height: 4.5rem; }
+.device video { width: 100%; aspect-ratio: 576 / 1252; object-fit: cover; border-radius: 2.3rem; background: #111; }
+.web-lede { font-size: 1rem; max-width: 46ch; margin: .75rem 0 1.25rem; }
+.web-labels { list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: .65rem; }
+.web-labels li { display: flex; gap: .75rem; align-items: center; font-family: var(--f-hand); color: var(--marker); font-size: clamp(1.15rem, 1.6vw, 1.4rem); line-height: 1.2; }
+.web-labels svg { flex: 0 0 2.6rem; width: 2.6rem; height: 1.5rem; overflow: visible; fill: none; stroke: var(--marker); stroke-width: 3; stroke-linecap: round; filter: url(#rough); }
+
+/* Instagram reel shown inside the phone frame, cropped to the video (fallback when the MP4 isn't in videos/) */
 .ig-screen { position: relative; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 1.2rem; background: #2b2420; }
 .ig-screen iframe { position: absolute; top: -60px; left: -22.5%; width: 145%; height: calc(102% + 260px); border: 0; }
 
@@ -316,7 +328,8 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
   .receipt .row .scribble { flex-basis: 100%; }
 }
 @media (max-width: 820px) {
-  .hero, .about, .split, .pair { grid-template-columns: minmax(0, 1fr); }
+  .hero, .about, .split, .pair, .web-show { grid-template-columns: minmax(0, 1fr); }
+  .device { margin-inline: auto; }
   .hero h1 { grid-column: 1; grid-row: auto; font-size: clamp(2.75rem, 13.5vw, 10.5rem); white-space: normal; margin-top: 0.625rem; }
   .hero-text, .hero .shop-wrap { grid-column: 1; grid-row: auto; }
   .hero .shop-wrap { margin-top: 2rem; }
@@ -671,13 +684,30 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
       <div><h3 class="hand">Also did</h3><p>Inventory sheets, swatch docs, and an internal guide to AI creative tools.</p></div>
     </div>
     <div class="ovals">
-      <p class="oval">Website revamp briefs, PDP redesigns with UGC-style reviews, product copy</p>
+      <p class="oval">The whole website, redesigned around the customer journey</p>
       <p class="oval">A 3-tier Instagram creator community, built from scratch</p>
       <p class="oval">Brand partnership outreach for retail and pop-ups</p>
     </div>
   </div>
   <div class="torn" style="--c:var(--yellow);--on:var(--ink)">
     <div class="page">
+      <div class="web-show">
+        <div class="device">
+          <video muted loop playsinline preload="none" data-src="hyeglo-website.mp4" aria-label="Screen recording scrolling through hyeglobeauty.com on a phone"></video>
+        </div>
+        <div>
+          <h3 class="hand" style="font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1">The website, end to end</h3>
+          <p class="web-lede">I redesigned and rebuilt hyeglobeauty.com, mapping the customer journey first so every touchpoint on it was made by me.</p>
+          <ul class="web-labels">
+            <li><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>Homepage, built around the product story</li>
+            <li><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>"Real skin, real results" video rail</li>
+            <li><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>Product pages with before/afters and a how-to</li>
+            <li><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>Real customer reviews, in their own words</li>
+            <li><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>Community and PR moments, on the site</li>
+          </ul>
+          <div class="stickers"><a href="https://hyeglobeauty.com" target="_blank" rel="noopener">Visit hyeglobeauty.com ↗</a></div>
+        </div>
+      </div>
       <div class="pair">
         <figure>
           <div class="taped"><img src="assets/hyeglo-whatsapp.webp" alt="WhatsApp from the Hyeglo founder: Thanks Sanchali for today. You did a great job and loved the energy. So glad with what we achieved." width="1306" height="1180" loading="lazy"></div>
@@ -692,15 +722,24 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
         <h3 class="hand" style="font-size:1.875rem;margin-bottom:1.25rem">Reels I made for Hyeglo</h3>
         <div class="reels">
           <div>
-            <div class="phone"><div class="ig-screen"><iframe src="https://www.instagram.com/reel/DW80kPUiRP8/embed/" title="Hyeglo reel: the lip oil one" loading="lazy" scrolling="no"></iframe></div></div>
+            <div class="phone">
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-1.mp4" data-ig="DW80kPUiRP8" aria-label="Hyeglo reel: the lip oil one"></video>
+              <button class="sound" type="button">tap for sound</button>
+            </div>
             <div class="reel-meta"><div class="t">the lip oil one</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DW80kPUiRP8/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
           </div>
           <div>
-            <div class="phone"><div class="ig-screen"><iframe src="https://www.instagram.com/reel/DWyhLrSCZi7/embed/" title="Hyeglo reel: does it really adapt to my skin?" loading="lazy" scrolling="no"></iframe></div></div>
+            <div class="phone">
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-2.mp4" data-ig="DWyhLrSCZi7" aria-label="Hyeglo reel: does it really adapt to my skin?"></video>
+              <button class="sound" type="button">tap for sound</button>
+            </div>
             <div class="reel-meta"><div class="t">does it really adapt to my skin?</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DWyhLrSCZi7/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
           </div>
           <div>
-            <div class="phone"><div class="ig-screen"><iframe src="https://www.instagram.com/reel/DZ1oKr5htjc/embed/" title="Hyeglo reel: hyeglo at the onpoint event" loading="lazy" scrolling="no"></iframe></div></div>
+            <div class="phone">
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-3.mp4" data-ig="DZ1oKr5htjc" aria-label="Hyeglo reel: hyeglo at the onpoint event"></video>
+              <button class="sound" type="button">tap for sound</button>
+            </div>
             <div class="reel-meta"><div class="t">hyeglo at the onpoint event</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DZ1oKr5htjc/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
           </div>
         </div>
@@ -1000,6 +1039,11 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 
   // videos: load and play only while on screen; tap toggles sound
   const vids = [...document.querySelectorAll("video[data-src]")];
+  // a reel whose MP4 isn't in videos/ yet falls back to its Instagram player
+  vids.filter(v => v.dataset.ig).forEach(v => v.addEventListener("error", () => {
+    const ph = v.closest(".phone");
+    ph.innerHTML = `<div class="ig-screen"><iframe src="https://www.instagram.com/reel/${v.dataset.ig}/embed/" title="${v.getAttribute("aria-label")}" scrolling="no"></iframe></div>`;
+  }, { once: true }));
   const io = new IntersectionObserver(entries => {
     entries.forEach(({ target: v, isIntersecting }) => {
       if (isIntersecting) {
@@ -1011,10 +1055,11 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
   vids.forEach(v => io.observe(v));
   document.querySelectorAll(".phone").forEach(ph => {
     const v = ph.querySelector("video"), b = ph.querySelector(".sound");
+    if (!v || !b) return;
     const toggle = () => {
       if (!v.src) v.src = VIDEO_BASE + v.dataset.src;
       v.muted = !v.muted;
-      if (!v.muted) { vids.forEach(o => { if (o !== v) { o.muted = true; o.parentElement.querySelector(".sound").textContent = "tap for sound"; } }); v.play().catch(() => {}); }
+      if (!v.muted) { vids.forEach(o => { if (o !== v) { o.muted = true; const ob = o.parentElement.querySelector(".sound"); if (ob) ob.textContent = "tap for sound"; } }); v.play().catch(() => {}); }
       b.textContent = v.muted ? "tap for sound" : "sound on";
     };
     b.addEventListener("click", toggle);
