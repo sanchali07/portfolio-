@@ -7,7 +7,7 @@
 <meta name="description" content="Sanchali Gupta: brand strategy, campaigns, content and the ads that carry them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Neucha&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Neucha&family=Oswald:wght@500;700&family=Permanent+Marker&display=swap">
 <style>
 /* Layout: one long sheet of paper. Hand-drawn shop front on the cover, then each project is an item off the shelf,
    introduced by a marker heading + a price tag, with its proof inside a torn colour block. */
@@ -30,6 +30,7 @@
   --f-marker: "Permanent Marker", "Marker Felt", "Comic Sans MS", cursive;
   --f-hand: "Neucha", "Bradley Hand", "Comic Sans MS", cursive;
   --f-body: "Merriweather", Georgia, "Times New Roman", serif;
+  --f-label: "Oswald", "Arial Narrow", "Helvetica Neue", sans-serif;
   --f-mono: "Courier Prime", "Courier New", ui-monospace, monospace;
 
   --gutter: clamp(1rem, 4vw, 3rem);
@@ -209,10 +210,17 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .proj-head .sub { font-size: clamp(1.5625rem, 3.4vw, 2.375rem); line-height: 1.1; margin-top: 0.375rem; text-wrap: balance; }
 .proj-stamp { display: inline-block; margin: 1rem 0 0; position: relative; padding: .3rem 1.1rem; font-family: var(--f-marker); font-size: clamp(1rem, 1.6vw, 1.25rem); letter-spacing: .06em; text-transform: uppercase; color: var(--marker); transform: rotate(-2.5deg); }
 .proj-stamp::before { content: ""; position: absolute; inset: 0; border: 3px solid var(--zest); border-radius: .5rem; filter: url(#rough); }
-.price-tag { position: absolute; right: 2%; top: 0.25rem; transform: rotate(7deg); display: inline-flex; flex-direction: column; align-items: flex-start; background: var(--c, var(--yellow)); color: var(--on, var(--ink)); padding: 0.625rem 1.25rem 0.6875rem 2.5rem; clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 1.5rem 100%, 0 50%); font-family: var(--f-marker); font-size: clamp(1.375rem, 2.6vw, 1.875rem); line-height: 1; text-align: left; }
-.price-tag::before { content: ""; position: absolute; left: 1rem; top: 50%; width: 0.625rem; height: 0.625rem; margin-top: -5px; border-radius: 50%; background: var(--paper); box-shadow: inset 0 0 0 0.125rem rgba(31,25,21,.35); }
-.price-tag small { font-family: var(--f-hand); font-size: 0.9375rem; margin-top: 0.3125rem; letter-spacing: .02em; }
-.price-tag.left { right: auto; left: 2%; transform: rotate(-7deg); }
+.shelf-label { display: grid; grid-template-columns: minmax(0, 1fr) auto; width: min(100%, 31rem); margin: 1.5rem auto 0; background: #fff; color: var(--marker); border-radius: .35rem; box-shadow: 0 0 0 .45rem rgba(196, 204, 214, .45), .5rem .7rem 0 .45rem rgba(31,25,21,.12); transform: rotate(-1.5deg); text-align: left; font-family: var(--f-label); overflow: hidden; }
+.sl-main { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "cat cat" "code desc"; gap: .55rem 1rem; padding: .8rem 1rem .85rem; align-items: end; }
+.sl-cat { grid-area: cat; font-weight: 700; font-size: clamp(1.35rem, 2.4vw, 1.7rem); line-height: .95; text-transform: uppercase; letter-spacing: .01em; }
+.sl-code { grid-area: code; display: grid; gap: .2rem; }
+.sl-bars { display: block; width: 6.25rem; height: 2.3rem; background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 8px, var(--ink) 8px 11px, transparent 11px 12px, var(--ink) 12px 13px, transparent 13px 16px); }
+.sl-num { font-family: var(--f-mono); font-size: .62rem; color: var(--ink); letter-spacing: .05em; }
+.sl-desc { grid-area: desc; margin: 0; font-weight: 500; font-size: .82rem; line-height: 1.2; text-transform: uppercase; }
+.sl-pay { background: var(--pay); color: var(--marker); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: .7rem 1.1rem; min-width: 8.5rem; }
+.sl-pay small { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.sl-pay b { font-size: clamp(2.2rem, 4vw, 2.9rem); font-weight: 700; line-height: 1; margin: .1rem 0 .15rem; }
+.sl-pay span { font-size: .72rem; font-weight: 500; text-transform: uppercase; line-height: 1.15; max-width: 9rem; }
 
 .proj-meta { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap: 1.75rem 3rem; margin-top: 2.75rem; align-items: start; }
 .proj-meta .desc { margin: 0; font-size: 0.90625rem; }
@@ -412,7 +420,6 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
   .about-foot { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .proj-meta { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .proj-meta .desc { grid-column: 1 / -1; }
-  .price-tag, .price-tag.left { position: relative; right: auto; left: auto; top: auto; display: flex; width: fit-content; margin: 1.125rem auto 0; transform: rotate(-3deg); }
   .proj-head { display: flex; flex-direction: column; align-items: center; }
   .reels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .ground { grid-template-columns: minmax(0, 1fr); }
@@ -421,6 +428,9 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
   .order-col .arrow { display: none; }
 }
 @media (max-width: 560px) {
+  .shelf-label { grid-template-columns: minmax(0, 1fr); }
+  .sl-pay { flex-direction: row; gap: .6rem; justify-content: flex-start; padding: .6rem 1rem; }
+  .sl-pay b { font-size: 2rem; margin: 0; }
   .legend { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
   .legend .arrow { display: none; }
   .legend p { text-align: left; border-left: 0.1875rem solid var(--marker); padding-left: 0.75rem; }
@@ -755,9 +765,16 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 <section class="project" id="hyeglo" aria-labelledby="hyH">
   <div class="page">
     <header class="proj-head">
-      <span class="price-tag" style="--c:var(--yellow)">1 pop-up<small>planned and run end to end</small></span>
       <h2 class="marker" id="hyH">Item<span class="num">1</span></h2>
       <p class="hand sub">Hyeglo Beauty, Founder's Office</p>
+      <div class="shelf-label" style="--pay:var(--yellow)">
+        <div class="sl-main">
+          <b class="sl-cat">Beauty · D2C</b>
+          <div class="sl-code" aria-hidden="true"><span class="sl-bars"></span><span class="sl-num">HYG 2026 01</span></div>
+          <p class="sl-desc">Hyeglo Beauty<br>Intelligent beauty, D2C<br>Brand · content · website</p>
+        </div>
+        <div class="sl-pay"><small>You get</small><b>100</b><span>orders in launch week</span></div>
+      </div>
     </header>
     <div class="proj-meta">
       <p class="desc">India's first intelligent beauty brand. I worked on its brand strategy and content, end to end.</p>
@@ -878,7 +895,14 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
     <header class="proj-head">
       <h2 class="marker" id="fxH">Item<span class="num">2</span></h2>
       <p class="hand sub">Fixderma × Teenilicious</p>
-      <span class="price-tag left" style="--c:var(--zest)">the face<small>of Teenilicious</small></span>
+      <div class="shelf-label" style="--pay:var(--zest)">
+        <div class="sl-main">
+          <b class="sl-cat">Skincare</b>
+          <div class="sl-code" aria-hidden="true"><span class="sl-bars"></span><span class="sl-num">FXD 2025 02</span></div>
+          <p class="sl-desc">Fixderma × Teenilicious<br>Skincare &amp; dermatology<br>Campaigns · social · Amazon</p>
+        </div>
+        <div class="sl-pay"><small>You get</small><b>800K</b><span>reach, 2 campaigns</span></div>
+      </div>
     </header>
     <div class="proj-meta">
       <p class="desc">Skincare and dermatology. I made marketing creatives across the brand's social platforms, wrote platform-specific content plans, and grew Teenilicious, Fixderma's sister brand, as the face of it.</p>
@@ -916,7 +940,14 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
       <h2 class="marker" id="dkdH">Item<span class="num">3</span></h2>
       <p class="hand sub">Desh Ki Dukaan, ₹20 lakh in 3 months</p>
       <p class="proj-stamp">D2C exposure</p>
-      <span class="price-tag" style="--c:var(--yellow)">₹20L+<small>revenue in 90 days</small></span>
+      <div class="shelf-label" style="--pay:var(--yellow)">
+        <div class="sl-main">
+          <b class="sl-cat">D2C retail</b>
+          <div class="sl-code" aria-hidden="true"><span class="sl-bars"></span><span class="sl-num">DKD 2023 03</span></div>
+          <p class="sl-desc">Desh Ki Dukaan<br>D2C lifestyle e-commerce<br>Co-founder · Meta ads · Shopify</p>
+        </div>
+        <div class="sl-pay"><small>You get</small><b>₹20L+</b><span>revenue in 3 months</span></div>
+      </div>
     </header>
     <div class="proj-meta">
       <p class="desc">One Shopify store, built during a college dropshipping term. I co-founded it, ran the Meta Ads, and fixed what was quietly eating the margin.</p>
@@ -959,9 +990,16 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 <section class="project" id="ai" aria-labelledby="aiH">
   <div class="page">
     <header class="proj-head">
-      <span class="price-tag left" style="--c:var(--zest)">26 sec<small>no camera, no crew</small></span>
       <h2 class="marker" id="aiH">Item<span class="num">4</span></h2>
       <p class="hand sub">Eating AI up before it eats me up</p>
+      <div class="shelf-label" style="--pay:var(--zest)">
+        <div class="sl-main">
+          <b class="sl-cat">Health · AI</b>
+          <div class="sl-code" aria-hidden="true"><span class="sl-bars"></span><span class="sl-num">ENH 2026 04</span></div>
+          <p class="sl-desc">Enheal by Telpha Care<br>Joint-health supplement, Cambodia<br>AI films · ads · packaging</p>
+        </div>
+        <div class="sl-pay"><small>You get</small><b>23</b><span>pre-launch assets</span></div>
+      </div>
     </header>
     <div class="proj-meta">
       <p class="desc">A pre-launch ad for Enheal, a joint-health nutraceutical from a pharmaceutical company. Made for a Cambodian audience: shift workers aged 40+ in jobs that are hard on the joints.</p>
@@ -994,7 +1032,14 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
     <header class="proj-head">
       <h2 class="marker" id="rlH">Item<span class="num">5</span></h2>
       <p class="hand sub">But honestly, human-made hits harder</p>
-      <span class="price-tag" style="--c:var(--yellow)">1.5M+<small>reach, 5 countries</small></span>
+      <div class="shelf-label" style="--pay:var(--yellow)">
+        <div class="sl-main">
+          <b class="sl-cat">Content</b>
+          <div class="sl-code" aria-hidden="true"><span class="sl-bars"></span><span class="sl-num">MU 2024 05</span></div>
+          <p class="sl-desc">Masters' Union content challenge<br>Art, fashion &amp; travel<br>Shot · cut · posted</p>
+        </div>
+        <div class="sl-pay"><small>You get</small><b>1.5M+</b><span>reach, 5 countries</span></div>
+      </div>
     </header>
     <div class="proj-meta">
       <p class="desc">Masters' Union content challenge: art, fashion and travel content that reached the UK, Canada, Egypt, the US and Australia. I changed the storytelling and pacing every week based on what the audience did.</p>
@@ -1038,9 +1083,16 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 <section class="project" id="titanium" aria-labelledby="tiH">
   <div class="page">
     <header class="proj-head">
-      <span class="price-tag left" style="--c:var(--marker);--on:var(--cream)">1 site<small>designed and built solo</small></span>
       <h2 class="marker" id="tiH">Item<span class="num">6</span></h2>
       <p class="hand sub">Titanium Protein, website</p>
+      <div class="shelf-label" style="--pay:var(--zest)">
+        <div class="sl-main">
+          <b class="sl-cat">Nutrition</b>
+          <div class="sl-code" aria-hidden="true"><span class="sl-bars"></span><span class="sl-num">TTN 2026 06</span></div>
+          <p class="sl-desc">Titanium Nutrition<br>36g-protein sachets<br>Identity · copy · website</p>
+        </div>
+        <div class="sl-pay"><small>You get</small><b>1</b><span>website, built solo</span></div>
+      </div>
     </header>
     <div class="proj-meta">
       <p class="desc">A self-initiated project for a D2C protein brand. I designed and built the website end to end, and filmed the build as a reel.</p>
