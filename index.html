@@ -233,6 +233,8 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .taped { position: relative; background: #fff; padding: 0.625rem; box-shadow: 0.1875rem 0.3125rem 0 rgba(31,25,21,.22); }
 .taped::before { content: ""; position: absolute; top: -12px; left: 50%; width: 5.75rem; height: 1.5rem; margin-left: -46px; background: rgba(255, 123, 0, .72); transform: rotate(-4deg); }
 .taped img { width: 100%; height: auto; }
+.kudos { margin: 2.75rem 0 0; max-width: 30rem; }
+.kudos .taped { transform: rotate(-1.2deg); }
 .pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.125rem; align-items: start; }
 .pair figure { margin: 0; }
 .pair figure:first-child .taped { transform: rotate(-1.5deg); } .pair figure:last-child .taped { transform: rotate(1.5deg); }
@@ -258,7 +260,8 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .wide-video .phone video { aspect-ratio: auto; }
 
 /* Hyeglo website walkthrough in a phone */
-.web-show { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2.5rem 4rem; align-items: center; margin-bottom: 4.5rem; }
+.web-show { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem 4rem; align-items: center; margin-bottom: 4.5rem; }
+.web-show .device { order: 2; justify-self: end; margin-right: clamp(0rem, 4vw, 4rem); }
 .device { position: relative; width: min(19rem, calc(78svh * 0.46), 80vw); background: var(--ink); border-radius: 2.9rem; padding: .65rem; box-shadow: .5rem .6rem 0 rgba(31,25,21,.25); }
 .device::before, .device::after { content: ""; position: absolute; width: .25rem; border-radius: .2rem; background: var(--ink); }
 .device::before { left: -.25rem; top: 22%; height: 3.2rem; }
@@ -365,7 +368,7 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 }
 @media (max-width: 820px) {
   .hero, .about, .split, .pair, .web-show, .k-wrap { grid-template-columns: minmax(0, 1fr); }
-  .device { margin-inline: auto; }
+  .device, .web-show .device { margin-inline: auto; justify-self: center; }
   .hero h1 { grid-column: 1; grid-row: auto; font-size: clamp(2.75rem, 13.5vw, 10.5rem); white-space: normal; margin-top: 0.625rem; }
   .hero-text, .hero .shop-wrap { grid-column: 1; grid-row: auto; }
   .hero .shop-wrap { margin-top: 2rem; }
@@ -724,7 +727,7 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
     <div class="page">
       <div class="web-show">
         <div class="device">
-          <video muted loop playsinline preload="none" data-src="hyeglo-website.mp4" aria-label="Screen recording scrolling through hyeglobeauty.com on a phone"></video>
+          <video muted loop playsinline preload="none" poster="assets/hyeglo-website-poster.jpg" data-src="hyeglo-website.mp4" aria-label="Screen recording scrolling through hyeglobeauty.com on a phone"></video>
         </div>
         <div>
           <h3 class="hand" style="font-size:clamp(1.9rem,3.2vw,2.6rem);line-height:1.1">The website, end to end</h3>
@@ -873,6 +876,10 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
           <div class="note-card"><b>Weeks 2–4</b>RTO was eating 60% of margin. Cut spend on weak pincodes and brought it to 30%.</div>
           <div class="note-card"><b>Month 3</b>₹20L+ revenue at ₹7 CAC, the lowest of every team.</div>
         </div>
+        <figure class="kudos">
+          <div class="taped"><img src="assets/mu-director-post.jpg" alt="LinkedIn post from Masters' Union, Oct 14 2024: thanking Sanchali Gupta and DH Nelsan Chakma for documenting how they built a ₹20 lakh e-commerce store in 90 days. Kudos to your talent and hard work." width="900" height="884" loading="lazy"></div>
+          <figcaption class="cap">A shout-out from Masters' Union's director, for documenting the build</figcaption>
+        </figure>
       </div>
       <div style="display:grid;gap:30px">
         <figure style="margin:0">
