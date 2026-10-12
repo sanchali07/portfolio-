@@ -367,9 +367,21 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .bye { text-align: center; padding-block: 6.25rem 2.5rem; }
 .bye h2 { font-size: clamp(4rem, 11vw, 8.75rem); }
 .bye .hand { font-size: 1.5rem; margin-top: 0.25rem; color: var(--marker); }
-.shutter { width: min(100%, 35rem); height: auto; margin: 0.625rem auto 0; display: block; overflow: visible; }
-.shutter { fill: none; stroke: var(--marker); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.shutter g { filter: url(#rough); }
+.counter { width: min(100%, 42rem); height: auto; margin: 1rem auto 0; display: block; overflow: visible; }
+.counter .s { stroke: var(--marker); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.counter .thin { stroke-width: 2.5; }
+.counter .ln { fill: none; stroke: var(--marker); stroke-width: 4; stroke-linecap: round; }
+.counter .ln.thin { stroke-width: 2.5; }
+.counter .r { filter: url(#rough); }
+.counter .rc-txt { font-family: var(--f-hand); font-size: 17px; fill: var(--marker); }
+.counter .screen-txt { font-family: var(--f-mono); font-weight: 700; font-size: 22px; fill: var(--yellow); }
+.counter .jar-txt { font-family: var(--f-hand); font-size: 18px; fill: var(--marker); }
+.counter .plaque-txt { font-family: var(--f-marker); font-size: 25px; letter-spacing: 1px; fill: var(--marker); }
+.counter .bell, .counter .jar { transform-box: fill-box; transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .counter:hover .bell { animation: ding .5s ease-in-out 2; }
+  @keyframes ding { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+}
 footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padding-block: 1.875rem 2.5rem; }
 
 /* ---------- responsive ---------- */
@@ -1108,18 +1120,52 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 <section class="page bye" aria-label="Goodbye">
   <h2 class="marker">Phir aana!</h2>
   <p class="hand">(come again)</p>
-  <svg class="shutter" viewBox="0 0 560 230" aria-hidden="true"><g>
-    <path d="M30,30 L530,30"/>
-    <rect x="50" y="30" width="460" height="180"/>
-    <line x1="50" y1="60" x2="510" y2="60"/>
-    <line x1="50" y1="90" x2="510" y2="90"/>
-    <line x1="50" y1="120" x2="510" y2="120"/>
-    <line x1="50" y1="150" x2="510" y2="150"/>
-    <line x1="50" y1="180" x2="510" y2="180"/>
-    <rect x="262" y="186" width="36" height="24" rx="4"/>
-    <path d="M270,186 L270,178 Q280,166 290,178 L290,186"/>
-    <path d="M10,212 C160,208 380,216 550,210"/>
-  </g></svg>
+  <svg class="counter" viewBox="0 0 760 380" role="img" aria-labelledby="counterTitle">
+    <title id="counterTitle">A hand-drawn billing counter: a cash register printing a thank-you receipt, a card machine, a jar of toffees and a service bell.</title>
+    <!-- receipt curling out of the register -->
+    <g class="r">
+      <path class="s f-paper" d="M186,152 C180,120 196,96 184,62 L178,46 L190,52 L198,44 L206,52 L214,44 L222,52 L230,46 C238,80 220,112 230,152 Z"/>
+      <path class="ln thin" d="M194,132 L222,130 M196,142 L224,140"/>
+    </g>
+    <text class="rc-txt" x="207" y="90" text-anchor="middle" transform="rotate(-5 207 90)">thank</text>
+    <text class="rc-txt" x="208" y="112" text-anchor="middle" transform="rotate(-3 208 112)">you!</text>
+    <!-- cash register -->
+    <g class="r">
+      <path class="s f-cream" d="M140,212 L156,152 L330,152 L346,212 Z"/>
+      <rect class="s f-ink" x="256" y="96" width="112" height="44" rx="6"/>
+      <path class="ln" d="M300,140 L300,152"/>
+      <path class="ln thin" d="M178,170 h18 M206,170 h18 M234,170 h18 M262,170 h18 M290,170 h18 M172,188 h18 M200,188 h18 M228,188 h18 M256,188 h18 M284,188 h18 M312,188 h18"/>
+      <rect class="s f-zest" x="296" y="160" width="34" height="14" rx="3"/>
+    </g>
+    <text class="screen-txt" x="312" y="125" text-anchor="middle">₹0.00</text>
+    <!-- card machine -->
+    <g class="r">
+      <rect class="s f-ink" x="372" y="146" width="44" height="66" rx="8" transform="rotate(-6 394 179)"/>
+      <rect class="f-yellow" x="380" y="154" width="28" height="16" rx="2" transform="rotate(-6 394 179)"/>
+    </g>
+    <!-- toffee jar -->
+    <g class="r jar">
+      <rect class="s f-zest" x="444" y="106" width="76" height="16" rx="5"/>
+      <path class="s f-paper" style="fill-opacity:.55" d="M450,122 L514,122 Q530,140 528,170 Q526,212 482,212 Q438,212 436,170 Q434,140 450,122 Z"/>
+      <circle class="f-yellow s thin" cx="462" cy="190" r="9"/><circle class="f-zest s thin" cx="484" cy="194" r="9"/><circle class="f-marker" cx="505" cy="188" r="9"/>
+      <circle class="f-zest s thin" cx="470" cy="170" r="8"/><circle class="f-lemon s thin" cx="494" cy="172" r="8"/><circle class="f-yellow s thin" cx="482" cy="152" r="8"/>
+    </g>
+    <text class="jar-txt" x="482" y="98" text-anchor="middle">toffee for change</text>
+    <!-- service bell -->
+    <g class="r bell">
+      <path class="s f-yellow" d="M560,200 Q560,160 596,160 Q632,160 632,200 Z"/>
+      <rect class="s f-ink" x="550" y="200" width="92" height="12" rx="4"/>
+      <path class="ln" d="M596,160 L596,150 M588,148 L604,148"/>
+    </g>
+    <!-- counter -->
+    <g class="r">
+      <rect class="s f-zest" x="70" y="212" width="620" height="20" rx="4"/>
+      <rect class="s f-marker" x="92" y="232" width="576" height="126"/>
+      <rect class="s f-yellow" x="196" y="262" width="368" height="56" rx="8"/>
+      <path class="ln" d="M14,360 C200,354 520,364 746,357"/>
+    </g>
+    <text class="plaque-txt" x="380" y="299" text-anchor="middle">BILLING COUNTER</text>
+  </svg>
 </section>
 
 <footer class="page">© 2026 Sanchali Gupta · drawn and built by hand, mostly</footer>
