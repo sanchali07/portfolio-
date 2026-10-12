@@ -277,6 +277,46 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .ig-screen { position: relative; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 1.2rem; background: #2b2420; }
 .ig-screen iframe { position: absolute; top: -60px; left: -22.5%; width: 145%; height: calc(102% + 260px); border: 0; }
 
+/* ---------- the khata (Hyeglo tracker) ---------- */
+.khata { padding-block: 5.5rem 0; }
+.khata-head { text-align: center; }
+.khata-head h3 { font-size: clamp(3rem, 7vw, 5.5rem); }
+.khata-head .hand { font-size: clamp(1.3rem, 2.3vw, 1.75rem); margin-top: .5rem; text-wrap: balance; }
+.k-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.75rem; margin-top: 2.25rem; }
+.k-stat { display: grid; justify-items: center; text-align: center; }
+.k-stat b { font-family: var(--f-marker); font-weight: 400; color: var(--marker); font-size: clamp(2.6rem, 4.6vw, 3.6rem); line-height: 1; padding-inline: .2em; background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 90%, transparent 90%); filter: url(#rough-text); }
+.k-stat span { font-family: var(--f-hand); color: var(--marker); font-size: 1.15rem; margin-top: .35rem; }
+.k-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 2rem 2.75rem; align-items: start; margin-top: 2.75rem; }
+.sheet { --grid: #E2DED2; background: #fff; border: 2px solid var(--ink); border-radius: .9rem; box-shadow: .5rem .6rem 0 rgba(31,25,21,.2); overflow: hidden; font: 400 .8rem/1.35 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); min-width: 0; }
+.sheet-bar { display: flex; align-items: center; gap: .6rem; padding: .6rem .9rem; background: var(--paper-2); border-bottom: 1px solid var(--grid); }
+.sheet-bar svg { width: 1.1rem; height: 1.1rem; fill: var(--yellow); stroke: var(--marker); stroke-width: 1.4; flex: none; }
+.sheet-file { font-weight: 600; }
+.sheet-chip { margin-left: auto; font-family: var(--f-hand); font-size: .95rem; color: var(--cream); background: var(--ink); padding: .1rem .6rem; border-radius: 1rem; white-space: nowrap; }
+.sheet-grid { overflow: auto; max-height: 27rem; }
+.sheet-grid:focus-visible { outline: 3px dashed var(--marker); outline-offset: -3px; }
+#kTable { border-collapse: separate; border-spacing: 0; min-width: 100%; }
+#kTable th, #kTable td { border-right: 1px solid var(--grid); border-bottom: 1px solid var(--grid); padding: .38rem .65rem; white-space: nowrap; max-width: 22rem; overflow: hidden; text-overflow: ellipsis; text-align: left; vertical-align: middle; }
+#kTable .cl th { position: sticky; top: 0; z-index: 2; background: var(--paper-2); color: #8A8378; font-weight: 500; text-align: center; padding-block: .2rem; }
+#kTable .hd th { position: sticky; top: 1.45rem; z-index: 2; background: var(--yellow); color: var(--marker); font-weight: 700; }
+#kTable .rn { position: sticky; left: 0; z-index: 1; background: var(--paper-2); color: #8A8378; text-align: center; min-width: 2.2rem; font-weight: 500; }
+#kTable .cl th.rn, #kTable .hd th.rn { z-index: 3; }
+#kTable tbody tr:hover td { background: #FFFCE0; }
+#kTable td.grp { font-family: var(--f-hand); font-size: 1.05rem; color: var(--marker); background: var(--lemon); }
+#kTable td.empty-note { font-family: var(--f-hand); font-size: 1.05rem; color: var(--ink-soft); text-align: center; padding-block: 1.5rem; }
+.redact { display: inline-block; width: calc(var(--w) * .55em); height: .95em; background: var(--ink); border-radius: 2px; vertical-align: -.12em; transform: rotate(-.8deg); filter: url(#rough); }
+.pill { display: inline-block; padding: .08rem .55rem; border-radius: 1rem; font-weight: 600; font-size: .75rem; }
+.pill.good { background: var(--marker); color: var(--cream); }
+.pill.mid { background: var(--yellow); color: var(--ink); }
+.pill.wait { background: var(--zest); color: var(--ink); }
+.pill.no { background: transparent; color: var(--ink-soft); box-shadow: inset 0 0 0 1px var(--grid); }
+.sheet-tabs { display: flex; overflow-x: auto; background: var(--paper-2); border-top: 1px solid var(--grid); scrollbar-width: thin; }
+.sheet-tabs button { flex: none; font: inherit; font-size: .78rem; color: var(--ink-soft); background: transparent; border: 0; border-right: 1px solid var(--grid); padding: .55rem .95rem; cursor: pointer; white-space: nowrap; }
+.sheet-tabs button:hover { color: var(--marker); background: #fff; }
+.sheet-tabs button[aria-selected="true"] { background: #fff; color: var(--marker); font-weight: 700; box-shadow: inset 0 3px 0 var(--zest); }
+.sheet-tabs button:focus-visible { outline: 2px dashed var(--marker); outline-offset: -4px; }
+.k-notes h4 { font-size: clamp(1.6rem, 2.4vw, 2rem); line-height: 1.1; margin-bottom: 1rem; }
+.k-foot { font-size: .85rem; color: var(--ink-soft); text-align: center; margin: 1.75rem auto 0; max-width: 60ch; }
+
 /* ---------- the wall ---------- */
 .wall-head { text-align: center; }
 .wall-head h2 { font-size: clamp(3.25rem, 8vw, 6.25rem); }
@@ -328,7 +368,7 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
   .receipt .row .scribble { flex-basis: 100%; }
 }
 @media (max-width: 820px) {
-  .hero, .about, .split, .pair, .web-show { grid-template-columns: minmax(0, 1fr); }
+  .hero, .about, .split, .pair, .web-show, .k-wrap { grid-template-columns: minmax(0, 1fr); }
   .device { margin-inline: auto; }
   .hero h1 { grid-column: 1; grid-row: auto; font-size: clamp(2.75rem, 13.5vw, 10.5rem); white-space: normal; margin-top: 0.625rem; }
   .hero-text, .hero .shop-wrap { grid-column: 1; grid-row: auto; }
@@ -746,6 +786,36 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
       </div>
     </div>
   </div>
+
+  <!-- the khata: the day-to-day tracker, anonymised -->
+  <div class="page khata" id="khata">
+    <header class="khata-head">
+      <h3 class="marker">The khata</h3>
+      <p class="hand">The founder handed me something new every day. This is where I kept track of all of it.</p>
+    </header>
+    <div class="k-stats">
+      <div class="k-stat"><b>12</b><span>tabs in one tracker</span></div>
+      <div class="k-stat"><b>20</b><span>creators seeded, 15 posted</span></div>
+      <div class="k-stat"><b>14</b><span>pop-up venues, 1 closed</span></div>
+      <div class="k-stat"><b>49</b><span>units into retail, 7 SKUs</span></div>
+    </div>
+    <div class="k-wrap">
+      <div class="sheet">
+        <div class="sheet-bar">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="2.5"/><path d="M1 5.5h14M1 10h14M6 5.5V15"/></svg>
+          <span class="sheet-file">Hyeglo task tracker.xlsx</span>
+          <span class="sheet-chip">names &amp; contacts hidden</span>
+        </div>
+        <div class="sheet-grid" tabindex="0" aria-label="Tracker tab contents"><table id="kTable"></table></div>
+        <div class="sheet-tabs" role="tablist" aria-label="Tracker tabs" id="kTabs"></div>
+      </div>
+      <aside class="k-notes" aria-live="polite">
+        <h4 class="hand" id="kTitle"></h4>
+        <ul class="web-labels" id="kNotes"></ul>
+      </aside>
+    </div>
+    <p class="k-foot">Rebuilt from the real tracker. Names, handles, contacts, addresses, prices paid, costs and private notes are blacked out.</p>
+  </div>
 </section>
 
 <svg class="divider" aria-hidden="true"><use href="#bag"/></svg>
@@ -1065,6 +1135,56 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
     b.addEventListener("click", toggle);
     v.addEventListener("click", toggle);
   });
+
+  // the khata: an anonymised rebuild of the Hyeglo tracker, one tab at a time
+  const KHATA = [{"name":"influencer sheet","caption":"Influencer Outreach & Delivery Tracker","head":["#","Influencer Name","Product 1","Product 2","Product 3","Product 4","Content Type","Shipped?","Delivery Status","Instagram Profile","Content Posted?"],"rows":[["1","Creator 01","Tintelligence - Light","Lip Oil - Rose But Better","Lip Oil - Peach But Better","","Story","Yes","Delivered",{"r":12},"Yes - Posted"],["2","Creator 02","Tintelligence - Light","Lip Oil - Nude But Better","","","Story","Yes","Delivered",{"r":12},"Yes - Posted"],["3","Creator 03","Tintelligence - Light","Lip Oil - Maroon But Better","Lip Oil - Nude But Better","","Story and Reel","No","Delivered",{"r":12},"Yes - Posted"],["4","Creator 04","Tintelligence - Light","Lip Oil - Peach But Better","","","Story","Yes","Delivered",{"r":12},"Yes - Posted"],["5","Creator 05","Tintelligence - Light","Lip Oil - Peach But Better","","","Story","Yes","Delivered",{"r":12},"Yes - Posted"],["6","Creator 06","Tintelligence - Light","","","","Story and Reel","No","Pending",{"r":12},"No"],["7","Creator 07","Lip Oil - Nude But Better","","","","Story","Yes","Delivered",{"r":12},"Yes - Posted"],["8","Creator 08","Tintelligence - Medium","Lip Oil - Nude But Better","","","Story and Reel","No","Delivered",{"r":12},"Yes - Posted"],["9","Creator 09","Tintelligence - Light","Lip Oil - Nude But Better","Lip Oil - Rose But Better","","Story","Yes","Delivered",{"r":12},"Yes - Posted"],["10","Creator 10","Tintelligence - Light","Lip Oil - Peach But Better","Lip Oil - Maroon But Better","","Story","No","Delivered",{"r":12},"No"],["11","Creator 11","Tintelligence - Light","Tintelligence - Medium","Lip Oil - Peach But Better","Lip Oil - Maroon But Better","Story and Reel","Yes","Delivered",{"r":12},"Yes - Posted"],["12","Creator 12","Tintelligence - Light","Lip Oil - Rose But Better","Lip Oil - Nude But Better","","Story and Reel","No","Pending","","No"],["13","Creator 13","Tintelligence - Light","Lip Oil - Peach But Better","","","Story","Yes","Pending","","Yes - Posted"],["14","Creator 14","Tintelligence - Medium","","","","Story and Reel","No","Pending","","Yes - Posted"],["15","Creator 15","Tintelligence - Light","Lip Oil - Rose But Better","","","Story","Yes","Delivered","","Yes - Posted"],["16","Creator 16","Tintelligence - Medium","Lip Oil - Maroon But Better","","","Story and Reel","","","","Yes - Posted"],["17","Creator 17","Tintelligence - Medium","","","","Story and Reel","","","","Yes - Story Only"],["18","Creator 18","Lip Oil - Maroon But Better","Lip Oil - Peach But Better","","","Story and Reel","","","","No"],["19","Creator 19","Tintelligence - Light","","","","Story and Reel","","","","No"],["20","Creator 20","Tintelligence - Light","Lip Oil - Peach But Better","","","","","","","Yes - Story Only"]],"status":[7,8,10],"title":"Creator seeding, parcel to post","notes":["One row per creator, with the exact shades sent","Three checkpoints: shipped, delivered, posted","15 of 20 creators posted about it","Names and handles hidden"]},{"name":"july influencer sheet","head":["Creator","Profile","Product 1","Product 2"],"rows":[[{"group":"reach out"},"","",""],["Creator 01",{"r":12},"",""],[{"group":"working with"},"","",""],["Creator 02",{"r":12},"",""],["Creator 03",{"r":12},"skin tint light","rose"],["Creator 04",{"r":12},"skin tint medium",""]],"title":"July's creator list","notes":["Split into “reach out” and “working with”","Shades noted per creator","Handles hidden"]},{"name":"10th -quorom","head":["S.No.","Name","Product 1","product 2","Product 3","Product 4","Discount","amount paid","Units"],"rows":[["1","Customer 01","light","peach","","",{"r":4},{"r":6},"2"],["2","Customer 02","rose","maroon","","light",{"r":4},{"r":6},"3"],["3","Customer 03","rose","","","",{"r":4},{"r":5},"1"],["4","Customer 04","nude","","","",{"r":4},{"r":5},"1"],["5","Customer 05","medium","light","maroon","rose",{"r":4},{"r":6},"4"],["6","Customer 06","rose","","","",{"r":4},{"r":5},"1"],["7","Customer 07","light","","","",{"r":4},{"r":6},"1"],["8","Customer 08","light","rose","","",{"r":4},{"r":6},"2"],["9","Customer 09","light","rose","","",{"r":4},{"r":6},"2"],["10","Customer 10","medium","rose","","",{"r":4},{"r":6},"2"],["11","Customer 11","medium","","","",{"r":4},{"r":6},"1"],["12","Customer 12","medium","","","",{"r":4},{"r":6},"1"],["13","Customer 13","light","","","",{"r":4},{"r":6},"1"],["14","Customer 14","maroon","","","",{"r":4},{"r":5},"1"]],"title":"Selling at a pop-up on the 10th","notes":["14 orders logged as they came in","Every shade, every unit","Names, prices and discounts hidden"]},{"name":"may- june influencer sheet","head":["Name","Profile","Address","Product 1","Product 2"],"rows":[["Creator 01",{"r":12},{"r":8},"nude",""],["Creator 02",{"r":12},{"r":14},"",""],["Creator 03",{"r":12},{"r":8},"rose",""],["Creator 04",{"r":12},{"r":14},"rose",""],["Creator 05",{"r":12},{"r":14},"peach",""],["Creator 06",{"r":12},{"r":14},"",""],["Creator 07",{"r":12},{"r":14},"",""],["Creator 08",{"r":12},{"r":8},"nude",""],["Creator 09",{"r":12},{"r":8},"maroon","rose"],["Creator 10",{"r":12},{"r":8},"rose","skin tint light"],["Creator 11",{"r":12},{"r":8},"rose",""]],"title":"May–June seeding","notes":["11 creators, with shades and shipping addresses","Addresses and handles hidden"]},{"name":"dermats","head":["Name","Contact"],"rows":[[{"r":8},{"r":12}],[{"r":12},{"r":12}]],"title":"Dermatologists","notes":["Kept right next to the creator lists","Names and contacts hidden"]},{"name":"makeup artists","head":["Name","Contact"],"rows":[],"title":"Makeup artists","notes":["Set up and ready for its first row"]},{"name":"influencers pay sheet","head":["Influencers","Links","Category"],"rows":[["Creator 01",{"r":12},"Fashion and beauty"],["Creator 02",{"r":12},"Fun and informative"],["Creator 03",{"r":12},"Fun and informative"],["Creator 04",{"r":12},"Beauty"],["Creator 05",{"r":12},"Travel and informative (storytelling)"],["Creator 06",{"r":12},"Fun and informative"],["Creator 07",{"r":12},"Beauty and international"],["Creator 08",{"r":12},"Beauty"],["Creator 09",{"r":12},"Beauty and storytelling"],["Creator 10",{"r":12},"Storytelling"],["Creator 11",{"r":12},"Beauty and storytelling"],["Creator 12",{"r":12},"Discovery"],["Creator 13",{"r":12},"Storytelling"],["Creator 14",{"r":12},""],["Creator 15","",""],["Creator 16",{"r":12},""],["Creator 17",{"r":12},""],["Creator 18",{"r":12},""],["Creator 19",{"r":12},""],["Creator 20","",""],["Creator 21",{"r":12},""],["Creator 22",{"r":12},""]],"title":"The pay sheet","notes":["22 creators scouted","Tagged by content style: beauty, storytelling, fun and informative","Handles hidden"]},{"name":"community channels","head":["Channel","What it is","Who it's for"],"rows":[["whatsapp","enroll themselves via email in founders club",""],["instagram","hyeglo insider",""],["core beauty","example - global beauty finds","hyeglo crew - influencers, immediate community of influencers."],["unique content","","broadcast"],["hyeglo founders club","customers -email enrollment","whatsapp"],["?","creators - we will send out samples to them so that they feel exclusive.",""]],"title":"Planning the community","notes":["Customers: a Founders Club, joined by email, run on WhatsApp","Instagram: Hyeglo Insider","Creators: the Hyeglo Crew, sent samples so they feel exclusive"]},{"name":"LTS discussions","head":["Sr. No.","Asset Required","Description / Direction"],"rows":[["1","Homepage Landing Panel","Focused on the Skin Tint video with the text “Skinification of Makeup”"],["2","Skin Tint Hand Application Shot","Hand application shot of the Skin Tint Moisturizer to show the transition and texture"],["3","Skin Tint Shade Swatch Static","Clean static visual featuring all Skin Tint shades in circular swatches placed side by side"],["4","Lip Oil Hand Swatches","Hand swatches for all Lip Oil shades"],["5","Lip Oil Model Group Image","1 image featuring all 4 models wearing the Lip Oil on their lips"],["6","Finished Skin Images","Natural finished skin images with model"],["7","Event Images","Images from Nubo + other relevant events"],["8","static format - how to use skin tint",""],["","discussions",""],["","skin tint","4 slides"],["","","questions to the audience"],["","","products descriptions"],["","","QandA things"],["","","ingredients"]],"title":"Asset brief for the website","notes":["8 assets, each with its creative direction","From the homepage panel to hand swatches","The brief behind the website above"]},{"name":"ALT TRIBE Skin tint","head":["Product Name","SKU","AttributeOption1","Selling Price","Purchase Price","Units Distributed","HSN/SAC","Intra State Tax Rate"],"rows":[["Skin Adaptive Tint - Light","SAT-LT-001","Light (Pantone 7513 C)","₹1350",{"r":5},"7","3304","18%"],["Skin Adaptive Tint - Medium","SAT-MD-002","Medium (Pantone 7514 C)","₹1350",{"r":5},"7","3304","18%"],["Skin Adaptive Tint - Tan","SAT-TN-003","Tan (Pantone 7515 C)","₹1350",{"r":5},"7","3304","18%"],["Lip Oil - Nude, but Better","LO-NU-004","Nude (Pantone 4040 C)","₹999",{"r":5},"7","3304","18%"],["Lip Oil - Peach, but Better","LO-PE-005","Peach (Pantone 2446 C)","₹999",{"r":5},"7","3304","18%"],["Lip Oil - Rose, but Better","LO-RS-006","Rose (Pantone 2343 C)","₹999",{"r":5},"7","3304","18%"],["Lip Oil - Maroon, but Better","LO-MR-007","Maroon (Pantone 194 C)","₹999",{"r":5},"7","3304","18%"]],"title":"Retail stock for alt.tribe","notes":["7 SKUs, 7 units each: 49 in all","SKU codes, Pantone shades, HSN code and GST rate on every line","Purchase price hidden"]},{"name":"pop ups","head":["Venue / Brand","City","Contact Person","message sent","Type of Space","Proposed Dates","Status","Cost / Revenue Share","Requirements","Next Follow-Up","Notes"],"rows":[["Venue A","Delhi",{"r":12},"Sent","Café","October","Inquiry Sent",{"r":3},"Need product display table","10 May",{"r":12}],["Venue B","Gurugram",{"r":12},"Sent","","","","","","",""],["Venue C","New Delhi",{"r":12},"Sent",{"r":12},{"r":6},"","","","",""],["Venue D","Gurugram",{"r":12},"Sent","","","","","","",""],["Venue E","Delhi",{"r":12},"","","","","","","",""],["alt.tribe","Delhi",{"r":12},"Closed","","","","","","",""],["Venue G","Delhi",{"r":12},"Sent","","","","","","",""],["Venue H","Delhi",{"r":12},"","","","","","","",""],["Venue I","Delhi",{"r":12},"Sent","","","","","","",""],["Venue J","Mumbai",{"r":12},"Sent","","","","","","",""],["Venue K","Kolkata","","","","","","","","",""],["Venue L","","","","","","","","","",""],["Venue M","","","","","","","","","",""],["Venue N","","","","","","","","","",""]],"status":[3,6],"title":"Pop-up venue pipeline","notes":["14 venues across 4 cities","8 messaged, 1 closed: alt.tribe","Contacts, costs and notes hidden"]},{"name":"linkedin","head":["Post Date","Content Topic","Post Type","Objective","Draft Status","Design/Visuals","Approval","Posting Status","CTA","Owner","Performance","Notes"],"rows":[],"title":"LinkedIn calendar","notes":["12 columns, from draft to approval to performance","Set up and ready to fill"]}];
+  const kTable = document.getElementById("kTable"), kTabs = document.getElementById("kTabs");
+  if (kTable) {
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const tone = v => {
+      const x = v.toLowerCase();
+      if (["yes", "delivered", "yes - posted", "closed"].includes(x)) return "good";
+      if (["sent", "inquiry sent", "yes - story only"].includes(x)) return "mid";
+      if (x === "pending") return "wait";
+      if (x === "no") return "no";
+      return "";
+    };
+    const cell = (v, isStatus) => {
+      if (v && typeof v === "object" && v.r) return `<span class="redact" style="--w:${v.r}" aria-label="hidden"></span>`;
+      if (isStatus && v && tone(v)) return `<span class="pill ${tone(v)}">${esc(v)}</span>`;
+      return esc(v || "");
+    };
+    const letters = n => Array.from({ length: n }, (_, i) => String.fromCharCode(65 + i));
+    const show = i => {
+      const t = KHATA[i], n = t.head.length, st = new Set(t.status || []);
+      let h = `<thead><tr class="cl"><th class="rn"></th>${letters(n).map(l => `<th>${l}</th>`).join("")}</tr>`;
+      h += `<tr class="hd"><th class="rn">1</th>${t.head.map(x => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>`;
+      t.rows.forEach((row, k) => {
+        h += `<tr><td class="rn">${k + 2}</td>`;
+        h += row[0] && row[0].group ? `<td class="grp" colspan="${n}">${esc(row[0].group)}</td>` : row.map((v, c) => `<td>${cell(v, st.has(c))}</td>`).join("");
+        h += "</tr>";
+      });
+      if (!t.rows.length) h += `<tr><td class="rn">2</td><td class="empty-note" colspan="${n}">header set up, no rows yet</td></tr>`;
+      kTable.innerHTML = h + "</tbody>";
+      kTable.parentElement.scrollTo(0, 0);
+      document.getElementById("kTitle").textContent = t.title;
+      document.getElementById("kNotes").innerHTML = t.notes.map(x => `<li><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>${esc(x)}</li>`).join("");
+      [...kTabs.children].forEach((b, j) => { b.setAttribute("aria-selected", j === i); b.tabIndex = j === i ? 0 : -1; });
+      const active = kTabs.children[i];
+      if (active.offsetLeft < kTabs.scrollLeft || active.offsetLeft + active.offsetWidth > kTabs.scrollLeft + kTabs.clientWidth) kTabs.scrollTo({ left: active.offsetLeft - 24 });
+    };
+    KHATA.forEach((t, i) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.role = "tab"; b.textContent = t.name;
+      b.addEventListener("click", () => show(i));
+      b.addEventListener("keydown", e => {
+        const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (d) { const j = (i + d + KHATA.length) % KHATA.length; show(j); kTabs.children[j].focus(); }
+      });
+      kTabs.append(b);
+    });
+    show(0);
+  }
 
   // "currently stocking" line writes, erases, and cycles
   const phrases = ["strategy, story, and everything in between.", "brands, ads, and the ideas behind them.", "i make people feel something about brands."];
