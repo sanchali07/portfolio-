@@ -255,6 +255,11 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .reel-meta .t { font-family: var(--f-hand); font-size: 1.375rem; line-height: 1.15; }
 .reel-meta .n { font-size: 0.78125rem; margin-top: 0.125rem; }
 .reel-meta a { font-size: 0.78125rem; }
+.reels.five { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.25rem; max-width: calc(5 * 50svh * 9 / 16 + 5rem); }
+@media (max-width: 980px) {
+  .reels.five { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .75rem; max-width: none; }
+  .reels.five > div { flex: 0 0 min(15rem, 62vw); scroll-snap-align: start; }
+}
 .solo-video { max-width: min(21.25rem, 62svh * 9 / 16); }
 .wide-video { max-width: 35rem; }
 .wide-video .phone video { aspect-ratio: auto; }
@@ -272,9 +277,6 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .web-labels li { display: flex; gap: .75rem; align-items: center; font-family: var(--f-hand); color: var(--marker); font-size: clamp(1.15rem, 1.6vw, 1.4rem); line-height: 1.2; }
 .web-labels svg { flex: 0 0 2.6rem; width: 2.6rem; height: 1.5rem; overflow: visible; fill: none; stroke: var(--marker); stroke-width: 3; stroke-linecap: round; filter: url(#rough); }
 
-/* Instagram reel shown inside the phone frame, cropped to the video (fallback when the MP4 isn't in videos/) */
-.ig-screen { position: relative; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 1.2rem; background: #2b2420; }
-.ig-screen iframe { position: absolute; top: -60px; left: -22.5%; width: 145%; height: calc(102% + 260px); border: 0; }
 
 /* ---------- the khata (Hyeglo tracker) ---------- */
 .khata { padding-block: 5.5rem 0; }
@@ -753,30 +755,45 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
         </figure>
       </div>
       <div style="margin-top:3.5rem">
-        <h3 class="hand" style="font-size:1.875rem;margin-bottom:1.25rem">Reels I made for Hyeglo</h3>
-        <div class="reels">
+        <h3 class="hand" style="font-size:1.875rem;margin-bottom:1.25rem">Reels I worked on for Hyeglo</h3>
+        <div class="reels five">
           <div>
             <div class="phone">
-              <video muted loop playsinline preload="none" data-src="hyeglo-reel-1.mp4" data-ig="DW80kPUiRP8" aria-label="Hyeglo reel: the lip oil one"></video>
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-1.mp4" aria-label="Hyeglo reel: my everyday staple"></video>
               <button class="sound" type="button">tap for sound</button>
             </div>
-            <div class="reel-meta"><div class="t">the lip oil one</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DW80kPUiRP8/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+            <div class="reel-meta"><div class="t">my everyday staple</div><div class="n">creator collab, reposted by Hyeglo</div></div>
           </div>
           <div>
             <div class="phone">
-              <video muted loop playsinline preload="none" data-src="hyeglo-reel-2.mp4" data-ig="DWyhLrSCZi7" aria-label="Hyeglo reel: does it really adapt to my skin?"></video>
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-2.mp4" aria-label="Hyeglo reel: a pink tinted moisturiser"></video>
               <button class="sound" type="button">tap for sound</button>
             </div>
-            <div class="reel-meta"><div class="t">does it really adapt to my skin?</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DWyhLrSCZi7/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+            <div class="reel-meta"><div class="t">a pink tinted moisturiser</div><div class="n">creator collab, reposted by Hyeglo</div></div>
           </div>
           <div>
             <div class="phone">
-              <video muted loop playsinline preload="none" data-src="hyeglo-reel-3.mp4" data-ig="DZ1oKr5htjc" aria-label="Hyeglo reel: hyeglo at the onpoint event"></video>
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-3.mp4" aria-label="Hyeglo reel: another day, another parcel"></video>
               <button class="sound" type="button">tap for sound</button>
             </div>
-            <div class="reel-meta"><div class="t">hyeglo at the onpoint event</div><div class="n">for @hyeglobeauty</div><a href="https://www.instagram.com/reel/DZ1oKr5htjc/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
+            <div class="reel-meta"><div class="t">another day, another parcel</div><div class="n">creator collab, reposted by Hyeglo</div></div>
+          </div>
+          <div>
+            <div class="phone">
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-4.mp4" aria-label="Hyeglo reel: grwm for sunday church"></video>
+              <button class="sound" type="button">tap for sound</button>
+            </div>
+            <div class="reel-meta"><div class="t">grwm for sunday church</div><div class="n">creator collab, reposted by Hyeglo</div></div>
+          </div>
+          <div>
+            <div class="phone">
+              <video muted loop playsinline preload="none" data-src="hyeglo-reel-5.mp4" aria-label="Hyeglo reel: hyeglo at the onpoint event"></video>
+              <button class="sound" type="button">tap for sound</button>
+            </div>
+            <div class="reel-meta"><div class="t">hyeglo at the onpoint event</div><div class="n">on @hyeglobeauty</div><a href="https://www.instagram.com/reel/DZ1oKr5htjc/" target="_blank" rel="noopener">Watch on Instagram ↗</a></div>
           </div>
         </div>
+        <div class="stickers" style="justify-content:center;margin-top:1.75rem"><a href="https://www.instagram.com/hyeglobeauty/" target="_blank" rel="noopener">More on @hyeglobeauty ↗</a></div>
       </div>
     </div>
   </div>
@@ -1107,11 +1124,6 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 
   // videos: load and play only while on screen; tap toggles sound
   const vids = [...document.querySelectorAll("video[data-src]")];
-  // a reel whose MP4 isn't in videos/ yet falls back to its Instagram player
-  vids.filter(v => v.dataset.ig).forEach(v => v.addEventListener("error", () => {
-    const ph = v.closest(".phone");
-    ph.innerHTML = `<div class="ig-screen"><iframe src="https://www.instagram.com/reel/${v.dataset.ig}/embed/" title="${v.getAttribute("aria-label")}" scrolling="no"></iframe></div>`;
-  }, { once: true }));
   const io = new IntersectionObserver(entries => {
     entries.forEach(({ target: v, isIntersecting }) => {
       if (isIntersecting) {
