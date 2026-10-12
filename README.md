@@ -1,4 +1,4 @@
-# Sanchali General Store — portfolio of Sanchali Gupta
+# Sanchali's Special Store — portfolio of Sanchali Gupta
 
 A one-page portfolio built with plain HTML, CSS and JavaScript. No build step.
 
