@@ -309,9 +309,19 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 #kTable .hd th { position: sticky; top: 1.45rem; z-index: 2; background: var(--yellow); color: var(--marker); font-weight: 700; }
 #kTable .rn { position: sticky; left: 0; z-index: 1; background: var(--paper-2); color: #8A8378; text-align: center; min-width: 2.2rem; font-weight: 500; }
 #kTable .cl th.rn, #kTable .hd th.rn { z-index: 3; }
-#kTable tbody tr:hover td { background: #FFFCE0; }
+#kTable tbody tr:nth-child(even) td:not(.rn) { background: #FBFAF4; }
+#kTable tbody tr:hover td:not(.rn) { background: #FFFCE0; }
+#kTable th.num, #kTable td.num { text-align: right; font-variant-numeric: tabular-nums; }
+#kTable td.lead { font-weight: 600; }
+#kTable th.prod { min-width: 12rem; }
+.sw { display: inline-block; width: .72em; height: .72em; border-radius: 50%; background: var(--sw); margin-right: .45em; vertical-align: -.06em; box-shadow: inset 0 0 0 1px rgba(31,25,21,.2); }
+#kTable tfoot td { position: sticky; bottom: 0; z-index: 2; background: var(--lemon); color: var(--marker); font-weight: 600; font-size: .76rem; border-top: 2px solid var(--marker); white-space: normal; }
+#kTable tfoot td.rn { z-index: 3; text-align: center; }
+#kTable .foot-txt { position: sticky; left: 2.9rem; display: inline-block; max-width: min(46rem, calc(100vw - 7rem)); white-space: normal; line-height: 1.45; }
+#kTable tr.tpl td:not(.rn) { background: #fff; }
+.ghost { display: inline-block; width: calc(var(--w) * .9em); height: .65em; border-radius: 3px; background: #ECE8DC; vertical-align: middle; }
+.dd { display: inline-block; padding: .05rem .55rem; border-radius: 1rem; border: 1px dashed #C9C2B0; color: #A59F92; font-size: .72rem; }
 #kTable td.grp { font-family: var(--f-hand); font-size: 1.05rem; color: var(--marker); background: var(--lemon); }
-#kTable td.empty-note { font-family: var(--f-hand); font-size: 1.05rem; color: var(--ink-soft); text-align: center; padding-block: 1.5rem; }
 .redact { display: inline-block; width: calc(var(--w) * .55em); height: .95em; background: var(--ink); border-radius: 2px; vertical-align: -.12em; transform: rotate(-.8deg); filter: url(#rough); }
 .pill { display: inline-block; padding: .08rem .55rem; border-radius: 1rem; font-weight: 600; font-size: .75rem; }
 .pill.good { background: var(--marker); color: var(--cream); }
@@ -1231,23 +1241,56 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
       if (x === "no") return "no";
       return "";
     };
-    const cell = (v, isStatus) => {
+    // shade dots are decoration only: one colour per real shade name in the product columns
+    const SHADE = { light: "#F3D2B6", medium: "#D8A47F", tan: "#B47A55", nude: "#C98F7E", peach: "#F4A98A", rose: "#D97D8A", maroon: "#7E2233" };
+    const shadeOf = v => { const m = String(v).toLowerCase().match(/\b(light|medium|tan|nude|peach|rose|maroon)\b/); return m && SHADE[m[1]]; };
+    const cap = v => typeof v === "string" && /^[a-z]/.test(v) ? v[0].toUpperCase() + v.slice(1) : v;
+    const kind = h => /product|attributeoption/i.test(h) ? "prod" : /^(#|s\.no\.|sr\. no\.|units|units distributed|hsn\/sac|selling price|intra state tax rate|discount|amount paid)$/i.test(h.trim()) ? "num" : "";
+    const cell = (v, isStatus, k) => {
       if (v && typeof v === "object" && v.r) return `<span class="redact" style="--w:${v.r}" aria-label="hidden"></span>`;
+      v = cap(v || "");
       if (isStatus && v && tone(v)) return `<span class="pill ${tone(v)}">${esc(v)}</span>`;
-      return esc(v || "");
+      if (k === "prod" && v && shadeOf(v)) return `<span class="sw" style="--sw:${shadeOf(v)}"></span>${esc(v)}`;
+      return esc(v);
     };
+    const summary = t => {
+      const NOUN = { "influencer sheet": "creators", "july influencer sheet": "creators", "may- june influencer sheet": "creators", "influencers pay sheet": "creators", "dermats": "contacts", "10th -quorom": "orders", "pop ups": "venues", "ALT TRIBE Skin tint": "SKUs", "LTS discussions": "lines", "community channels": "lines" };
+      const rows = t.rows.filter(r => !(r[0] && r[0].group)), parts = [`${rows.length} ${NOUN[t.name] || "rows"}`];
+      (t.status || []).forEach(c => {
+        const count = {};
+        rows.forEach(r => { const v = cap(r[c]); if (v && typeof v === "string") count[v] = (count[v] || 0) + 1; });
+        const bits = Object.entries(count).sort((a, b) => b[1] - a[1]).map(([v, n]) => `${n} ${v}`);
+        if (bits.length) parts.push(`${cap(t.head[c])}: ${bits.join(", ")}`);
+      });
+      t.head.forEach((h, c) => { if (/^units distributed$/i.test(h)) parts.push(`${h}: ${rows.reduce((a, r) => a + (+r[c] || 0), 0)}`); });
+      if (t.name === "10th -quorom") {
+        const shades = {};
+        rows.forEach(r => t.head.forEach((h, c) => { if (kind(h) === "prod" && typeof r[c] === "string" && r[c]) { const v = cap(r[c]); shades[v] = (shades[v] || 0) + 1; } }));
+        parts.push("Shades: " + Object.entries(shades).sort((a, b) => b[1] - a[1]).map(([v, n]) => `${v} ${n}`).join(", "));
+      }
+      return parts.join(" · ");
+    };
+
     const letters = n => Array.from({ length: n }, (_, i) => String.fromCharCode(65 + i));
     const show = i => {
       const t = KHATA[i], n = t.head.length, st = new Set(t.status || []);
+      const kinds = t.head.map(kind);
       let h = `<thead><tr class="cl"><th class="rn"></th>${letters(n).map(l => `<th>${l}</th>`).join("")}</tr>`;
-      h += `<tr class="hd"><th class="rn">1</th>${t.head.map(x => `<th>${esc(x)}</th>`).join("")}</tr></thead><tbody>`;
+      h += `<tr class="hd"><th class="rn">1</th>${t.head.map((x, c) => `<th class="${kinds[c]}">${esc(cap(x))}</th>`).join("")}</tr></thead><tbody>`;
       t.rows.forEach((row, k) => {
         h += `<tr><td class="rn">${k + 2}</td>`;
-        h += row[0] && row[0].group ? `<td class="grp" colspan="${n}">${esc(row[0].group)}</td>` : row.map((v, c) => `<td>${cell(v, st.has(c))}</td>`).join("");
+        h += row[0] && row[0].group ? `<td class="grp" colspan="${n}">${esc(cap(row[0].group))}</td>` : row.map((v, c) => `<td class="${kinds[c]}${c === 0 || (c === 1 && kinds[0] === "num") ? " lead" : ""}">${cell(v, st.has(c), kinds[c])}</td>`).join("");
         h += "</tr>";
       });
-      if (!t.rows.length) h += `<tr><td class="rn">2</td><td class="empty-note" colspan="${n}">header set up, no rows yet</td></tr>`;
-      kTable.innerHTML = h + "</tbody>";
+      let foot = summary(t);
+      if (!t.rows.length) {
+        // an empty tab is shown as the template it is: real headers, placeholder cells, no invented data
+        for (let k = 0; k < 6; k++) {
+          h += `<tr class="tpl"><td class="rn">${k + 2}</td>${t.head.map((x, c) => /status|approval/i.test(x) ? `<td><span class="dd">Select ▾</span></td>` : `<td><span class="ghost" style="--w:${4 + ((k * 3 + c * 5) % 6)}"></span></td>`).join("")}</tr>`;
+        }
+        foot = `Template · ${n} columns · set up, not filled yet`;
+      }
+      kTable.innerHTML = h + `</tbody><tfoot><tr><td class="rn">Σ</td><td colspan="${n}"><span class="foot-txt">${esc(foot)}</span></td></tr></tfoot>`;
       kTable.parentElement.scrollTo(0, 0);
       document.getElementById("kTitle").innerHTML = `<span class="k-stream" data-s="${STREAM[t.name]}">${STREAM[t.name]}</span>${esc(t.title)}`;
       document.getElementById("kNotes").innerHTML = t.notes.map(x => `<li><svg viewBox="0 0 46 26" aria-hidden="true"><path d="M44,14 C30,4 18,22 4,12 M10,6 L3,12 L11,18"/></svg>${esc(x)}</li>`).join("");
