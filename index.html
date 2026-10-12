@@ -153,18 +153,17 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 /* ---------- in stock (skills) ---------- */
 .stock { padding-block: 2.5rem 0.625rem; text-align: center; }
 .stock .ask { font-size: clamp(1.625rem, 3.4vw, 2.25rem); color: var(--marker); text-align: left; transform: rotate(-3deg); margin-bottom: 0.875rem; }
-.basket { position: relative; isolation: isolate; max-width: 62rem; margin-inline: auto; padding: clamp(3rem, 7vw, 5.5rem) clamp(2.5rem, 9vw, 8rem); }
+.basket { position: relative; isolation: isolate; width: min(calc(100vw - 2 * var(--gutter)), 110rem); margin-left: 50%; translate: -50% 0; padding: clamp(3rem, 8.5vw, 9rem) clamp(2.5rem, 11vw, 14rem); }
 .basket-wire { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; overflow: visible; }
 .basket-wire .wire { fill: none; stroke: var(--marker); stroke-width: 2.5; stroke-linecap: round; filter: url(#rough); opacity: .9; }
 .basket-wire .wire path, .basket-wire .wire rect { vector-effect: non-scaling-stroke; }
 .basket-wire .wire .rim { stroke-width: 5; }
 .basket-wire .handle { fill: var(--zest); stroke: var(--marker); stroke-width: 3; vector-effect: non-scaling-stroke; filter: url(#rough); }
-.basket ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .9rem 1rem; }
-.basket li { font-family: var(--f-hand); font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.15; color: var(--marker); background: var(--cream); padding: .45rem 1rem; border: 2px solid var(--marker); border-radius: .45rem; box-shadow: .2rem .3rem 0 rgba(31,25,21,.22); }
+.basket ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(.7rem, 1.4vw, 1.4rem) clamp(.6rem, 1.2vw, 1.25rem); }
+.basket li { font-family: var(--f-hand); font-size: clamp(1.15rem, 1.7vw, 1.85rem); line-height: 1.15; color: var(--marker); background: var(--cream); padding: .45rem 1rem; border: 2px solid var(--marker); border-radius: .45rem; box-shadow: .2rem .3rem 0 rgba(31,25,21,.22); }
 .basket li:nth-child(3n+1) { transform: rotate(-3deg); background: var(--yellow); }
 .basket li:nth-child(3n+2) { transform: rotate(2deg); }
 .basket li:nth-child(4n) { transform: rotate(-1.5deg); background: var(--lemon); }
-.basket li.core { font-family: var(--f-marker); text-transform: uppercase; font-size: clamp(1.35rem, 2.6vw, 1.9rem); color: var(--cream); background: var(--marker); border-color: var(--marker); padding: .6rem 1.4rem; transform: rotate(-4deg); }
 .stock .tagline { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--marker); text-align: right; transform: rotate(-2deg); margin-top: 1.125rem; }
 
 /* ---------- the bill ---------- */
@@ -681,7 +680,6 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
       <li>Campaigns &amp; ads</li>
       <li>Content</li>
       <li>Creative direction</li>
-      <li class="core">In stock</li>
       <li>Website design</li>
       <li>Go-to-market</li>
       <li>Instagram growth</li>
