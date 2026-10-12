@@ -202,6 +202,8 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 .proj-head h2 { font-size: clamp(3.5rem, 8.6vw, 6.5rem); display: inline-block; }
 .proj-head h2 .num { font-size: .62em; vertical-align: .05em; margin-left: .18em; }
 .proj-head .sub { font-size: clamp(1.5625rem, 3.4vw, 2.375rem); line-height: 1.1; margin-top: 0.375rem; text-wrap: balance; }
+.proj-stamp { display: inline-block; margin: 1rem 0 0; position: relative; padding: .3rem 1.1rem; font-family: var(--f-marker); font-size: clamp(1rem, 1.6vw, 1.25rem); letter-spacing: .06em; text-transform: uppercase; color: var(--marker); transform: rotate(-2.5deg); }
+.proj-stamp::before { content: ""; position: absolute; inset: 0; border: 3px solid var(--zest); border-radius: .5rem; filter: url(#rough); }
 .price-tag { position: absolute; right: 2%; top: 0.25rem; transform: rotate(7deg); display: inline-flex; flex-direction: column; align-items: flex-start; background: var(--c, var(--yellow)); color: var(--on, var(--ink)); padding: 0.625rem 1.25rem 0.6875rem 2.5rem; clip-path: polygon(1.5rem 0, 100% 0, 100% 100%, 1.5rem 100%, 0 50%); font-family: var(--f-marker); font-size: clamp(1.375rem, 2.6vw, 1.875rem); line-height: 1; text-align: left; }
 .price-tag::before { content: ""; position: absolute; left: 1rem; top: 50%; width: 0.625rem; height: 0.625rem; margin-top: -5px; border-radius: 50%; background: var(--paper); box-shadow: inset 0 0 0 0.125rem rgba(31,25,21,.35); }
 .price-tag small { font-family: var(--f-hand); font-size: 0.9375rem; margin-top: 0.3125rem; letter-spacing: .02em; }
@@ -880,6 +882,7 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
     <header class="proj-head">
       <h2 class="marker" id="dkdH">Item<span class="num">3</span></h2>
       <p class="hand sub">Desh Ki Dukaan, ₹20 lakh in 3 months</p>
+      <p class="proj-stamp">D2C exposure</p>
       <span class="price-tag" style="--c:var(--yellow)">₹20L+<small>revenue in 90 days</small></span>
     </header>
     <div class="proj-meta">
