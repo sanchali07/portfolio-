@@ -153,11 +153,18 @@ h3.hand { font-size: 1.6875rem; line-height: 1.1; letter-spacing: .02em; }
 /* ---------- in stock (skills) ---------- */
 .stock { padding-block: 2.5rem 0.625rem; text-align: center; }
 .stock .ask { font-size: clamp(1.625rem, 3.4vw, 2.25rem); color: var(--marker); text-align: left; transform: rotate(-3deg); margin-bottom: 0.875rem; }
-.blob { position: relative; isolation: isolate; padding: clamp(2.75rem, 6vw, 5rem) clamp(1.75rem, 7vw, 6.875rem); margin-inline: auto; max-width: 61.25rem; }
-.blob::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--marker); border-radius: 46% 54% 48% 52% / 58% 46% 54% 42%; filter: url(#rough-lg); }
-.blob ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem 2.375rem; }
-.blob li { font-family: var(--f-hand); font-size: clamp(1.25rem, 2.3vw, 1.6875rem); color: var(--cream); line-height: 1.2; }
-.blob li.core { font-family: var(--f-marker); color: var(--marker); background: var(--cream); padding: 1.125rem 2.125rem; border-radius: 52% 48% 55% 45% / 60% 50% 50% 40%; filter: url(#rough); font-size: clamp(1.375rem, 2.6vw, 1.875rem); text-transform: uppercase; }
+.basket { position: relative; isolation: isolate; max-width: 62rem; margin-inline: auto; padding: clamp(3rem, 7vw, 5.5rem) clamp(2.5rem, 9vw, 8rem); }
+.basket-wire { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; overflow: visible; }
+.basket-wire .wire { fill: none; stroke: var(--marker); stroke-width: 2.5; stroke-linecap: round; filter: url(#rough); opacity: .9; }
+.basket-wire .wire path, .basket-wire .wire rect { vector-effect: non-scaling-stroke; }
+.basket-wire .wire .rim { stroke-width: 5; }
+.basket-wire .handle { fill: var(--zest); stroke: var(--marker); stroke-width: 3; vector-effect: non-scaling-stroke; filter: url(#rough); }
+.basket ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .9rem 1rem; }
+.basket li { font-family: var(--f-hand); font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.15; color: var(--marker); background: var(--cream); padding: .45rem 1rem; border: 2px solid var(--marker); border-radius: .45rem; box-shadow: .2rem .3rem 0 rgba(31,25,21,.22); }
+.basket li:nth-child(3n+1) { transform: rotate(-3deg); background: var(--yellow); }
+.basket li:nth-child(3n+2) { transform: rotate(2deg); }
+.basket li:nth-child(4n) { transform: rotate(-1.5deg); background: var(--lemon); }
+.basket li.core { font-family: var(--f-marker); text-transform: uppercase; font-size: clamp(1.35rem, 2.6vw, 1.9rem); color: var(--cream); background: var(--marker); border-color: var(--marker); padding: .6rem 1.4rem; transform: rotate(-4deg); }
 .stock .tagline { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--marker); text-align: right; transform: rotate(-2deg); margin-top: 1.125rem; }
 
 /* ---------- the bill ---------- */
@@ -398,10 +405,9 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
   .legend .arrow { display: none; }
   .legend p { text-align: left; border-left: 0.1875rem solid var(--marker); padding-left: 0.75rem; }
   .notes, .reels, .frames, .about-foot, .proj-meta { grid-template-columns: minmax(0, 1fr); }
-  .blob { padding-inline: 1.375rem; }
+  .basket { padding: 3rem 1.6rem; }
   .receipt { padding-inline: 1.25rem; font-size: 0.8125rem; }
-  .blob::before { border-radius: 2.75rem 3.75rem 3.125rem 4.375rem / 3.75rem 2.75rem 4.375rem 3.125rem; }
-  .blob ul { gap: 0.625rem 1.375rem; }
+  .basket ul { gap: .7rem .6rem; }
   .topbar nav { gap: 0.875rem; }
   .divider { margin: 3.125rem auto; }
 }
@@ -658,7 +664,17 @@ footer { text-align: center; font-size: 0.78125rem; color: var(--ink-soft); padd
 <!-- ================= IN STOCK ================= -->
 <section class="page stock" aria-labelledby="stockH">
   <p class="hand ask" id="stockH">What do I bring to the counter?</p>
-  <div class="blob">
+  <div class="basket">
+    <svg class="basket-wire" viewBox="0 0 1000 660" preserveAspectRatio="none" aria-hidden="true">
+      <g class="wire">
+        <path d="M260,170V490 M260,170L156,28 M260,490L156,632 M320,170V490 M320,170L242,28 M320,490L242,632 M380,170V490 M380,170L328,28 M380,490L328,632 M440,170V490 M440,170L414,28 M440,490L414,632 M500,170V490 M500,170L500,28 M500,490L500,632 M560,170V490 M560,170L586,28 M560,490L586,632 M620,170V490 M620,170L672,28 M620,490L672,632 M680,170V490 M680,170L758,28 M680,490L758,632 M740,170V490 M740,170L844,28 M740,490L844,632 M200,220H800 M200,220L28,144 M800,220L972,144 M200,270H800 M200,270L28,229 M800,270L972,229 M200,320H800 M200,320L28,313 M800,320L972,313 M200,370H800 M200,370L28,398 M800,370L972,398 M200,420H800 M200,420L28,482 M800,420L972,482 M200,470H800 M200,470L28,566 M800,470L972,566"/>
+        <rect x="200" y="170" width="600" height="320" rx="26"/>
+        <rect x="110" y="95" width="780" height="470" rx="34"/>
+        <rect x="24" y="24" width="952" height="612" rx="44" class="rim"/>
+      </g>
+      <rect class="handle" x="6" y="190" width="30" height="280" rx="15"/>
+      <rect class="handle" x="964" y="190" width="30" height="280" rx="15"/>
+    </svg>
     <ul>
       <li>Brand strategy</li>
       <li>Positioning &amp; identity</li>
